@@ -28,7 +28,7 @@ public class DatabaseHelper
 			File f = new File(ModLoader.getMinecraftInstance().getMinecraftDir() + "/database/pixelmon.db").getAbsoluteFile();
 			Connection c = DriverManager.getConnection("jdbc:sqlite:" + ModLoader.getMinecraftInstance().getMinecraftDir() + "/database/pixelmon.db");
 			if (c ==null){
-				System.out.println("Could not find Database at " + ModLoader.getMinecraftInstance().getMinecraftDir() + "/database/pixelmon.db");
+				System.out.println("Could not find the Pixelmon database at " + ModLoader.getMinecraftInstance().getMinecraftDir() + "/database/pixelmon.db");
 				return false;
 			}else{
 				System.out.println("Found Database at " + ModLoader.getMinecraftInstance().getMinecraftDir() + "/database/pixelmon.db");
