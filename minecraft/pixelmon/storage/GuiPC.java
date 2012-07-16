@@ -135,71 +135,108 @@ public class GuiPC extends GuiScreen {
 		if (par3 == 0) {
 			SlotPC slot = getSlotAt(par1, par2);
 			if (slot != null) {
-				NBTTagCompound temp = slot.pokemon;
-				if ((slot instanceof SlotPCParty && mouseSlot.pokemon == null && checkIfLast())) {
-					return;
-				} else {
-					slot.setPokemon((NBTTagCompound) null);
+				if(ModLoader.getMinecraftInstance().theWorld.isRemote){
+					PixelmonDataPacket temp = slot.pokemonData;
+					if ((slot instanceof SlotPCParty && mouseSlot.pokemonData == null && checkIfLast())) {
+						return;
+					} else {
+						slot.setPokemon((PixelmonDataPacket) null);
+					}
+					if (mouseSlot.pokemonData != null) {
+						slot.setPokemon(mouseSlot.pokemonData);
+						mouseSlot.pokemonData = null;
+					}
+					if (temp != null) {
+						mouseSlot.pokemonData = temp;
+					}
 				}
-				if (mouseSlot.pokemon != null) {
-					slot.setPokemon(mouseSlot.pokemon);
-					mouseSlot.pokemon = null;
-				}
-				if (temp != null) {
-					mouseSlot.pokemon = temp;
+				else{
+					NBTTagCompound temp = slot.pokemon;
+					if ((slot instanceof SlotPCParty && mouseSlot.pokemon == null && checkIfLast())) {
+						return;
+					} else {
+						slot.setPokemon((NBTTagCompound) null);
+					}
+					if (mouseSlot.pokemon != null) {
+						slot.setPokemon(mouseSlot.pokemon);
+						mouseSlot.pokemon = null;
+					}
+					if (temp != null) {
+						mouseSlot.pokemon = temp;
+					}
 				}
 			} else if (new Rectangle(trashX, trashY, 32, 32).contains(par1, par2)) {
 				mouseSlot.clearPokemon();
 			} else if (new Rectangle(checkX, checkY, 32, 32).contains(par1, par2)) {
-				if (mouseSlot.pokemon != null) {
-					for (int i = 0; i < mod_Pixelmon.computerManager.getBoxList().length; i++) {
-						ComputerBox c = mod_Pixelmon.computerManager.getBoxList()[i];
-						if (c.hasSpace()) {
-							int j = c.getNextSpace();
-							System.out.println(j);
-							IHaveHelper e = (IHaveHelper) PixelmonEntityList.createEntityFromNBT(mouseSlot.pokemon, ModLoader.getMinecraftInstance().theWorld);
-							mc.displayGuiScreen(new GuiScreenPokeCheckerPC(e.getHelper(), this, i, j));
-							break;
+				if(ModLoader.getMinecraftInstance().theWorld.isRemote){
+					if (mouseSlot.pokemonData != null) {
+						for (int i = 0; i < mod_Pixelmon.computerManager.getBoxList().length; i++) {
+							ComputerBox c = mod_Pixelmon.computerManager.getBoxList()[i];
+							if (c.hasSpace()) {
+								int j = c.getNextSpace();
+								//IHaveHelper e = (IHaveHelper) PixelmonEntityList.createEntityFromNBT(mouseSlot.pokemonData, ModLoader.getMinecraftInstance().theWorld);
+								mc.displayGuiScreen(new GuiScreenPokeCheckerPC(e.getHelper(), this, i, j));
+								break;
+							}
+						}
+					}
+				}
+				else{
+					if (mouseSlot.pokemon != null) {
+						for (int i = 0; i < mod_Pixelmon.computerManager.getBoxList().length; i++) {
+							ComputerBox c = mod_Pixelmon.computerManager.getBoxList()[i];
+							if (c.hasSpace()) {
+								int j = c.getNextSpace();
+								System.out.println(j);
+								IHaveHelper e = (IHaveHelper) PixelmonEntityList.createEntityFromNBT(mouseSlot.pokemon, ModLoader.getMinecraftInstance().theWorld);
+								mc.displayGuiScreen(new GuiScreenPokeCheckerPC(e.getHelper(), this, i, j));
+								break;
+							}
 						}
 					}
 				}
 			} else {
 				return;
 			}
-			for (int i = 0; i < pcSlots.length; i++) {
-				NBTTagCompound[] newPokemon = new NBTTagCompound[pcSlots[i].length];
-				for (int j = 0; j < pcSlots[i].length; j++) {
-					NBTTagCompound n = pcSlots[i][j].pokemon;
+			if(ModLoader.getMinecraftInstance().theWorld.isRemote){
+				
+			}
+			else{
+				for (int i = 0; i < pcSlots.length; i++) {
+					NBTTagCompound[] newPokemon = new NBTTagCompound[pcSlots[i].length];
+					for (int j = 0; j < pcSlots[i].length; j++) {
+						NBTTagCompound n = pcSlots[i][j].pokemon;
+						if (n != null) {
+							n.setInteger("StoragePosition", j);
+							newPokemon[j] = n;
+						}
+					}
+					mod_Pixelmon.computerManager.getBox(i).setStoredPokemon(newPokemon);
+					mod_Pixelmon.computerManager.getBox(i).hasChanged = true;
+				}
+				NBTTagCompound[] newPokemon = new NBTTagCompound[partySlots.length];
+				for (int i = 0; i < partySlots.length; i++) {
+					NBTTagCompound n = partySlots[i].pokemon;
 					if (n != null) {
-						n.setInteger("StoragePosition", j);
-						newPokemon[j] = n;
+						n.setInteger("PixelmonOrder", i);
+						newPokemon[i] = n;
 					}
 				}
-				mod_Pixelmon.computerManager.getBox(i).setStoredPokemon(newPokemon);
-				mod_Pixelmon.computerManager.getBox(i).hasChanged = true;
-			}
-			NBTTagCompound[] newPokemon = new NBTTagCompound[partySlots.length];
-			for (int i = 0; i < partySlots.length; i++) {
-				NBTTagCompound n = partySlots[i].pokemon;
-				if (n != null) {
-					n.setInteger("PixelmonOrder", i);
-					newPokemon[i] = n;
-				}
-			}
-			mod_Pixelmon.pokeballManager.getPlayerStorage(ModLoader.getMinecraftInstance().thePlayer).setPokemon(newPokemon);
-			mod_Pixelmon.pokeballManager.save();
-			if (mouseSlot.pokemon != null) {
-				NBTTagCompound n = mouseSlot.pokemon;
-				for (ComputerBox c : mod_Pixelmon.computerManager.getBoxList()) {
-					if (c.hasSpace()) {
-						n.setInteger("StoragePosition", c.getNextSpace());
-						c.getStoredPokemon()[c.getNextSpace()] = n;
-						c.hasChanged = true;
-						break;
+				mod_Pixelmon.pokeballManager.getPlayerStorage(ModLoader.getMinecraftInstance().thePlayer).setPokemon(newPokemon);
+				mod_Pixelmon.pokeballManager.save();
+				if (mouseSlot.pokemon != null) {
+					NBTTagCompound n = mouseSlot.pokemon;
+					for (ComputerBox c : mod_Pixelmon.computerManager.getBoxList()) {
+						if (c.hasSpace()) {
+							n.setInteger("StoragePosition", c.getNextSpace());
+							c.getStoredPokemon()[c.getNextSpace()] = n;
+							c.hasChanged = true;
+							break;
+						}
 					}
 				}
+				mod_Pixelmon.computerManager.save();
 			}
-			mod_Pixelmon.computerManager.save();
 		}
 	}
 
