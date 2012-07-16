@@ -209,7 +209,8 @@ public class PixelmonEntityList {
 		addMapping(EntityZubat.class, "Zubat", PixelmonIDList.zubatId, ClassType.Pixelmon);
 		addMapping(EntityMagneton.class, "Magneton", PixelmonIDList.magnetonId, ClassType.Pixelmon);
 		addMapping(EntityVibrava.class, "Vibrava", PixelmonIDList.vibravaId, ClassType.Pixelmon);
-//		addMapping(EntityMareep.class, "Mareep", mod_Pixelmon.mareepId, new RenderPixelmon(new ModelMareepUnshaven(), 0.5F), ClassType.Pixelmon);
+		addMapping(EntityMareep.class, "Mareep", PixelmonIDList.mareepId, ClassType.Pixelmon);
+		addMapping(EntityDratini.class, "Dratini", PixelmonIDList.dratiniId, ClassType.Pixelmon);
 
 		
 		addMapping(EntityTrainerYoungster.class, "Youngster", TrainerIDList.trainerYoungsterId, ClassType.Trainer);
