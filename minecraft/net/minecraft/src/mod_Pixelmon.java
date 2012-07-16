@@ -69,6 +69,7 @@ public class mod_Pixelmon extends NetworkMod {
 	public static int pokemonHealerActiveId;
 	public static int thunderStoneOreId;
 	public static int leafStoneOreId;
+	public static int waterStoneOreId;
 	public static int pcId;
 
 	public static boolean spawnSheep;
@@ -110,6 +111,8 @@ public class mod_Pixelmon extends NetworkMod {
 			.setBlockName("ThunderStoneOre");
 	public static final Block leafStoneOre = new BlockEvolutionStoneOre(leafStoneOreId, 1).setHardness(3.0f).setStepSound(Block.soundStoneFootstep)
 			.setBlockName("LeafStoneOre");
+	public static final Block waterStoneOre = new BlockEvolutionStoneOre(waterStoneOreId, 2).setHardness(3.0f).setStepSound(Block.soundStoneFootstep)
+			.setBlockName("WaterStoneOre").setLightValue(0.5f);
 	public static final Block pc = new BlockPC(pcId).setBlockName("pc").setHardness(2.5f);
 	public static final Item pokeBall = new ItemEmptyPokeBall(10000, 1).setItemName("PokeBall").setIconIndex(pIMG);
 	public static final Item greatBall = new ItemEmptyPokeBall(10001, 1.5).setItemName("GreatBall").setIconIndex(gIMG);
@@ -173,6 +176,7 @@ public class mod_Pixelmon extends NetworkMod {
 		thunderStoneOreId = Integer.parseInt(configuration.getOrCreateBlockIdProperty("ThunderStoneOre", 203).value);
 		leafStoneOreId = Integer.parseInt(configuration.getOrCreateBlockIdProperty("LeafStoneOre", 204).value);
 		pcId = Integer.parseInt(configuration.getOrCreateBlockIdProperty("PC", 205).value);
+		waterStoneOreId = Integer.parseInt(configuration.getOrCreateBlockIdProperty("WaterStoneOre", 206).value);
 
 		PixelmonIDList.load(configuration);
 		TrainerIDList.load(configuration);
@@ -265,10 +269,9 @@ public class mod_Pixelmon extends NetworkMod {
 
 	public void addNames() {
 		// ModLoader.addName(pokeBall2, "PokeBall2");
-		thunderStoneOre.blockIndexInTexture = Block.blockGold.blockIndexInTexture;
-		// placeholder texture
-		leafStoneOre.blockIndexInTexture = 145;
-		// placeholder texture
+		thunderStoneOre.blockIndexInTexture =  ModLoader.addOverride("/terrain.png", "/pixelmon/block/Thunderstone.png");
+		leafStoneOre.blockIndexInTexture = ModLoader.addOverride("/terrain.png", "/pixelmon/block/Leafstone.png");
+		waterStoneOre.blockIndexInTexture = ModLoader.addOverride("/terrain.png", "/pixelmon/block/Waterstone.png");
 		pc.blockIndexInTexture = ModLoader.addOverride("/terrain.png", "/pixelmon/block/Pcside.png");
 		ModLoader.addName(pokeBall, "PokeBall");
 		ModLoader.addName(greatBall, "GreatBall");
@@ -283,11 +286,13 @@ public class mod_Pixelmon extends NetworkMod {
 		ModLoader.registerBlock(healerActive);
 		ModLoader.registerBlock(thunderStoneOre);
 		ModLoader.registerBlock(leafStoneOre);
+		ModLoader.registerBlock(waterStoneOre);
 		ModLoader.registerBlock(pc);
 		ModLoader.addName(healerIdle, "Healer");
 		ModLoader.addName(healerActive, "Healer");
 		ModLoader.addName(thunderStoneOre, "Thunder Stone Ore");
 		ModLoader.addName(leafStoneOre, "Leaf Stone Ore");
+		ModLoader.addName(waterStoneOre, "Water Stone Ore");
 		ModLoader.addName(pc, "PC");
 		ModLoader.addName(fireStone, "Fire Stone");
 		ModLoader.addName(leafStone, "Leaf Stone");
@@ -448,8 +453,9 @@ public class mod_Pixelmon extends NetworkMod {
 			for(Object o: container.itemList){
 				ItemStack i = (ItemStack) o;
 				int id = i.getItem().shiftedIndex;
-				if(id == healerIdle.blockID || id == leafStoneOre.blockID || id == thunderStoneOre.blockID || id == pc.blockID){
+				if(id == healerIdle.blockID || id == leafStoneOre.blockID || id == thunderStoneOre.blockID || id == pc.blockID || id == waterStoneOre.blockID){
 					found = true;
+					break;
 				}
 				else if(id < 256){
 					pos++;
@@ -461,6 +467,8 @@ public class mod_Pixelmon extends NetworkMod {
 				container.itemList.add(pos, new ItemStack(leafStoneOre, 1));
 				pos++;
 				container.itemList.add(pos, new ItemStack(thunderStoneOre, 1));
+				pos++;
+				container.itemList.add(pos, new ItemStack(waterStoneOre, 1));
 				pos++;
 				container.itemList.add(pos, new ItemStack(pc, 1));
 			}

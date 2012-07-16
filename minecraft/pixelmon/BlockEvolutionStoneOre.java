@@ -15,6 +15,12 @@ public class BlockEvolutionStoneOre extends Block{
 		this.type = type;
 	}
 	
+    public boolean isOpaqueCube()
+    {
+        return !(type == 1);
+    }
+
+	
 	
 	public int idDropped(int i, Random rand, int j){
 		int result = 0;
@@ -24,13 +30,21 @@ public class BlockEvolutionStoneOre extends Block{
 			break;
 		case 1:
 			result = mod_Pixelmon.leafStoneShard.shiftedIndex;
+			break;
+		case 2:
+			result = mod_Pixelmon.waterStone.shiftedIndex;
 		}
 		
 		return result;
 	}
 	
 	public int quantityDropped(Random rand){
-		return rand.nextInt(3) + 2;
+		if(type == 2){
+			return 1;
+		}
+		else{
+			return rand.nextInt(3) + 2;
+		}
 	}
 
 }
