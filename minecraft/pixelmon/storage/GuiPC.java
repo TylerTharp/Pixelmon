@@ -331,39 +331,45 @@ public class GuiPC extends GuiScreen {
 
 	public void onGuiClosed() {
 		super.onGuiClosed();
-		for (int i = 0; i < pcSlots.length; i++) {
-			NBTTagCompound[] newPokemon = new NBTTagCompound[pcSlots[i].length];
-			for (int j = 0; j < pcSlots[i].length; j++) {
-				NBTTagCompound n = pcSlots[i][j].pokemon;
+		if(ModLoader.getMinecraftInstance().theWorld.isRemote){
+			PixelmonServerStore.store.clear();
+		}
+		else{
+			for (int i = 0; i < pcSlots.length; i++) {
+				NBTTagCompound[] newPokemon = new NBTTagCompound[pcSlots[i].length];
+				for (int j = 0; j < pcSlots[i].length; j++) {
+					NBTTagCompound n = pcSlots[i][j].pokemon;
+					if (n != null) {
+						n.setInteger("StoragePosition", j);
+						newPokemon[j] = n;
+					}
+				}
+				mod_Pixelmon.computerManager.getBox(i).setStoredPokemon(newPokemon);
+				mod_Pixelmon.computerManager.getBox(i).hasChanged = true;
+			}
+			NBTTagCompound[] newPokemon = new NBTTagCompound[partySlots.length];
+			for (int i = 0; i < partySlots.length; i++) {
+				NBTTagCompound n = partySlots[i].pokemon;
 				if (n != null) {
-					n.setInteger("StoragePosition", j);
-					newPokemon[j] = n;
+					n.setInteger("PixelmonOrder", i);
+					newPokemon[i] = n;
 				}
 			}
-			mod_Pixelmon.computerManager.getBox(i).setStoredPokemon(newPokemon);
-			mod_Pixelmon.computerManager.getBox(i).hasChanged = true;
-		}
-		NBTTagCompound[] newPokemon = new NBTTagCompound[partySlots.length];
-		for (int i = 0; i < partySlots.length; i++) {
-			NBTTagCompound n = partySlots[i].pokemon;
-			if (n != null) {
-				n.setInteger("PixelmonOrder", i);
-				newPokemon[i] = n;
-			}
-		}
-		mod_Pixelmon.pokeballManager.getPlayerStorage(ModLoader.getMinecraftInstance().thePlayer).setPokemon(newPokemon);
-		if (mouseSlot.pokemon != null) {
-			NBTTagCompound n = mouseSlot.pokemon;
-			for (ComputerBox c : mod_Pixelmon.computerManager.getBoxList()) {
-				if (c.hasSpace()) {
-					n.setInteger("StoragePosition", c.getNextSpace());
-					c.getStoredPokemon()[c.getNextSpace()] = n;
-					c.hasChanged = true;
-					break;
+			mod_Pixelmon.pokeballManager.getPlayerStorage(ModLoader.getMinecraftInstance().thePlayer).setPokemon(newPokemon);
+			if (mouseSlot.pokemon != null) {
+				NBTTagCompound n = mouseSlot.pokemon;
+				for (ComputerBox c : mod_Pixelmon.computerManager.getBoxList()) {
+					if (c.hasSpace()) {
+						n.setInteger("StoragePosition", c.getNextSpace());
+						c.getStoredPokemon()[c.getNextSpace()] = n;
+						c.hasChanged = true;
+						break;
+					}
 				}
 			}
+			mod_Pixelmon.computerManager.save();
 		}
-		mod_Pixelmon.computerManager.save();
+		
 	}
 
 	public void actionPerformed(GuiButton button) {
