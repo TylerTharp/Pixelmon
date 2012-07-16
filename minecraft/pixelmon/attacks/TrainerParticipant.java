@@ -41,6 +41,7 @@ public class TrainerParticipant implements IBattleParticipant {
 
 	@Override
 	public void EndBattle(boolean didWin, IBattleParticipant foe) {
+		trainer.releasedPokemon.getHelper().getBattleStats();
 		trainer.releasedPokemon.EndBattle();
 		trainer.healAllPokemon();
 		this.trainer.setAttackTarget(null);

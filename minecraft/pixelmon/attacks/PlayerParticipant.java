@@ -39,6 +39,7 @@ public class PlayerParticipant implements IBattleParticipant {
 
 	@Override
 	public void EndBattle(boolean didWin, IBattleParticipant foe) {
+		currentPixelmon.getBattleStats().clearBattleStats();
 		currentPixelmon.EndBattle();
 	}
 
@@ -72,6 +73,7 @@ public class PlayerParticipant implements IBattleParticipant {
 
 	@Override
 	public void switchPokemon(IBattleParticipant participant2, int newPixelmonId) {
+		currentPixelmon.getBattleStats().clearBattleStats();
 		ChatHandler.sendChat(player, participant2.currentPokemon().getOwner(), "That's enough " + currentPixelmon.getName() + "!");
 		currentPixelmon.catchInPokeball();
 

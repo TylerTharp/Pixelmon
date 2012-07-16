@@ -31,8 +31,10 @@ public class WildPixelmonParticipant implements IBattleParticipant {
 	@Override
 	public void EndBattle(boolean didWin, IBattleParticipant foe) {
 		pixelmon.EndBattle();
-		if (!pixelmon.getIsDead() && !pixelmon.getIsFainted())
+		if (!pixelmon.getIsDead() && !pixelmon.getIsFainted()){
+			pixelmon.getBattleStats().clearBattleStats();
 			pixelmon.setHealth(pixelmon.getStats().HP);
+		}
 	}
 
 	@Override
