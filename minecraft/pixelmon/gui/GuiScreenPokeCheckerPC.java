@@ -1,5 +1,6 @@
 package pixelmon.gui;
 
+import pixelmon.comm.PixelmonDataPacket;
 import pixelmon.entities.PixelmonEntityHelper;
 import pixelmon.storage.GuiPC;
 import net.minecraft.src.GuiButton;
@@ -12,6 +13,13 @@ public class GuiScreenPokeCheckerPC extends GuiScreenPokeChecker {
 
 	public GuiScreenPokeCheckerPC(PixelmonEntityHelper pixelmonEntityHelper, GuiPC parent, int box, int index) {
 		super(pixelmonEntityHelper);
+		this.parent = parent;
+		this.index = index;
+		this.box = box;
+	}
+	
+	public GuiScreenPokeCheckerPC(PixelmonDataPacket packet, GuiPC parent, int box, int index) {
+		super(packet);
 		this.parent = parent;
 		this.index = index;
 		this.box = box;
