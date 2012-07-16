@@ -308,7 +308,7 @@ public class BattleController {
 	public void SwitchPokemon(PixelmonEntityHelper currentPixelmon, int newPixelmonId) {
 		if (participant1.currentPokemon() == currentPixelmon) {
 			participant1.switchPokemon(participant2, newPixelmonId);
-			currentPixelmon.SetBattleController(this);
+			participant1.currentPokemon().SetBattleController(this);
 			attackersList1.add(participant1.currentPokemon().getPokemonId());
 			attackersList2.clear();
 			attackersList2.add(participant2.currentPokemon().getPokemonId());
@@ -316,7 +316,7 @@ public class BattleController {
 			participant1Wait=false;
 		} else {
 			participant2.switchPokemon(participant1, newPixelmonId);
-			currentPixelmon.SetBattleController(this);
+			participant2.currentPokemon().SetBattleController(this);
 			attackersList2.add(participant2.currentPokemon().getPokemonId());
 			attackersList1.clear();
 			attackersList1.add(participant1.currentPokemon().getPokemonId());
