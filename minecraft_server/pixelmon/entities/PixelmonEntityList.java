@@ -213,7 +213,7 @@ public class PixelmonEntityList {
 		addMapping(EntityTentacool.class, "Tentacool", PixelmonIDList.tentacoolId, ClassType.Pixelmon);
 		addMapping(EntitySolrock.class, "Solrock", PixelmonIDList.solrockId, ClassType.Pixelmon);
 		addMapping(EntityLunatone.class, "Lunatone", PixelmonIDList.lunatoneId, ClassType.Pixelmon);
-
+		addMapping(EntityNidoranMale.class, "NidoranMale", PixelmonIDList.nidoranMaleId, ClassType.Pixelmon);
 		
 		addMapping(EntityTrainerYoungster.class, "Youngster", TrainerIDList.trainerYoungsterId, ClassType.Trainer);
 		addMapping(EntityTrainerYoungster02.class, "Youngster2", TrainerIDList.trainerYoungster2Id, ClassType.Trainer);
