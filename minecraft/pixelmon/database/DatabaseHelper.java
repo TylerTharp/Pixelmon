@@ -40,8 +40,6 @@ public class DatabaseHelper
 			return false;
 		} catch (java.sql.SQLException e)
 		{
-			///if(e.getMessage().contains("driver"))
-				//return true;
 			System.out.println(e.getMessage());
 			return false;
 		} catch (ClassNotFoundException e) {

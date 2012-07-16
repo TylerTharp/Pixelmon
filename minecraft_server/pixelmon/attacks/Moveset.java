@@ -159,6 +159,7 @@ implements List<Attack>, RandomAccess, Cloneable
 		var1.setInteger("PixelmonNumberMoves", size());
 		for (int i =0; i < size(); i++){
 			var1.setString("PixelmonMoveName" + i,get(i).attackName);
+			var1.setInteger("PixelmonMoveType" + i,get(i).attackType.getIndex());
 			var1.setBoolean("PixelmonMoveSTAB" + i,get(i).STAB);
 			var1.setInteger("PixelmonMovePP" + i,get(i).pp);
 			var1.setInteger("PixelmonMovePPBase" + i,get(i).ppBase);

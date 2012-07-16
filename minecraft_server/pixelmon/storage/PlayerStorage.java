@@ -334,4 +334,8 @@ public class PlayerStorage {
 			}
 		}
 	}
+
+	public IHaveHelper sendOutFromPosition(int pos, World worldObj) {
+		return sendOut(getIDFromPosition(pos),worldObj);
+	}
 }

@@ -7,6 +7,7 @@ import pixelmon.ChatHandler;
 import pixelmon.StarterList;
 import pixelmon.attacks.BattleController;
 import pixelmon.attacks.BattleRegistry;
+import pixelmon.attacks.PlayerParticipant;
 import pixelmon.entities.EntityPokeBall;
 import pixelmon.entities.IHaveHelper;
 import pixelmon.entities.PixelmonEntityList;
@@ -82,9 +83,9 @@ public class PacketHandler implements IConnectionHandler, IPacketHandler {
 						bc.setAttack(bc.participant1.currentPokemon(), bc.participant1.currentPokemon().getMoveset().get(buttonId));
 					else
 						bc.setAttack(bc.participant2.currentPokemon(), bc.participant2.currentPokemon().getMoveset().get(buttonId));
-				}else if (buttonId == 11){
+				} else if (buttonId == 11) {
 					player.openGui(mod_Pixelmon.instance, EnumGui.ChoosePokemon.getIndex(), player.worldObj, 0, 0, 0);
-				}else if (buttonId == 10){
+				} else if (buttonId == 10) {
 					BattleController bc = mod_Pixelmon.battleRegistry.getBattle(battleIndex);
 					if (bc.participant1.currentPokemon().getPokemonId() == pokemonID)
 						bc.setFlee(bc.participant1.currentPokemon());
@@ -92,9 +93,34 @@ public class PacketHandler implements IConnectionHandler, IPacketHandler {
 						bc.setFlee(bc.participant2.currentPokemon());
 				}
 
-			}else if (packetID==EnumPackets.HealPokemon.getIndex()){
+			} else if (packetID == EnumPackets.HealPokemon.getIndex()) {
 				EntityPlayer player = ((NetServerHandler) network.getNetHandler()).getPlayerEntity();
 				mod_Pixelmon.pokeballManager.getPlayerStorage(player).healAllPokemon();
+			} else if (packetID == EnumPackets.SwitchPokemon.getIndex()) {
+				EntityPlayer player = ((NetServerHandler) network.getNetHandler()).getPlayerEntity();
+				BattleController bc = mod_Pixelmon.battleRegistry.getBattle(player);
+				if (bc.participant1 instanceof PlayerParticipant) {
+					if (((PlayerParticipant) bc.participant1).player == player) {
+						bc.SwitchPokemon(bc.participant1.currentPokemon(), mod_Pixelmon.pokeballManager.getPlayerStorage(player).getIDFromPosition(dataStream.readInt()));
+					}
+				}
+				if (bc.participant2 instanceof PlayerParticipant) {
+					if (((PlayerParticipant) bc.participant2).player == player) {
+						bc.SwitchPokemon(bc.participant2.currentPokemon(), dataStream.readInt());
+					}
+
+				}
+			} else if (packetID == EnumPackets.Flee.getIndex()) {
+				EntityPlayer player = ((NetServerHandler) network.getNetHandler()).getPlayerEntity();
+				BattleController bc = mod_Pixelmon.battleRegistry.getBattle(player);
+				if (bc.participant1 instanceof PlayerParticipant)
+					if (((PlayerParticipant) bc.participant1).player == player)
+						bc.setFlee(bc.participant1.currentPokemon());
+
+				if (bc.participant2 instanceof PlayerParticipant)
+					if (((PlayerParticipant) bc.participant2).player == player)
+						bc.setFlee(bc.participant2.currentPokemon());
+
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

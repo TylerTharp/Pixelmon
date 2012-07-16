@@ -13,6 +13,7 @@ import org.lwjgl.input.Keyboard;
 import pixelmon.attacks.BattleController;
 import pixelmon.comm.EnumPackets;
 import pixelmon.comm.PacketCreator;
+import pixelmon.comm.PixelmonDataPacket;
 import pixelmon.entities.PixelmonEntityHelper;
 import pixelmon.storage.PokeballManager;
 
@@ -23,9 +24,10 @@ public class GuiChoosePokemon extends GuiScreen {
 	@SuppressWarnings("unused")
 	private GuiScreen parentGui;
 	private PixelmonEntityHelper currentPixelmon;
-	
+	private PixelmonDataPacket userPacket;
+
 	public GuiChoosePokemon(BattleController bc, PixelmonEntityHelper mypixelmon, GuiScreen parentGui) {
-		this.parentGui=parentGui;
+		this.parentGui = parentGui;
 		this.bc = bc;
 		currentPixelmon = mypixelmon;
 	}
@@ -34,26 +36,43 @@ public class GuiChoosePokemon extends GuiScreen {
 		this.bc = bc;
 		currentPixelmon = mypixelmon;
 	}
-	
+
+	public GuiChoosePokemon(BattleController bc, PixelmonDataPacket userPacket, GuiAttacking parentGui) {
+		this.parentGui = parentGui;
+		this.bc = bc;
+		this.userPacket = userPacket;
+	}
+
 	@SuppressWarnings("unchecked")
 	public void initGui() {
 		Keyboard.enableRepeatEvents(true);
 		controlList.clear();
-		NBTTagCompound[] pokemon = mod_Pixelmon.pokeballManager.getPlayerStorage(ModLoader.getMinecraftInstance().thePlayer).getList();
-		int i=0;
-		for (NBTTagCompound p:pokemon){
-			if(p != null){
-				if (!p.getBoolean("IsFainted") && p.getInteger("pixelmonID")!=currentPixelmon.getPokemonId()) {
-					if (!p.getString("Nickname").isEmpty())
-						controlList.add(new GuiButton(p.getInteger("PixelmonOrder"), width / 2 - 100, height / 4 + i*24 + 20 + 12,	p.getString("Nickname")));
-					else
-						controlList.add(new GuiButton(p.getInteger("PixelmonOrder"), width / 2 - 100, height / 4 + i*24 + 20 + 12,	p.getString("Name")));
-					i++;
+		if (ModLoader.getMinecraftInstance().theWorld.isRemote) {
+			PixelmonDataPacket[] pokemon = mod_Pixelmon.serverStorageDisplay.pokemon;
+			int i = 0;
+			for (PixelmonDataPacket p : pokemon) {
+				if (p != null) {
+					if (!p.isFainted && p.pokemonID != userPacket.pokemonID) {
+						controlList.add(new GuiButton(p.order, width / 2 - 100, height / 4 + i * 24 + 20 + 12, p.nickname));
+					}
+				}
+			}
+		} else {
+			NBTTagCompound[] pokemon = mod_Pixelmon.pokeballManager.getPlayerStorage(ModLoader.getMinecraftInstance().thePlayer).getList();
+			int i = 0;
+			for (NBTTagCompound p : pokemon) {
+				if (p != null) {
+					if (!p.getBoolean("IsFainted") && p.getInteger("pixelmonID") != currentPixelmon.getPokemonId()) {
+						if (!p.getString("Nickname").isEmpty())
+							controlList.add(new GuiButton(p.getInteger("PixelmonOrder"), width / 2 - 100, height / 4 + i * 24 + 20 + 12, p.getString("Nickname")));
+						else
+							controlList.add(new GuiButton(p.getInteger("PixelmonOrder"), width / 2 - 100, height / 4 + i * 24 + 20 + 12, p.getString("Name")));
+						i++;
+					}
 				}
 			}
 		}
-		controlList.add(new GuiButton(10, width / 2 - 100, height / 2 + 20,
-				"Back"));
+		controlList.add(new GuiButton(10, width / 2 - 100, height / 2 + 20, "Back"));
 	}
 
 	public void onGuiClosed() {
@@ -61,23 +80,26 @@ public class GuiChoosePokemon extends GuiScreen {
 	}
 
 	protected void actionPerformed(GuiButton par1GuiButton) {
-		if (par1GuiButton.id < 6) {
-			for(NBTTagCompound n:mod_Pixelmon.pokeballManager.getPlayerStorage(ModLoader.getMinecraftInstance().thePlayer).getList()){
-				if(n != null){
-					if (n.getInteger("PixelmonOrder") == par1GuiButton.id) bc.SwitchPokemon(currentPixelmon, n.getInteger("pixelmonID"));
-				}
-			}
-			mc.displayGuiScreen(null);
-			mc.setIngameFocus();
-		} else {
-			
-			if (parentGui!=null){
-				if (par1GuiButton.id<6){
-					ModLoader.sendPacket(PacketCreator.createPacket(EnumPackets.SwitchPokemon, par1GuiButton.id));	
-				}
-			}
-			else
+		if (ModLoader.getMinecraftInstance().theWorld.isRemote) {
+			if (par1GuiButton.id < 6) {
+				ModLoader.sendPacket(PacketCreator.createPacket(EnumPackets.SwitchPokemon, par1GuiButton.id));
 				mc.displayGuiScreen(parentGui);
+				mc.setIngameFocus();
+			} else
+				mc.displayGuiScreen(parentGui);
+		} else {
+			if (par1GuiButton.id < 6) {
+				for (NBTTagCompound n : mod_Pixelmon.pokeballManager.getPlayerStorage(ModLoader.getMinecraftInstance().thePlayer).getList()) {
+					if (n != null) {
+						if (n.getInteger("PixelmonOrder") == par1GuiButton.id)
+							bc.SwitchPokemon(currentPixelmon, n.getInteger("pixelmonID"));
+					}
+				}
+				mc.displayGuiScreen(null);
+				mc.setIngameFocus();
+			} else {
+				mc.displayGuiScreen(parentGui);
+			}
 		}
 	}
 

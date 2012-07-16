@@ -484,5 +484,9 @@ public enum Type
 
 		return e;
 	}
+
+	public int getIndex() {
+		return index;
+	}
 		
 }

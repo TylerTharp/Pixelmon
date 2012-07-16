@@ -295,10 +295,14 @@ public class BattleController {
 	}
 
 	public void setFlee(PixelmonEntityHelper mypixelmon) {
-		if (mypixelmon == participant1.currentPokemon())
+		if (mypixelmon == participant1.currentPokemon()){
 			pixelmon1WillTryFlee = true;
-		else if (mypixelmon == participant2.currentPokemon())
+			participant1Wait=false;
+		}
+		else if (mypixelmon == participant2.currentPokemon()){
 			pixelmon2WillTryFlee = true;
+			participant2Wait=false;
+		}
 	}
 
 	public void SwitchPokemon(PixelmonEntityHelper currentPixelmon, int newPixelmonId) {
@@ -309,6 +313,7 @@ public class BattleController {
 			attackersList2.clear();
 			attackersList2.add(participant2.currentPokemon().getPokemonId());
 			pixelmon1IsSwitching = true;
+			participant1Wait=false;
 		} else {
 			participant2.switchPokemon(participant1, newPixelmonId);
 			currentPixelmon.SetBattleController(this);
@@ -316,11 +321,11 @@ public class BattleController {
 			attackersList1.clear();
 			attackersList1.add(participant1.currentPokemon().getPokemonId());
 			pixelmon2IsSwitching = true;
+			participant2Wait=false;
 		}
 	}
 
 	public boolean isTrainerVsTrainer() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

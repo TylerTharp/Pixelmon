@@ -16,6 +16,8 @@ public class GuiHandler implements IGuiHandler{
 			return new ContainerEmpty();
 		}if (ID==EnumGui.PC.getIndex()){
 			return new ContainerEmpty();
+		}if (ID==EnumGui.PokeChecker.getIndex()){
+			return new ContainerEmpty();
 		}
 		return null;
 	}

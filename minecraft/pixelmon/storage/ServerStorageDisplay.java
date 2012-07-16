@@ -12,6 +12,7 @@ import net.minecraft.src.forge.MinecraftForge;
 import pixelmon.comm.PixelmonDataPacket;
 import pixelmon.entities.BaseEntityPixelmon;
 import pixelmon.entities.IHaveHelper;
+import pixelmon.entities.PixelmonEntityHelper;
 
 public class ServerStorageDisplay {
 	public PixelmonDataPacket[] pokemon = new PixelmonDataPacket[6];
@@ -63,5 +64,11 @@ public class ServerStorageDisplay {
 			if (pokemon[i] !=null && pokemon[i].pokemonID == pokemonId) return true;
 		}
 		return false;
+	}
+
+	public PixelmonDataPacket get(int x) {
+		for(PixelmonDataPacket p:pokemon)
+			if (p.pokemonID == x) return p;
+		return null;
 	}
 }

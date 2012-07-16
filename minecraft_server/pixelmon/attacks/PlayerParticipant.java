@@ -15,7 +15,7 @@ import pixelmon.entities.PixelmonEntityHelper;
 import pixelmon.gui.EnumGui;
 
 public class PlayerParticipant implements IBattleParticipant {
-	EntityPlayer player;
+	public EntityPlayer player;
 	PixelmonEntityHelper currentPixelmon;
 	BattleController bc;
 
