@@ -3,7 +3,7 @@ package pixelmon.storage;
 import java.awt.Rectangle;
 
 import net.minecraft.src.GuiButton;
-import net.minecraft.src.GuiScreen;
+import net.minecraft.src.GuiContainer;
 import net.minecraft.src.ModLoader;
 import net.minecraft.src.NBTTagCompound;
 import net.minecraft.src.Tessellator;
@@ -14,9 +14,10 @@ import org.lwjgl.opengl.GL11;
 import pixelmon.comm.PixelmonDataPacket;
 import pixelmon.entities.IHaveHelper;
 import pixelmon.entities.PixelmonEntityList;
+import pixelmon.gui.ContainerEmpty;
 import pixelmon.gui.GuiScreenPokeCheckerPC;
 
-public class GuiPC extends GuiScreen {
+public class GuiPC extends GuiContainer {
 
 	private int boxNumber, trashX, trashY, checkX, checkY;
 	private SlotPC mouseSlot;
@@ -24,7 +25,7 @@ public class GuiPC extends GuiScreen {
 	private SlotPCParty[] partySlots = new SlotPCParty[6];
 
 	public GuiPC() {
-		super();
+		super(new ContainerEmpty());
 		boxNumber = 0;
 	}
 
@@ -267,7 +268,95 @@ public class GuiPC extends GuiScreen {
 	}
 
 	public void drawScreen(int var1, int var2, float var3) {
-		drawDefaultBackground();
+		super.drawScreen(var1, var2, var3);
+	}
+
+	public void onGuiClosed() {
+		super.onGuiClosed();
+		if(ModLoader.getMinecraftInstance().theWorld.isRemote){
+			 	PixelmonServerStore.store.clear();
+		}
+		else{
+			for (int i = 0; i < pcSlots.length; i++) {
+				NBTTagCompound[] newPokemon = new NBTTagCompound[pcSlots[i].length];
+				for (int j = 0; j < pcSlots[i].length; j++) {
+					NBTTagCompound n = pcSlots[i][j].pokemon;
+					if (n != null) {
+						n.setInteger("StoragePosition", j);
+						newPokemon[j] = n;
+					}
+				}
+				mod_Pixelmon.computerManager.getBox(i).setStoredPokemon(newPokemon);
+				mod_Pixelmon.computerManager.getBox(i).hasChanged = true;
+			}
+			NBTTagCompound[] newPokemon = new NBTTagCompound[partySlots.length];
+			for (int i = 0; i < partySlots.length; i++) {
+				NBTTagCompound n = partySlots[i].pokemon;
+				if (n != null) {
+					n.setInteger("PixelmonOrder", i);
+					newPokemon[i] = n;
+				}
+			}
+			mod_Pixelmon.pokeballManager.getPlayerStorage(ModLoader.getMinecraftInstance().thePlayer).setPokemon(newPokemon);
+			if (mouseSlot.pokemon != null) {
+				NBTTagCompound n = mouseSlot.pokemon;
+				for (ComputerBox c : mod_Pixelmon.computerManager.getBoxList()) {
+					if (c.hasSpace()) {
+						n.setInteger("StoragePosition", c.getNextSpace());
+						c.getStoredPokemon()[c.getNextSpace()] = n;
+						c.hasChanged = true;
+						break;
+					}
+				}
+			}
+			mod_Pixelmon.computerManager.save();
+		}
+		
+	}
+
+	public void actionPerformed(GuiButton button) {
+		int b = button.id;
+		if (b == 0) {
+			if (boxNumber == 0) {
+				boxNumber = 7;
+			} else {
+				boxNumber--;
+			}
+		}
+		if (b == 1) {
+			if (boxNumber == 7) {
+				boxNumber = 0;
+			} else {
+				boxNumber++;
+			}
+		}
+	}
+
+	public boolean doesGuiPauseGame() {
+		return false;
+	}
+
+	public void switchBackFromGui(int box, int i) {
+		mouseSlot.pokemon = pcSlots[box][i].pokemon;
+		pcSlots[box][i].clearPokemon();
+	}
+
+	private void drawImageQuad(int textureHandle, int x, int y, float w, float h, float us, float vs, float ue, float ve) {
+		// activate the specified texture
+		GL11.glBindTexture(GL11.GL_TEXTURE_2D, textureHandle);
+
+		float var7 = 0.00390625F;
+		float var8 = 0.00390625F;
+		Tessellator var9 = Tessellator.instance;
+		var9.startDrawingQuads();
+		var9.addVertexWithUV((double) (x + 0), (double) (y + h), (double) this.zLevel, (double) ((float) us), (double) ((float) ve));
+		var9.addVertexWithUV((double) (x + w), (double) (y + h), (double) this.zLevel, (double) ((float) ue), (double) ((float) ve));
+		var9.addVertexWithUV((double) (x + w), (double) (y + 0), (double) this.zLevel, (double) ((float) ue), (double) ((float) vs));
+		var9.addVertexWithUV((double) (x + 0), (double) (y + 0), (double) this.zLevel, (double) ((float) us), (double) ((float) vs));
+		var9.draw();
+	}
+
+	protected void drawGuiContainerBackgroundLayer(float var1, int var2, int var3) {
 		int w = width;
 		int h = height;
 		int partyTexture = ModLoader.getMinecraftInstance().renderEngine.getTexture("/pixelmon/gui/pcPartyBox.png");
@@ -383,93 +472,7 @@ public class GuiPC extends GuiScreen {
 			}
 		}
 		fontRenderer.drawString("Box: " + (boxNumber + 1), width / 2 - 18, height / 6 - 20, 0xffffff);
-		super.drawScreen(var1, var2, var3);
 
-	}
-
-	public void onGuiClosed() {
-		super.onGuiClosed();
-		if(ModLoader.getMinecraftInstance().theWorld.isRemote){
-			PixelmonServerStore.store.clear();
-		}
-		else{
-			for (int i = 0; i < pcSlots.length; i++) {
-				NBTTagCompound[] newPokemon = new NBTTagCompound[pcSlots[i].length];
-				for (int j = 0; j < pcSlots[i].length; j++) {
-					NBTTagCompound n = pcSlots[i][j].pokemon;
-					if (n != null) {
-						n.setInteger("StoragePosition", j);
-						newPokemon[j] = n;
-					}
-				}
-				mod_Pixelmon.computerManager.getBox(i).setStoredPokemon(newPokemon);
-				mod_Pixelmon.computerManager.getBox(i).hasChanged = true;
-			}
-			NBTTagCompound[] newPokemon = new NBTTagCompound[partySlots.length];
-			for (int i = 0; i < partySlots.length; i++) {
-				NBTTagCompound n = partySlots[i].pokemon;
-				if (n != null) {
-					n.setInteger("PixelmonOrder", i);
-					newPokemon[i] = n;
-				}
-			}
-			mod_Pixelmon.pokeballManager.getPlayerStorage(ModLoader.getMinecraftInstance().thePlayer).setPokemon(newPokemon);
-			if (mouseSlot.pokemon != null) {
-				NBTTagCompound n = mouseSlot.pokemon;
-				for (ComputerBox c : mod_Pixelmon.computerManager.getBoxList()) {
-					if (c.hasSpace()) {
-						n.setInteger("StoragePosition", c.getNextSpace());
-						c.getStoredPokemon()[c.getNextSpace()] = n;
-						c.hasChanged = true;
-						break;
-					}
-				}
-			}
-			mod_Pixelmon.computerManager.save();
-		}
-		
-	}
-
-	public void actionPerformed(GuiButton button) {
-		int b = button.id;
-		if (b == 0) {
-			if (boxNumber == 0) {
-				boxNumber = 7;
-			} else {
-				boxNumber--;
-			}
-		}
-		if (b == 1) {
-			if (boxNumber == 7) {
-				boxNumber = 0;
-			} else {
-				boxNumber++;
-			}
-		}
-	}
-
-	public boolean doesGuiPauseGame() {
-		return false;
-	}
-
-	public void switchBackFromGui(int box, int i) {
-		mouseSlot.pokemon = pcSlots[box][i].pokemon;
-		pcSlots[box][i].clearPokemon();
-	}
-
-	private void drawImageQuad(int textureHandle, int x, int y, float w, float h, float us, float vs, float ue, float ve) {
-		// activate the specified texture
-		GL11.glBindTexture(GL11.GL_TEXTURE_2D, textureHandle);
-
-		float var7 = 0.00390625F;
-		float var8 = 0.00390625F;
-		Tessellator var9 = Tessellator.instance;
-		var9.startDrawingQuads();
-		var9.addVertexWithUV((double) (x + 0), (double) (y + h), (double) this.zLevel, (double) ((float) us), (double) ((float) ve));
-		var9.addVertexWithUV((double) (x + w), (double) (y + h), (double) this.zLevel, (double) ((float) ue), (double) ((float) ve));
-		var9.addVertexWithUV((double) (x + w), (double) (y + 0), (double) this.zLevel, (double) ((float) ue), (double) ((float) vs));
-		var9.addVertexWithUV((double) (x + 0), (double) (y + 0), (double) this.zLevel, (double) ((float) us), (double) ((float) vs));
-		var9.draw();
 	}
 
 }
