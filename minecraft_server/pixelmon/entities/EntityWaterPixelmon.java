@@ -40,7 +40,6 @@ public abstract class EntityWaterPixelmon extends EntityTameableWaterPokemon imp
 	public Moveset moveset = new Moveset();
 	public double caughtBall = 0;
 	public boolean isInBall = true;
-	public int pokemonId;
 	public Stats stats = new Stats();
 	public boolean isFainted = false;
 	public BattleStats battleStats = new BattleStats();
@@ -60,7 +59,7 @@ public abstract class EntityWaterPixelmon extends EntityTameableWaterPokemon imp
 		super(par1World);
 		setSize(0.5f, 0.5f);
 		stats.IVs = PixelmonIVStore.CreateNewIVs();
-		pokemonId = -1;
+		dataWatcher.addObject(19, -1);
 	}
 
 	public Stats getStats() {
@@ -219,7 +218,6 @@ public abstract class EntityWaterPixelmon extends EntityTameableWaterPokemon imp
 
 	int count = 0;
 	public EntityTrainer trainer;
-	public String lvlString = "";
 	private String ownerName;
 
 	protected void updateEntityActionState() {
@@ -295,7 +293,7 @@ public abstract class EntityWaterPixelmon extends EntityTameableWaterPokemon imp
 	}
 
 	public void writeEntityToNBT(NBTTagCompound var1) {
-		if (this.pokemonId < -1)
+		if (getPokemonId() < -1)
 			return;
 		super.writeEntityToNBT(var1);
 		helper.writeToNBT(var1);
@@ -349,5 +347,13 @@ public abstract class EntityWaterPixelmon extends EntityTameableWaterPokemon imp
 
 	public void setLvlString(String string) {
 		dataWatcher.updateObject(18, string);
+	}
+	
+	public int getPokemonId() {
+		return dataWatcher.getWatchableObjectInt(19);
+	}
+
+	public void setPokemonId(int id) {
+		dataWatcher.updateObject(19, id);
 	}
 }

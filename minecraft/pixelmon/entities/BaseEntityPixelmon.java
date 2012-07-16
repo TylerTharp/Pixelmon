@@ -44,7 +44,6 @@ public abstract class BaseEntityPixelmon extends EntityTameable implements IHave
 	public Moveset moveset = new Moveset();
 	public double caughtBall = 0;
 	public boolean isInBall = true;
-	public int pokemonId;
 	public Stats stats = new Stats();
 	public boolean isFainted = false;
 	public BattleStats battleStats = new BattleStats();
@@ -61,7 +60,7 @@ public abstract class BaseEntityPixelmon extends EntityTameable implements IHave
 		super(par1World);
 		stats.IVs = PixelmonIVStore.CreateNewIVs();
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
-		pokemonId = -1;
+		dataWatcher.addObject(19, -1); // pokemonId
 		getNavigator().setAvoidsWater(true);
 		setSize(0.5f, 0.5f);
 		aggression = rand.nextInt(11) - 5;
@@ -266,7 +265,7 @@ public abstract class BaseEntityPixelmon extends EntityTameable implements IHave
 		if (getMoveset().size() >= 4) {
 			ArrayList<Attack> attacks = getAttacksAtLevel(lvl.getLevel());
 			for (int i = 0; i < attacks.size(); i++)
-				getOwner().openGui(mod_Pixelmon.instance, EnumGui.LearnMove.getIndex(), worldObj, pokemonId, attacks.get(i).attackIndex, 0);
+				getOwner().openGui(mod_Pixelmon.instance, EnumGui.LearnMove.getIndex(), worldObj, dataWatcher.getWatchableObjectInt(19), attacks.get(i).attackIndex, 0);
 		}
 	}
 
@@ -282,8 +281,7 @@ public abstract class BaseEntityPixelmon extends EntityTameable implements IHave
 		int var1 = MathHelper.floor_double(this.posX);
 		int var2 = MathHelper.floor_double(this.boundingBox.minY);
 		int var3 = MathHelper.floor_double(this.posZ);
-		return this.worldObj.getBlockId(var1, var2 - 1, var3) == Block.grass.blockID && this.worldObj.getFullBlockLightValue(var1, var2, var3) > 8
-				&& super.getCanSpawnHere();
+		return this.worldObj.getBlockId(var1, var2 - 1, var3) == Block.grass.blockID && this.worldObj.getFullBlockLightValue(var1, var2, var3) > 8 && super.getCanSpawnHere();
 	}
 
 	public ArrayList<StatusEffectBase> getStatus() {
@@ -385,10 +383,20 @@ public abstract class BaseEntityPixelmon extends EntityTameable implements IHave
 			bc = null;
 		}
 	}
+
 	public void setLvlString(String string) {
 		dataWatcher.updateObject(18, string);
 	}
+
 	public String getLvlString() {
 		return dataWatcher.getWatchableObjectString(18);
+	}
+
+	public int getPokemonId() {
+		return dataWatcher.getWatchableObjectInt(19);
+	}
+
+	public void setPokemonId(int id) {
+		dataWatcher.updateObject(19, id);
 	}
 }
