@@ -20,8 +20,7 @@ import net.minecraft.src.forge.MinecraftForge;
 import pixelmon.PixelmonIDList;
 import pixelmon.TrainerIDList;
 import pixelmon.Pokemon.*;
-import pixelmon.Trainers.EntityTrainerYoungster;
-import pixelmon.Trainers.EntityTrainerYoungster02;
+import pixelmon.Trainers.*;
 import pixelmon.database.DatabaseStats;
 import pixelmon.database.DatabaseTrainers;
 
@@ -211,10 +210,14 @@ public class PixelmonEntityList {
 		addMapping(EntityVibrava.class, "Vibrava", PixelmonIDList.vibravaId, ClassType.Pixelmon);
 		addMapping(EntityMareep.class, "Mareep", PixelmonIDList.mareepId, ClassType.Pixelmon);
 		addMapping(EntityDratini.class, "Dratini", PixelmonIDList.dratiniId, ClassType.Pixelmon);
+		addMapping(EntityTentacool.class, "Tentacool", PixelmonIDList.tentacoolId, ClassType.Pixelmon);
+		addMapping(EntitySolrock.class, "Solrock", PixelmonIDList.solrockId, ClassType.Pixelmon);
+		addMapping(EntityLunatone.class, "Lunatone", PixelmonIDList.lunatoneId, ClassType.Pixelmon);
 
 		
 		addMapping(EntityTrainerYoungster.class, "Youngster", TrainerIDList.trainerYoungsterId, ClassType.Trainer);
 		addMapping(EntityTrainerYoungster02.class, "Youngster2", TrainerIDList.trainerYoungster2Id, ClassType.Trainer);
+		addMapping(EntityTrainerBugCatcher.class, "BugCatcher", TrainerIDList.trainerBugCatcherId, ClassType.Trainer);
 	}
 
 	public static void registerEntities() {

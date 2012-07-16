@@ -254,6 +254,10 @@ public class ModelGoldeen extends ModelBase
   public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5)
   {
     super.setRotationAngles(f, f1, f2, f3, f4, f5);
+    
+    Tail_fin.rotateAngleX = MathHelper.cos(f * 1F) * .75F * f1;
+    Right_fin.rotateAngleZ = MathHelper.cos(f * .5F) * 1F * f1;
+    Left_fin.rotateAngleZ = MathHelper.cos(f * .5F + 3.141593F) * 1F * f1;
   }
 
 }

@@ -25,10 +25,7 @@ import pixelmon.RenderPixelmon;
 import pixelmon.RenderTrainer;
 import pixelmon.TrainerIDList;
 import pixelmon.Pokemon.*;
-import pixelmon.Trainers.EntityTrainerYoungster;
-import pixelmon.Trainers.EntityTrainerYoungster02;
-import pixelmon.Trainers.ModelYoungster;
-import pixelmon.Trainers.ModelYoungster02;
+import pixelmon.Trainers.*;
 import pixelmon.database.DatabaseStats;
 import pixelmon.database.DatabaseTrainers;
 
@@ -220,10 +217,13 @@ public class PixelmonEntityList {
 		addMapping(EntityMagneton.class, "Magneton", PixelmonIDList.magnetonId, new RenderPixelmon(new ModelMagneton(), 0.5F), ClassType.Pixelmon);
 		addMapping(EntityVibrava.class, "Vibrava", PixelmonIDList.vibravaId, new RenderPixelmon(new ModelVibrava(), 0.5F), ClassType.Pixelmon);
 		addMapping(EntityMareep.class, "Mareep", PixelmonIDList.mareepId, new RenderPixelmon(new ModelMareep(), 0.5F), ClassType.Pixelmon);
-		
-		
+		addMapping(EntityTentacool.class, "Tentacool", PixelmonIDList.tentacoolId, new RenderFreeWaterPixelmon(new ModelTentacool(), 0.5F), ClassType.Pixelmon);
+		addMapping(EntitySolrock.class, "Solrock", PixelmonIDList.solrockId, new RenderPixelmon(new ModelSolrock(), 0.5F), ClassType.Pixelmon);
+		addMapping(EntityLunatone.class, "Lunatone", PixelmonIDList.lunatoneId, new RenderPixelmon(new ModelLunatone(), 0.5F), ClassType.Pixelmon);
+
 		addMapping(EntityTrainerYoungster.class, "Youngster", TrainerIDList.trainerYoungsterId, new RenderTrainer(new ModelYoungster(), 0.5F), ClassType.Trainer);
 		addMapping(EntityTrainerYoungster02.class, "Youngster2", TrainerIDList.trainerYoungster2Id, new RenderTrainer(new ModelYoungster02(), 0.5F), ClassType.Trainer);
+		addMapping(EntityTrainerBugCatcher.class, "BugCatcher", TrainerIDList.trainerBugCatcherId, new RenderTrainer(new ModelBugCatcher(), 0.5F), ClassType.Trainer);
 	}
 
 	public static void registerEntities() {
@@ -231,7 +231,7 @@ public class PixelmonEntityList {
 		while (i.hasNext()) {
 			Map.Entry entry = (Map.Entry) i.next();
 			ModLoader.registerEntityID((Class) entry.getValue(), getStringFromID((Integer) entry.getKey()), (Integer) entry.getKey());
-			MinecraftForge.registerEntity((Class)entry.getValue(), mod_Pixelmon.instance, (Integer)entry.getKey(), 50, 1, true);
+			MinecraftForge.registerEntity((Class) entry.getValue(), mod_Pixelmon.instance, (Integer) entry.getKey(), 50, 1, true);
 		}
 	}
 
@@ -269,9 +269,9 @@ public class PixelmonEntityList {
 				if (rarity != -1) {
 					myCustomSpawner.AddCustomSpawn((Class) entry.getValue(), rarity, groupMin, groupMax, creaturetype, biomes);
 				}
-			}else if (type == ClassType.Trainer){
+			} else if (type == ClassType.Trainer) {
 				biomes = DatabaseTrainers.GetSpawnBiomes(name);
-				myCustomSpawner.AddCustomSpawn((Class)entry.getValue(),10,1,1, EnumCreatureType.creature, biomes);
+				myCustomSpawner.AddCustomSpawn((Class) entry.getValue(), 10, 1, 1, EnumCreatureType.creature, biomes);
 			}
 		}
 	}
@@ -279,4 +279,4 @@ public class PixelmonEntityList {
 	public enum ClassType {
 		Trainer, Pixelmon
 	}
-	}
+}

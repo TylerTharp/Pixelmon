@@ -316,6 +316,11 @@ public class ModelSandile extends ModelBase
   public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5)
   {
     super.setRotationAngles(f, f1, f2, f3, f4, f5);
+    
+    Left_Front.rotateAngleX =  MathHelper.cos(f * 1.2F) * .5F * f1;
+    Left_Back.rotateAngleX =  MathHelper.cos(f * 1.2F + 3.14159F) * .5F * f1;
+    Right_Front.rotateAngleX =  MathHelper.cos(f * 1.2F + 3.14159F) * .5F * f1;
+    Right_Back.rotateAngleX =  MathHelper.cos(f * 1.2F) * .5F * f1;
   }
 
 }

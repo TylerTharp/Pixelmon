@@ -6,6 +6,7 @@
 package pixelmon.Pokemon;
 
 import net.minecraft.src.Entity;
+import net.minecraft.src.MathHelper;
 import net.minecraft.src.ModelBase;
 import net.minecraft.src.ModelRenderer;
 
@@ -141,6 +142,12 @@ public class ModelPsyduck extends ModelBase
   public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5)
   {
     super.setRotationAngles(f, f1, f2, f3, f4, f5);
+    
+    left_foot.rotateAngleX =  MathHelper.cos(f * 1.5F) * .5F * f1;
+    right_foot.rotateAngleX =  MathHelper.cos(f * 1.5F + 3.14159F) * .5F * f1;
+    tail.rotateAngleY = MathHelper.cos(f * 1F) * .75F * f1;
+    left_wing.rotateAngleZ = MathHelper.cos(f * 1F + 3.14159F) * .4F * f1 - 1;
+    right_wing.rotateAngleZ = MathHelper.cos(f * 1F) * .4F * f1 + 1;
   }
 
 }

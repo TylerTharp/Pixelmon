@@ -7,6 +7,7 @@
 package pixelmon.Pokemon;
 
 import net.minecraft.src.Entity;
+import net.minecraft.src.MathHelper;
 import net.minecraft.src.ModelBase;
 import net.minecraft.src.ModelRenderer;
 
@@ -101,6 +102,11 @@ public class ModelTrapinch extends ModelBase
   public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5)
   {
     super.setRotationAngles(f, f1, f2, f3, f4, f5);
+    
+    Leg1.rotateAngleX =  MathHelper.cos(f * 0.7F) * 1F * f1;
+    Leg2.rotateAngleX =  MathHelper.cos(f * 0.7F + 3.14159F) * 1F * f1;
+    Leg3.rotateAngleX =  MathHelper.cos(f * 0.7F + 3.14159F) * 1F * f1;
+    Leg4.rotateAngleX =  MathHelper.cos(f * 0.7F) * 1F * f1;
   }
 
 }

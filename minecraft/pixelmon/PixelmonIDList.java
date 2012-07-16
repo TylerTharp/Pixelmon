@@ -64,7 +64,8 @@ public class PixelmonIDList {
 	public static int mareepId;
 	public static int solrockId;
 	public static int lunatoneId;
-
+	public static int tentacoolId;
+	
 	public static int i=0;
 	public static void load(Configuration configuration) {
 		abraId = Integer.parseInt(configuration.getOrCreateIntProperty("Abra", "pokemon", i++).value);
@@ -127,5 +128,6 @@ public class PixelmonIDList {
 		mareepId = Integer.parseInt(configuration.getOrCreateIntProperty("Mareep", "pokemon", i++).value);
 		solrockId = Integer.parseInt(configuration.getOrCreateIntProperty("Solrock", "pokemon", i++).value);
 		lunatoneId = Integer.parseInt(configuration.getOrCreateIntProperty("Lunatone", "pokemon", i++).value);
+		tentacoolId = Integer.parseInt(configuration.getOrCreateIntProperty("Tentacool", "pokemon", i++).value);
 	}
 }

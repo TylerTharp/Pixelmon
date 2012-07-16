@@ -6,6 +6,7 @@
 package pixelmon.Pokemon;
 
 import net.minecraft.src.Entity;
+import net.minecraft.src.MathHelper;
 import net.minecraft.src.ModelBase;
 import net.minecraft.src.ModelRenderer;
 
@@ -196,6 +197,11 @@ public class ModelMiltank extends ModelBase
   public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5)
   {
     super.setRotationAngles(f, f1, f2, f3, f4, f5);
+    
+    leftleg.rotateAngleX = MathHelper.cos(f * 1.3F) * .7F * f1;
+    rightleg.rotateAngleX = MathHelper.cos(f * 1.3F + 3.141593F) * .7F * f1;
+    rightarm.rotateAngleX = MathHelper.cos(f * 1.3F) * .7F * f1;
+    leftarm.rotateAngleX = MathHelper.cos(f * 1.3F + 3.141593F) * .7F * f1;
   }
 
 }
