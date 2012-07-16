@@ -34,6 +34,7 @@ import pixelmon.RenderTrainer;
 import pixelmon.TileEntityPokemonHealer;
 import pixelmon.TrainerIDList;
 import pixelmon.WorldGenLeafStoneOre;
+import pixelmon.WorldGenWaterStoneOre;
 import pixelmon.Pokemon.EntityBulbasaur;
 import pixelmon.Pokemon.EntityCharmander;
 import pixelmon.Pokemon.EntityEevee;
@@ -605,6 +606,12 @@ public class mod_Pixelmon extends NetworkMod {
 			int zPos = rand.nextInt(16) + z;
 			int yPos = rand.nextInt(100) + 28;
 			new WorldGenLeafStoneOre().generate(world, rand, xPos, yPos, zPos);
+		}
+		for (int i = 0; i < 10; i++) {
+			int xPos = rand.nextInt(16) + x;
+			int zPos = rand.nextInt(16) + z;
+			int yPos = rand.nextInt(40) + 40;
+			new WorldGenWaterStoneOre().generate(world, rand, xPos, yPos, zPos);
 		}
 	}
 

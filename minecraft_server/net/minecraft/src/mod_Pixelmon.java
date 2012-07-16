@@ -439,6 +439,13 @@ public class mod_Pixelmon extends NetworkMod {
 			int yPos = rand.nextInt(100) + 28;
 			new WorldGenLeafStoneOre().generate(world, rand, xPos, yPos, zPos);
 		}
+		
+		for (int i = 0; i < 10; i++) {
+			int xPos = rand.nextInt(16) + x;
+			int zPos = rand.nextInt(16) + z;
+			int yPos = rand.nextInt(40) + 40;
+			new WorldGenWaterStoneOre().generate(world, rand, xPos, yPos, zPos);
+		}
 	}
 	
 	@Override

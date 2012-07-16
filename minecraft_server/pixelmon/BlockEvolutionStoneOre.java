@@ -17,7 +17,12 @@ public class BlockEvolutionStoneOre extends Block{
 	
     public boolean isOpaqueCube()
     {
-        return !(type == 1);
+        if(type == 1){
+        	return false;
+        }
+        else{
+        	return true;
+        }
     }
 
 	
