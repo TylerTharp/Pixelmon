@@ -126,6 +126,8 @@ public class ModelBugCatcher extends ModelBase
       head.setTextureSize(64, 32);
       head.mirror = true;
       setRotation(head, 0F, 0F, 0F);
+      
+      Head.addChild(head);
     Net_Holder = new ModelRenderer(this, "Net_Holder");
     Net_Holder.setRotationPoint(0F, 0F, 0F);
     setRotation(Net_Holder, 0F, 0F, 0F);

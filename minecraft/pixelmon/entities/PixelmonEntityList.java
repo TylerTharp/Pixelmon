@@ -10,7 +10,6 @@ import net.minecraft.src.BiomeGenBase;
 import net.minecraft.src.CustomSpawner;
 import net.minecraft.src.Entity;
 import net.minecraft.src.EntityEggInfo;
-import net.minecraft.src.EntityList;
 import net.minecraft.src.EntityLiving;
 import net.minecraft.src.EnumCreatureType;
 import net.minecraft.src.ModLoader;
@@ -25,7 +24,12 @@ import pixelmon.RenderPixelmon;
 import pixelmon.RenderTrainer;
 import pixelmon.TrainerIDList;
 import pixelmon.Pokemon.*;
-import pixelmon.Trainers.*;
+import pixelmon.Trainers.EntityTrainerBugCatcher;
+import pixelmon.Trainers.EntityTrainerYoungster;
+import pixelmon.Trainers.EntityTrainerYoungster02;
+import pixelmon.Trainers.ModelBugCatcher;
+import pixelmon.Trainers.ModelYoungster;
+import pixelmon.Trainers.ModelYoungster02;
 import pixelmon.database.DatabaseStats;
 import pixelmon.database.DatabaseTrainers;
 
@@ -220,7 +224,8 @@ public class PixelmonEntityList {
 		addMapping(EntityTentacool.class, "Tentacool", PixelmonIDList.tentacoolId, new RenderFreeWaterPixelmon(new ModelTentacool(), 0.5F), ClassType.Pixelmon);
 		addMapping(EntitySolrock.class, "Solrock", PixelmonIDList.solrockId, new RenderPixelmon(new ModelSolrock(), 0.5F), ClassType.Pixelmon);
 		addMapping(EntityLunatone.class, "Lunatone", PixelmonIDList.lunatoneId, new RenderPixelmon(new ModelLunatone(), 0.5F), ClassType.Pixelmon);
-
+		addMapping(EntityNidoranMale.class, "NidoranMale", PixelmonIDList.nidoranMaleId, new RenderPixelmon(new ModelNidoranMale(), 0.5F), ClassType.Pixelmon);
+		
 		addMapping(EntityTrainerYoungster.class, "Youngster", TrainerIDList.trainerYoungsterId, new RenderTrainer(new ModelYoungster(), 0.5F), ClassType.Trainer);
 		addMapping(EntityTrainerYoungster02.class, "Youngster2", TrainerIDList.trainerYoungster2Id, new RenderTrainer(new ModelYoungster02(), 0.5F), ClassType.Trainer);
 		addMapping(EntityTrainerBugCatcher.class, "BugCatcher", TrainerIDList.trainerBugCatcherId, new RenderTrainer(new ModelBugCatcher(), 0.5F), ClassType.Trainer);
