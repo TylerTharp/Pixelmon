@@ -15,9 +15,11 @@ import pixelmon.gui.EnumGui;
 
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.MathHelper;
+import net.minecraft.src.ModLoader;
 import net.minecraft.src.NBTTagCompound;
 import net.minecraft.src.NetServerHandler;
 import net.minecraft.src.NetworkManager;
+import net.minecraft.src.Packet;
 import net.minecraft.src.Packet1Login;
 import net.minecraft.src.mod_Pixelmon;
 import net.minecraft.src.forge.IConnectionHandler;
@@ -47,11 +49,10 @@ public class PacketHandler implements IConnectionHandler, IPacketHandler {
 				EntityPlayer player = ((NetServerHandler) network.getNetHandler()).getPlayerEntity();
 				int pokemonId = dataStream.readInt();
 				NBTTagCompound nbt = mod_Pixelmon.pokeballManager.getPlayerStorage(player).getNBT(pokemonId);
-				if (!mod_Pixelmon.pokeballManager.getPlayerStorage(player).EntityAlreadyExists(pokemonId, player.worldObj)
-						&& (currentPokeball == null || currentPokeball.isDead) && !mod_Pixelmon.pokeballManager.getPlayerStorage(player).isFainted(pokemonId)) {
+				if (!mod_Pixelmon.pokeballManager.getPlayerStorage(player).EntityAlreadyExists(pokemonId, player.worldObj) && (currentPokeball == null || currentPokeball.isDead)
+						&& !mod_Pixelmon.pokeballManager.getPlayerStorage(player).isFainted(pokemonId)) {
 					player.worldObj.playSoundAtEntity(player, "random.bow", 0.5F, 0.4F / ((new Random()).nextFloat() * 0.4F + 0.8F));
-					currentPokeball = new EntityPokeBall(player.worldObj, player, mod_Pixelmon.pokeballManager.getPlayerStorage(player)
-							.sendOut(pokemonId, player.worldObj).getHelper());
+					currentPokeball = new EntityPokeBall(player.worldObj, player, mod_Pixelmon.pokeballManager.getPlayerStorage(player).sendOut(pokemonId, player.worldObj).getHelper());
 					boolean flag = nbt.getString("NickName") == null || nbt.getString("Nickname").isEmpty();
 					ChatHandler.sendChat(player, "You sent out " + (flag ? nbt.getString("Name") : nbt.getString("Nickname")) + "!");
 					player.worldObj.spawnEntityInWorld(currentPokeball);
@@ -121,6 +122,18 @@ public class PacketHandler implements IConnectionHandler, IPacketHandler {
 					if (((PlayerParticipant) bc.participant2).player == player)
 						bc.setFlee(bc.participant2.currentPokemon());
 
+			} else if (packetID == EnumPackets.RenamePokemon.getIndex()) {
+				EntityPlayer player = ((NetServerHandler) network.getNetHandler()).getPlayerEntity();
+				int id = dataStream.readInt();
+				if (mod_Pixelmon.pokeballManager.getPlayerStorage(player).EntityAlreadyExists(id, player.worldObj)) {
+					mod_Pixelmon.pokeballManager.getPlayerStorage(player).getAlreadyExists(id, player.worldObj).getHelper().setNickname(Packet.readString(dataStream, 64));
+				} else {
+					NBTTagCompound nbt = mod_Pixelmon.pokeballManager.getPlayerStorage(player).getNBT(id);
+					if (nbt != null) {
+						nbt.setString("Nickname", Packet.readString(dataStream, 64));
+					}
+				}
+				mod_Pixelmon.pokeballManager.save();
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
