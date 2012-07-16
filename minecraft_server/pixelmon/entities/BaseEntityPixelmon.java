@@ -38,7 +38,6 @@ public abstract class BaseEntityPixelmon extends EntityTameable implements IHave
 	public Moveset moveset = new Moveset();
 	public double caughtBall = 0;
 	public boolean isInBall = true;
-	public int pokemonId;
 	public Stats stats = new Stats();
 	public boolean isFainted = false;
 	public BattleStats battleStats = new BattleStats();
@@ -55,7 +54,7 @@ public abstract class BaseEntityPixelmon extends EntityTameable implements IHave
 		super(par1World);
 		stats.IVs = PixelmonIVStore.CreateNewIVs();
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
-		pokemonId = -1;
+		dataWatcher.addObject(19, -1);
 		getNavigator().setAvoidsWater(true);
 		setSize(0.5f, 0.5f);
 		aggression = rand.nextInt(11) - 5;
@@ -260,7 +259,7 @@ public abstract class BaseEntityPixelmon extends EntityTameable implements IHave
 		if (getMoveset().size() >= 4) {
 			ArrayList<Attack> attacks = getAttacksAtLevel(lvl.getLevel());
 			for (int i = 0; i < attacks.size(); i++)
-				getOwner().openGui(mod_Pixelmon.instance, EnumGui.LearnMove.getIndex(), worldObj, pokemonId, attacks.get(i).attackIndex, 0);
+				getOwner().openGui(mod_Pixelmon.instance, EnumGui.LearnMove.getIndex(), worldObj, getPokemonId(), attacks.get(i).attackIndex, 0);
 		}
 	}
 
@@ -382,5 +381,13 @@ public abstract class BaseEntityPixelmon extends EntityTameable implements IHave
 
 	public void setLvlString(String string) {
 		dataWatcher.updateObject(18, string);
+	}
+	
+	public int getPokemonId() {
+		return dataWatcher.getWatchableObjectInt(19);
+	}
+
+	public void setPokemonId(int id) {
+		dataWatcher.updateObject(19, id);
 	}
 }

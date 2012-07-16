@@ -38,4 +38,8 @@ public interface IHaveHelper {
 	void writeEntityToStorageNBT(NBTTagCompound nbt);
 
 	void loadMoveset();
+
+	int getPokemonId();
+
+	void setPokemonId(int uniqueEntityId);
 }

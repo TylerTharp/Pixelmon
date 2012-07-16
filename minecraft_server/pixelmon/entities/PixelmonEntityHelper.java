@@ -216,11 +216,7 @@ public class PixelmonEntityHelper {
 	}
 
 	public int getPokemonId() {
-		if (pixelmon instanceof BaseEntityPixelmon)
-			return ((BaseEntityPixelmon) pixelmon).pokemonId;
-		else if (pixelmon instanceof EntityWaterPixelmon)
-			return ((EntityWaterPixelmon) pixelmon).pokemonId;
-		return -1;
+		return pixelmon.getPokemonId();
 	}
 
 	public void setIsInBall(boolean b) {
@@ -300,10 +296,7 @@ public class PixelmonEntityHelper {
 	}
 
 	public void setPokemonID(int uniqueEntityId) {
-		if (pixelmon instanceof BaseEntityPixelmon)
-			((BaseEntityPixelmon) pixelmon).pokemonId = uniqueEntityId;
-		else if (pixelmon instanceof EntityWaterPixelmon)
-			((EntityWaterPixelmon) pixelmon).pokemonId = uniqueEntityId;
+		pixelmon.setPokemonId(uniqueEntityId);
 	}
 
 	public void setNickname(String nickname) {
