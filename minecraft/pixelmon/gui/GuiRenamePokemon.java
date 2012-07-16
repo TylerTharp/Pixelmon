@@ -2,6 +2,8 @@ package pixelmon.gui;
 
 import org.lwjgl.input.Keyboard;
 
+import pixelmon.comm.EnumPackets;
+import pixelmon.comm.PacketCreator;
 import pixelmon.comm.PixelmonDataPacket;
 import pixelmon.entities.BaseEntityPixelmon;
 import pixelmon.entities.PixelmonEntityHelper;
@@ -58,7 +60,8 @@ public class GuiRenamePokemon extends GuiScreen {
 			mc.displayGuiScreen(parentGuiScreen);
 		case 0:
 			if (ModLoader.getMinecraftInstance().theWorld.isRemote) {
-				
+				ModLoader.sendPacket(PacketCreator.createStringPacket(EnumPackets.RenamePokemon, targetPacket.pokemonID, theGuiTextField.getText()));
+				targetPacket.nickname = theGuiTextField.getText();
 			} else {
 				target.setNickname(theGuiTextField.getText());
 				NBTTagCompound nbt = mod_Pixelmon.pokeballManager.getPlayerStorage(ModLoader.getMinecraftInstance().thePlayer).getNBT(target.getPokemonId());
