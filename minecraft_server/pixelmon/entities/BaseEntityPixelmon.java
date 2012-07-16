@@ -105,7 +105,7 @@ public abstract class BaseEntityPixelmon extends EntityTameable implements IHave
 		tasks = new EntityAITasks();
 	}
 
-	public void StartBattle(EntityTrainer trainer,EntityPlayer opponent) {
+	public void StartBattle(EntityTrainer trainer, EntityPlayer opponent) {
 		if (this.moveset.size() == 0)
 			loadMoveset();
 		IBattleParticipant p1, p2;
@@ -192,6 +192,10 @@ public abstract class BaseEntityPixelmon extends EntityTameable implements IHave
 	}
 
 	public void catchInPokeball() {
+		if (getOwner() == null) {
+			unloadEntity();
+			return;
+		}
 		mod_Pixelmon.pokeballManager.getPlayerStorage(getOwner()).updateNBT(helper);
 		isInBall = true;
 		unloadEntity();
@@ -272,8 +276,7 @@ public abstract class BaseEntityPixelmon extends EntityTameable implements IHave
 		int var1 = MathHelper.floor_double(this.posX);
 		int var2 = MathHelper.floor_double(this.boundingBox.minY);
 		int var3 = MathHelper.floor_double(this.posZ);
-		return this.worldObj.getBlockId(var1, var2 - 1, var3) == Block.grass.blockID && this.worldObj.getFullBlockLightValue(var1, var2, var3) > 8
-				&& super.getCanSpawnHere();
+		return this.worldObj.getBlockId(var1, var2 - 1, var3) == Block.grass.blockID && this.worldObj.getFullBlockLightValue(var1, var2, var3) > 8 && super.getCanSpawnHere();
 	}
 
 	public ArrayList<StatusEffectBase> getStatus() {
@@ -328,7 +331,8 @@ public abstract class BaseEntityPixelmon extends EntityTameable implements IHave
 
 	public void onUpdate() {
 		if (bc != null) {
-			if (bc.participant1.currentPokemon() == helper) bc.update();
+			if (bc.participant1.currentPokemon() == helper)
+				bc.update();
 		}
 		if (litUp = true) {
 			double po11 = this.lastTickPosX;

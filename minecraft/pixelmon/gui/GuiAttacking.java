@@ -48,29 +48,29 @@ public class GuiAttacking extends GuiScreen {
 		controlList.clear();
 		fontRenderer.FONT_HEIGHT = 10;
 		if (ModLoader.getMinecraftInstance().theWorld.isRemote) {
-			controlList.add(new GuiButton(0, width / 3 - width / 3, height * 3 / 4, width / 3 - 10, 20, userPacket.moveset[0].attackName + "("
-					+ userPacket.moveset[0].pp + "/" + userPacket.moveset[0].ppBase + ")"));
+			controlList.add(new GuiButton(0, width / 3 - width / 3, height * 3 / 4, width / 3 - 10, 20, userPacket.moveset[0].attackName + "(" + userPacket.moveset[0].pp + "/"
+					+ userPacket.moveset[0].ppBase + ")"));
 			if (userPacket.numMoves > 1)
-				controlList.add(new GuiButton(1, width * 2 / 3 - width / 3, height * 3 / 4, width / 3 - 10, 20, userPacket.moveset[1].attackName + "("
-						+ userPacket.moveset[1].pp + "/" + userPacket.moveset[1].ppBase + ")"));
+				controlList.add(new GuiButton(1, width * 2 / 3 - width / 3, height * 3 / 4, width / 3 - 10, 20, userPacket.moveset[1].attackName + "(" + userPacket.moveset[1].pp + "/"
+						+ userPacket.moveset[1].ppBase + ")"));
 			if (userPacket.numMoves > 2)
-				controlList.add(new GuiButton(2, width / 3 - width / 3, height * 3 / 4 + 30, width / 3 - 10, 20, userPacket.moveset[2].attackName + "("
-						+ userPacket.moveset[2].pp + "/" + userPacket.moveset[2].ppBase + ")"));
+				controlList.add(new GuiButton(2, width / 3 - width / 3, height * 3 / 4 + 30, width / 3 - 10, 20, userPacket.moveset[2].attackName + "(" + userPacket.moveset[2].pp + "/"
+						+ userPacket.moveset[2].ppBase + ")"));
 			if (userPacket.numMoves > 3)
-				controlList.add(new GuiButton(3, width * 2 / 3 - width / 3, height * 3 / 4 + 30, width / 3 - 10, 20, userPacket.moveset[3].attackName + "("
-						+ userPacket.moveset[3].pp + "/" + userPacket.moveset[3].ppBase + ")"));
+				controlList.add(new GuiButton(3, width * 2 / 3 - width / 3, height * 3 / 4 + 30, width / 3 - 10, 20, userPacket.moveset[3].attackName + "(" + userPacket.moveset[3].pp + "/"
+						+ userPacket.moveset[3].ppBase + ")"));
 		} else {
-			controlList.add(new GuiButton(0, width / 3 - width / 3, height * 3 / 4, width / 3 - 10, 20, mypixelmon.getMoveset().get(0).attackName + "("
-					+ mypixelmon.getMoveset().get(0).pp + "/" + mypixelmon.getMoveset().get(0).ppBase + ")"));
+			controlList.add(new GuiButton(0, width / 3 - width / 3, height * 3 / 4, width / 3 - 10, 20, mypixelmon.getMoveset().get(0).attackName + "(" + mypixelmon.getMoveset().get(0).pp + "/"
+					+ mypixelmon.getMoveset().get(0).ppBase + ")"));
 			if (mypixelmon.getMoveset().size() > 1)
-				controlList.add(new GuiButton(1, width * 2 / 3 - width / 3, height * 3 / 4, width / 3 - 10, 20, mypixelmon.getMoveset().get(1).attackName + "("
-						+ mypixelmon.getMoveset().get(1).pp + "/" + mypixelmon.getMoveset().get(1).ppBase + ")"));
+				controlList.add(new GuiButton(1, width * 2 / 3 - width / 3, height * 3 / 4, width / 3 - 10, 20, mypixelmon.getMoveset().get(1).attackName + "(" + mypixelmon.getMoveset().get(1).pp
+						+ "/" + mypixelmon.getMoveset().get(1).ppBase + ")"));
 			if (mypixelmon.getMoveset().size() > 2)
-				controlList.add(new GuiButton(2, width / 3 - width / 3, height * 3 / 4 + 30, width / 3 - 10, 20, mypixelmon.getMoveset().get(2).attackName
-						+ "(" + mypixelmon.getMoveset().get(2).pp + "/" + mypixelmon.getMoveset().get(2).ppBase + ")"));
+				controlList.add(new GuiButton(2, width / 3 - width / 3, height * 3 / 4 + 30, width / 3 - 10, 20, mypixelmon.getMoveset().get(2).attackName + "(" + mypixelmon.getMoveset().get(2).pp
+						+ "/" + mypixelmon.getMoveset().get(2).ppBase + ")"));
 			if (mypixelmon.getMoveset().size() > 3)
-				controlList.add(new GuiButton(3, width * 2 / 3 - width / 3, height * 3 / 4 + 30, width / 3 - 10, 20, mypixelmon.getMoveset().get(3).attackName
-						+ "(" + mypixelmon.getMoveset().get(3).pp + "/" + mypixelmon.getMoveset().get(3).ppBase + ")"));
+				controlList.add(new GuiButton(3, width * 2 / 3 - width / 3, height * 3 / 4 + 30, width / 3 - 10, 20, mypixelmon.getMoveset().get(3).attackName + "("
+						+ mypixelmon.getMoveset().get(3).pp + "/" + mypixelmon.getMoveset().get(3).ppBase + ")"));
 		}
 		controlList.add(new GuiButton(10, width * 3 / 4, height * 3 / 4, width / 4 - 5, 20, "Run"));
 		controlList.add(new GuiButton(11, width * 3 / 4, height * 3 / 4 + 30, width / 4 - 5, 20, "Switch"));
@@ -89,9 +89,17 @@ public class GuiAttacking extends GuiScreen {
 
 	protected void actionPerformed(GuiButton par1GuiButton) {
 		if (ModLoader.getMinecraftInstance().theWorld.isRemote) {
-			ModLoader.sendPacket(PacketCreator.createPacket(EnumPackets.ChooseAttack, par1GuiButton.id, battleControllerIndex, userPacket.pokemonID));
-			mc.displayGuiScreen(null);
-			mc.setIngameFocus();
+			if (par1GuiButton.id < 4) {
+				ModLoader.sendPacket(PacketCreator.createPacket(EnumPackets.ChooseAttack, par1GuiButton.id, battleControllerIndex, userPacket.pokemonID));
+				mc.displayGuiScreen(null);
+				mc.setIngameFocus();
+			} else if (par1GuiButton.id == 11) {
+				mc.displayGuiScreen(new GuiChoosePokemon(bc, userPacket, this));
+			} else {
+				ModLoader.sendPacket(PacketCreator.createPacket(EnumPackets.Flee, 0));
+				mc.displayGuiScreen(null);
+				mc.setIngameFocus();
+			}
 		} else {
 			if (par1GuiButton.id < 4) {
 				if (mypixelmon.getMoveset().get(0).pp > 0) {
@@ -118,15 +126,13 @@ public class GuiAttacking extends GuiScreen {
 		drawDefaultBackground();
 		super.drawScreen(i, i1, f);
 		if (ModLoader.getMinecraftInstance().theWorld.isRemote) {
-			drawCenteredString(fontRenderer, "Which move do you want your " + userPacket.nickname + " to use against the " + ("wild ") + targetPacket.nickname
-					+ "?", width / 2, 10, 0xFFFFFF);
+			drawCenteredString(fontRenderer, "Which move do you want your " + userPacket.nickname + " to use against the " + ("wild ") + targetPacket.nickname + "?", width / 2, 10, 0xFFFFFF);
 			drawPokemonStats(userPacket, width / 8, height * 2 / 6, true);
 			drawPokemonStats(targetPacket, width * 5 / 8, height * 2 / 6, false);
 			drawHealthBar(userPacket.health, userPacket.hp, width / 8, height * 2 / 6 + 10, 0, 0, 0);
 			drawHealthBar(targetPacket.health, targetPacket.hp, width * 5 / 8, height * 2 / 6 + 10, 0, 0, 0);
 		} else {
-			drawCenteredString(fontRenderer, "Which move do you want your " + mypixelmon.getName() + " to use against the " + ("wild ") + target.getName()
-					+ "?", width / 2, 10, 0xFFFFFF);
+			drawCenteredString(fontRenderer, "Which move do you want your " + mypixelmon.getName() + " to use against the " + ("wild ") + target.getName() + "?", width / 2, 10, 0xFFFFFF);
 			drawPokemonStats(mypixelmon, width / 8, height * 2 / 6, true);
 			drawPokemonStats(target, width * 5 / 8, height * 2 / 6, false);
 			drawHealthBar(mypixelmon.getHealth(), mypixelmon.getStats().HP, width / 8, height * 2 / 6 + 10, 0, 0, 0);

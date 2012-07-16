@@ -40,6 +40,7 @@ public class LevelManager {
 	public void writeToNBT(NBTTagCompound var1) {
 		var1.setInteger("Level", level);
 		var1.setInteger("EXP", exp);
+		var1.setInteger("EXPToNextLevel", exp);
 	}
 
 	public void readFromNBT(NBTTagCompound var1) {

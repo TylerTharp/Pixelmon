@@ -55,6 +55,8 @@ public class GuiHandler implements IGuiHandler {
 			TileEntityPokemonHealer tileentityfurnace = (TileEntityPokemonHealer) world.getBlockTileEntity(x, y, z);
 			return new GuiHealer(player.inventory, tileentityfurnace);
 		} else if (ID == EnumGui.PokeChecker.getIndex()) {
+			if (ModLoader.getMinecraftInstance().theWorld.isRemote)
+				return new GuiScreenPokeChecker(mod_Pixelmon.serverStorageDisplay.get(x));
 			return new GuiScreenPokeChecker(mod_Pixelmon.pokeballManager.getPlayerStorage(player).getAlreadyExists(x, world).getHelper());
 		}
 		return null;

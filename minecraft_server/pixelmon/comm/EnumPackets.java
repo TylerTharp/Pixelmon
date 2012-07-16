@@ -1,8 +1,9 @@
 package pixelmon.comm;
 
 public enum EnumPackets {
-	ChooseStarter(0), RegisterPlayer(1), AddToStorage(2), RemoveFromStorage(3), SendPokemon(4), AddToTempStore(5), ChooseAttack(6), BattleFinished(7), UpdateStorage(
-			8), HealPokemon(9);
+	ChooseStarter(0), RegisterPlayer(1), AddToStorage(2), RemoveFromStorage(3), SendPokemon(
+			4), AddToTempStore(5), ChooseAttack(6), BattleFinished(7), UpdateStorage(
+			8), HealPokemon(9), SwitchPokemon(10), Flee(11);
 
 	private int index;
 

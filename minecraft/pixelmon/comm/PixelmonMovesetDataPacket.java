@@ -7,9 +7,11 @@ import java.io.IOException;
 import net.minecraft.src.NBTTagCompound;
 import net.minecraft.src.Packet;
 import pixelmon.attacks.Moveset;
+import pixelmon.attacks.Type;
 
 public class PixelmonMovesetDataPacket {
 	public String attackName;
+	public Type type;
 	public int pp;
 	public int ppBase;
 
@@ -20,6 +22,7 @@ public class PixelmonMovesetDataPacket {
 		p.attackName = moveset.get(i).attackName;
 		p.pp = moveset.get(i).pp;
 		p.ppBase = moveset.get(i).ppBase;
+		p.type = moveset.get(i).attackType;
 		return p;
 	}
 
@@ -28,21 +31,24 @@ public class PixelmonMovesetDataPacket {
 			return null;
 		PixelmonMovesetDataPacket p = new PixelmonMovesetDataPacket();
 		p.attackName = nbt.getString("PixelmonMoveName" + i);
+		p.type = Type.parseType(nbt.getInteger("PixelmonMoveType" + i));
 		p.pp = nbt.getInteger("PixelmonMovePP" + i);
 		p.ppBase = nbt.getInteger("PixelmonMovePPBase" + i);
-		return null;
+		return p;
 	}
 
 	public void writeData(DataOutputStream data) throws IOException {
 		Packet.writeString(attackName, data);
-		data.writeInt(pp);
-		data.writeInt(ppBase);
+		data.writeShort(type.getIndex());
+		data.writeShort(pp);
+		data.writeShort(ppBase);
 	}
 	
 	public void readData(DataInputStream data) throws IOException {
 		attackName = Packet.readString(data, 64);
-		pp = data.readInt();
-		ppBase = data.readInt();
+		type = Type.parseType(data.readShort());
+		pp = data.readShort();
+		ppBase = data.readShort();
 	}
 
 }
