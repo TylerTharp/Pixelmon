@@ -9,7 +9,6 @@ public class EntityGeodude extends EntityGroundPixelmon
 	public EntityGeodude(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/geodude.png";
 		init();
 	}
 

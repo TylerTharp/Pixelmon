@@ -9,7 +9,6 @@ public class EntityKrokorok extends EntityGroundPixelmon
 	public EntityKrokorok(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/krokorok.png";
 		init();
 	}
 

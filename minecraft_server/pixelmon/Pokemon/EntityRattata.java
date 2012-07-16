@@ -11,7 +11,6 @@ public class EntityRattata extends EntityGroundPixelmon
 	public EntityRattata(World par1World) 
 	{
 		super(par1World);
-		texture = "/pixelmon/image/rattata.png";
 		init();
 	}
 

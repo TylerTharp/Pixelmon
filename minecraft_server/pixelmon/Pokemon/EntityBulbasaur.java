@@ -10,7 +10,6 @@ public class EntityBulbasaur extends EntityGroundPixelmon
 	public EntityBulbasaur(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/bulbasaur.png";
 		init();
 	}
 

@@ -12,7 +12,6 @@ public class EntityPidgeotto extends EntityFlyingPixelmon
 	public EntityPidgeotto(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/pidgeotto.png";
 		init();
 	}
 

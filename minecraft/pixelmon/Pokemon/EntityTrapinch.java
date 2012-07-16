@@ -12,7 +12,6 @@ public class EntityTrapinch extends EntityGroundPixelmon
 	public EntityTrapinch(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/trapinch.png";
 		init();
 	}
 

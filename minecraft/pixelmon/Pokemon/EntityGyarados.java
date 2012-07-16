@@ -11,7 +11,6 @@ public class EntityGyarados extends EntityWaterPixelmon
 	public EntityGyarados(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/gyarados.png";
 		init();
 	}
 

@@ -9,7 +9,6 @@ public class EntityMagneton extends EntityGroundPixelmon
 	public EntityMagneton(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/magneton.png";
 		init();
 	}
 

@@ -10,7 +10,6 @@ public class EntityCharizard extends EntityGroundPixelmon
 	public EntityCharizard(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/charizard.png";
 		init();
 	}
 
@@ -20,7 +19,7 @@ public class EntityCharizard extends EntityGroundPixelmon
 		isImmuneToFire = true;
 		super.init();
 		this.litUp = true;
-		this.litLevel = 45;
+		this.litLevel = 50;
 	}
 	
 	public void evolve() 

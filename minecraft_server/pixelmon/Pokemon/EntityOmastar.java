@@ -11,7 +11,6 @@ public class EntityOmastar extends EntityWaterPixelmon
 	public EntityOmastar(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/omastar.png";
 		init();
 	}
 

@@ -10,7 +10,6 @@ public class EntityCharmander extends EntityGroundPixelmon
 	public EntityCharmander(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/charmander.png";
 		init();
 	}
 

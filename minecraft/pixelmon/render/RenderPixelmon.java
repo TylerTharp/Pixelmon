@@ -1,4 +1,4 @@
-package pixelmon;
+package pixelmon.render;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.EntityLiving;
@@ -12,6 +12,7 @@ import net.minecraft.src.mod_Pixelmon;
 
 import org.lwjgl.opengl.GL11;
 
+import pixelmon.LevelManager;
 import pixelmon.comm.PixelmonDataPacket;
 import pixelmon.entities.BaseEntityPixelmon;
 import pixelmon.entities.IHaveHelper;

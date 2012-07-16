@@ -10,7 +10,6 @@ public class EntitySquirtle extends EntityGroundPixelmon
 	public EntitySquirtle(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/squirtle.png";
 		moveSpeed = 0.3F;
 		init();
 	}

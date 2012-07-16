@@ -10,7 +10,6 @@ public class EntityLunatone extends EntityGroundPixelmon
 	public EntityLunatone(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/lunatone.png";
 		init();
 	}
 

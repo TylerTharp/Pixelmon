@@ -9,7 +9,6 @@ public class EntityGrowlithe extends EntityGroundPixelmon
 	public EntityGrowlithe(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/growlithe.png";
 		init();
 	}
 

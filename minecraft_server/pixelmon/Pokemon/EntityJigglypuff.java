@@ -10,7 +10,6 @@ public class EntityJigglypuff extends EntityGroundPixelmon
 	public EntityJigglypuff(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/jigglypuff.png";
 		init();
 	}
 

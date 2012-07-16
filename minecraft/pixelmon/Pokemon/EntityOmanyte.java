@@ -14,7 +14,6 @@ public class EntityOmanyte extends EntityWaterPixelmon
 	{
 		super(world);
 		stayNearSurface = false;
-		texture = "/pixelmon/image/omanyte.png";
 		init();
 	}
 

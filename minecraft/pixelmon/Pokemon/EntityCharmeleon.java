@@ -10,7 +10,6 @@ public class EntityCharmeleon extends EntityGroundPixelmon
 	public EntityCharmeleon(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/charmeleon.png";
 		init();
 	}
 

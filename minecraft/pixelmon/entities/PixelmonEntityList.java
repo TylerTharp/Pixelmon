@@ -20,14 +20,14 @@ import net.minecraft.src.World;
 import net.minecraft.src.mod_Pixelmon;
 import net.minecraft.src.forge.MinecraftForge;
 import pixelmon.PixelmonIDList;
-import pixelmon.RenderFreeWaterPixelmon;
-import pixelmon.RenderPixelmon;
-import pixelmon.RenderTrainer;
 import pixelmon.TrainerIDList;
 import pixelmon.Pokemon.*;
 import pixelmon.Trainers.*;
 import pixelmon.database.DatabaseStats;
 import pixelmon.database.DatabaseTrainers;
+import pixelmon.render.RenderFreeWaterPixelmon;
+import pixelmon.render.RenderPixelmon;
+import pixelmon.render.RenderTrainer;
 
 public class PixelmonEntityList {
 	/** Provides a mapping between entity classes and a string */

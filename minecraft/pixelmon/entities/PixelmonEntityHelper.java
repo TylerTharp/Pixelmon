@@ -397,6 +397,7 @@ public class PixelmonEntityHelper {
 		entity.setCaughtBall(getCaughtBall());
 		entity.getMoveset().clear();
 		entity.setIsMale(getIsMale());
+		entity.setIsShiny(getIsShiny());
 		for (int i = 0; i < getMoveset().size(); i++)
 			entity.getMoveset().add(getMoveset().get(i));
 		entity.getStats().IVs.CopyIVs(getStats().IVs);
@@ -512,6 +513,7 @@ public class PixelmonEntityHelper {
 		increaseSize(var1.getFloat("Scale"));
 		setIsFainted(var1.getBoolean("IsFainted"));
 		setIsMale(var1.getBoolean("IsMale"));
+		setIsShiny(var1.getBoolean("IsShiny"));
 		getBattleStats().readFromNBT(var1);
 		getMoveset().readFromNBT(var1);
 	}
@@ -543,6 +545,7 @@ public class PixelmonEntityHelper {
 		var1.setFloat("Scale", getScale());
 		var1.setBoolean("IsFainted", getIsFainted() || getIsDead());
 		var1.setBoolean("IsMale", getIsMale());
+		var1.setBoolean("IsShiny", getIsShiny());
 		if (getBattleStats() != null)
 			getBattleStats().writeToNBT(var1);
 		getMoveset().writeToNBT(var1);
@@ -664,5 +667,20 @@ public class PixelmonEntityHelper {
 			p.posY = pos.yCoord;
 			p.posZ = pos.zCoord;
 		}
+	}
+	
+	private void setIsShiny(boolean isShiny) {
+		if (pixelmon instanceof BaseEntityPixelmon)
+			((BaseEntityPixelmon) pixelmon).setIsShiny(isShiny);
+		else if (pixelmon instanceof EntityWaterPixelmon)
+			((EntityWaterPixelmon) pixelmon).setIsShiny(isShiny);
+	}
+
+	private boolean getIsShiny() {
+		if (pixelmon instanceof BaseEntityPixelmon)
+			return ((BaseEntityPixelmon) pixelmon).getIsShiny();
+		else if (pixelmon instanceof EntityWaterPixelmon)
+			return ((EntityWaterPixelmon) pixelmon).getIsShiny();
+		return false;
 	}
 }

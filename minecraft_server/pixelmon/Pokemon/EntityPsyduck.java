@@ -9,7 +9,6 @@ public class EntityPsyduck  extends EntityGroundPixelmon
 	public EntityPsyduck(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/psyduck.png";
 		init();
 	}
 

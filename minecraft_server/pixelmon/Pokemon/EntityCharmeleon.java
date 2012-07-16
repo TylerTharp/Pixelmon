@@ -10,7 +10,6 @@ public class EntityCharmeleon extends EntityGroundPixelmon
 	public EntityCharmeleon(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/charmeleon.png";
 		init();
 	}
 
@@ -20,7 +19,7 @@ public class EntityCharmeleon extends EntityGroundPixelmon
 		isImmuneToFire = true;
 		super.init();
 		this.litUp = true;
-		this.litLevel = 40;
+		this.litLevel = 45;
 	}
 	
 	public void evolve() 

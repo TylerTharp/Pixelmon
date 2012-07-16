@@ -11,7 +11,6 @@ public class EntitySandile extends EntityGroundPixelmon
 	public EntitySandile(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/sandile.png";
 		init();
 	}
 

@@ -12,7 +12,6 @@ public class EntityMiltank  extends EntityGroundPixelmon
 	public EntityMiltank(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/miltank.png";
 		init();
 	}
 

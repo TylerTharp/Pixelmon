@@ -20,7 +20,6 @@ public class EntityAbra extends EntityGroundPixelmon
 	public EntityAbra(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/abra.png";
 		init();
 	}
 

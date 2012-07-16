@@ -11,7 +11,6 @@ public class EntityOddish extends EntityGroundPixelmon
 	public EntityOddish(World par1World) 
 	{
 		super(par1World);
-		texture = "/pixelmon/image/oddish.png";
 		init();
 	}
 	

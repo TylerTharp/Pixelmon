@@ -10,7 +10,6 @@ public class EntityCaterpie extends EntityGroundPixelmon
 	public EntityCaterpie(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/caterpie.png";
 		init();
 	}
 

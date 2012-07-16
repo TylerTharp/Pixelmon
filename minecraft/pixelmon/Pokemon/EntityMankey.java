@@ -9,7 +9,6 @@ public class EntityMankey  extends EntityGroundPixelmon
 	public EntityMankey(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/mankey.png";
 		init();
 	}
 

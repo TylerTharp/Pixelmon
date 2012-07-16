@@ -9,7 +9,6 @@ public class EntityBlastoise extends EntityGroundPixelmon
 	public EntityBlastoise(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/blastoise.png";
 		init();
 	}
 

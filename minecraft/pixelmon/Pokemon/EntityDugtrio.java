@@ -9,7 +9,6 @@ public class EntityDugtrio extends EntityGroundPixelmon
 	public EntityDugtrio(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/dugtrio.png";
 		init();
 	}
 

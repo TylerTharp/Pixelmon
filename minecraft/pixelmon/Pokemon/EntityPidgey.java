@@ -12,7 +12,6 @@ public class EntityPidgey extends EntityFlyingPixelmon
 	public EntityPidgey(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/pidgey.png";
 		init();
 	}
 

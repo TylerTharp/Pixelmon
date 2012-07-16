@@ -11,7 +11,6 @@ public class EntityWartortle extends EntityGroundPixelmon
 	public EntityWartortle(World par1World) 
 	{
 		super(par1World);
-		texture = "/pixelmon/image/wartortle.png";
 		init();
 	}
 

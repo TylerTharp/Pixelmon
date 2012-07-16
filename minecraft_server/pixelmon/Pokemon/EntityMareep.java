@@ -11,7 +11,6 @@ public class EntityMareep extends EntityGroundPixelmon
 	public EntityMareep(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/mareep.png";
 		init();
 	}
 

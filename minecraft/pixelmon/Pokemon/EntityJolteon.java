@@ -11,7 +11,6 @@ public class EntityJolteon extends EntityGroundPixelmon
 	public EntityJolteon(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/jolteon.png";
 		init();
 	}
 

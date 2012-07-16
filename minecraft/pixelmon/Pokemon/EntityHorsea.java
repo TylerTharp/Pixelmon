@@ -11,7 +11,6 @@ public class EntityHorsea extends EntityWaterPixelmon
 	public EntityHorsea(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/horsea.png";
 		init();
 	}
 

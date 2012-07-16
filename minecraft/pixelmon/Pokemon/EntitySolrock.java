@@ -10,7 +10,6 @@ public class EntitySolrock  extends EntityGroundPixelmon
 	public EntitySolrock(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/solrock.png";
 		init();
 	}
 

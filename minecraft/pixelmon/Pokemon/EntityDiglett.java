@@ -10,7 +10,6 @@ public class EntityDiglett extends EntityGroundPixelmon
 	public EntityDiglett(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/diglett.png";
 		init();
 	}
 

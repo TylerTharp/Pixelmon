@@ -10,7 +10,6 @@ public class EntityEevee extends EntityGroundPixelmon
 	public EntityEevee(World par1World) 
 	{
 		super(par1World);
-		texture = "/pixelmon/image/eevee.png";
 		init();
 	}
 

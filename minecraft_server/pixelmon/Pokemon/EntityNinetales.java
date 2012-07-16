@@ -9,7 +9,6 @@ public class EntityNinetales  extends EntityGroundPixelmon
 	public EntityNinetales(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/ninetails.png";
 		init();
 	}
 

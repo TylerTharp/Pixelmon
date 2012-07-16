@@ -9,7 +9,6 @@ public class EntityGastly extends EntityGroundPixelmon
 	public EntityGastly(World par1World) 
 	{
 		super(par1World);
-		texture = "/pixelmon/image/ghastly.png";
 		init();
 	}
 

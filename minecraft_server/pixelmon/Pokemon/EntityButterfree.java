@@ -10,7 +10,6 @@ public class EntityButterfree extends EntityGroundPixelmon
 	public EntityButterfree(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/butterfree.png";
 		init();
 	}
 

@@ -10,7 +10,6 @@ public class EntityIvysaur extends EntityGroundPixelmon
 	public EntityIvysaur(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/ivysaur.png";
 		init();
 	}
 

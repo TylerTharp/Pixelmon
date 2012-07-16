@@ -10,7 +10,6 @@ public class EntityVulpix  extends EntityGroundPixelmon
 	public EntityVulpix(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/vulpix.png";
 		init();
 	}
 

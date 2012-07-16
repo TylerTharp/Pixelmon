@@ -11,7 +11,6 @@ public class EntityTentacool extends EntityWaterPixelmon
 	public EntityTentacool(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/tentacool.png";
 		init();
 	}
 

@@ -13,7 +13,6 @@ public class EntitySeaking extends EntityWaterPixelmon
 	public EntitySeaking(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/seaking.png";
 		init();
 	}
 

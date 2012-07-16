@@ -9,7 +9,6 @@ public class EntityFlareon extends EntityGroundPixelmon
 	public EntityFlareon(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/flareon.png";
 		init();
 	}
 

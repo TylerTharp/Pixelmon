@@ -12,7 +12,6 @@ public class EntityStaryu extends EntityWaterPixelmon
 	public EntityStaryu(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/staryu.png";
 		init();
 	}
 

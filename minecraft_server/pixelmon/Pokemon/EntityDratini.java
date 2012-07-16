@@ -10,7 +10,6 @@ public class EntityDratini extends EntityWaterPixelmon
 	public EntityDratini(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/dratini.png";
 		init();
 	}
 

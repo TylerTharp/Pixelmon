@@ -9,7 +9,6 @@ public class EntityElectrode extends EntityGroundPixelmon
 	public EntityElectrode(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/electrode.png";
 		init();
 	}
 

@@ -10,7 +10,6 @@ public class EntityMetapod extends EntityGroundPixelmon
 	public EntityMetapod(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/metapod.png";
 		init();
 	}
 

@@ -9,7 +9,6 @@ public class EntitySnorlax extends EntityGroundPixelmon
 	public EntitySnorlax(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/snorlax.png";
 		init();
 	}
 

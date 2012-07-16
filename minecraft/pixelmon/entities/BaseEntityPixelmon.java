@@ -1,6 +1,7 @@
 package pixelmon.entities;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import pixelmon.*;
 import pixelmon.attacks.*;
@@ -61,12 +62,17 @@ public abstract class BaseEntityPixelmon extends EntityTameable implements IHave
 		stats.IVs = PixelmonIVStore.CreateNewIVs();
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
 		dataWatcher.addObject(19, -1); // pokemonId
+		dataWatcher.addObject(20, (short) 0); // pokemonId
 		getNavigator().setAvoidsWater(true);
 		setSize(0.5f, 0.5f);
 		aggression = rand.nextInt(11) - 5;
 	}
 
 	public void init() {
+		if ((new Random()).nextFloat() < 1 / 8192f) {
+			System.out.println("Shiny " + name + " spawned");
+			dataWatcher.updateObject(20, (short) 1);
+		}
 		dataWatcher.addObject(18, lvlString);
 		moveSpeed = getMoveSpeed();// + getMoveSpeed();
 		stats.BaseStats = DatabaseStats.GetBaseStats(name);
@@ -81,6 +87,14 @@ public abstract class BaseEntityPixelmon extends EntityTameable implements IHave
 
 		helper.getLvl();
 		setSize(stats.BaseStats.Height, width);
+	}
+
+	@Override
+	public String getTexture() {
+		if (dataWatcher.getWatchableObjectShort(20) == 1)
+			return "/pixelmon/texture/shiny/shiny" + name.toLowerCase() + ".png";
+		else
+			return "/pixelmon/texture/" + name.toLowerCase() + ".png";
 	}
 
 	BattleController bc;
@@ -398,5 +412,16 @@ public abstract class BaseEntityPixelmon extends EntityTameable implements IHave
 
 	public void setPokemonId(int id) {
 		dataWatcher.updateObject(19, id);
+	}
+
+	public boolean getIsShiny() {
+		return dataWatcher.getWatchableObjectShort(20) == 1;
+	}
+
+	public void setIsShiny(boolean isShiny) {
+		if (isShiny)
+			dataWatcher.updateObject(20, (short) 1);
+		else
+			dataWatcher.updateObject(20, (short) 0);
 	}
 }

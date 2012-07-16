@@ -9,7 +9,6 @@ public class EntityVibrava extends EntityGroundPixelmon
 	public EntityVibrava(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/vibrava.png";
 		init();
 	}
 

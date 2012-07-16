@@ -10,7 +10,6 @@ public class EntityPikachu extends EntityGroundPixelmon
 	public EntityPikachu(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/pikachu.png";
 		init();
 	}
 

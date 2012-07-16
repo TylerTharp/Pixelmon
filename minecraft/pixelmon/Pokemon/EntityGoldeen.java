@@ -13,7 +13,6 @@ public class EntityGoldeen extends EntityWaterPixelmon
 	public EntityGoldeen(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/goldeen.png";
 		init();
 	}
 

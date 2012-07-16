@@ -7,7 +7,7 @@ public class EntityTrainerYoungster extends EntityTrainer {
 
 	public EntityTrainerYoungster(World par1World) {
 		super(par1World);
-		texture = "/pixelmon/image/youngster1.png";
+		texture = "/pixelmon/texture/youngster1.png";
 		init();
 	}
 

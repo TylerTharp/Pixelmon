@@ -10,7 +10,6 @@ public class EntityEkans extends EntityGroundPixelmon
 	public EntityEkans(World par1World) 
 	{
 		super(par1World);
-		texture = "/pixelmon/image/ekans.png";
 		init();
 	}
 

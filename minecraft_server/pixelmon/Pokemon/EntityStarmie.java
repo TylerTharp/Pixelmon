@@ -12,7 +12,6 @@ public class EntityStarmie extends EntityWaterPixelmon
 	public EntityStarmie(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/starmie.png";
 		init();
 	}
 

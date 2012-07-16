@@ -13,7 +13,6 @@ public class EntityMagikarp extends EntityWaterPixelmon
 	public EntityMagikarp(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/magikarp.png";
 		init();
 	}
 

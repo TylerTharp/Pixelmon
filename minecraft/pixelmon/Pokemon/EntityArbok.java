@@ -10,7 +10,6 @@ public class EntityArbok extends EntityGroundPixelmon
 	public EntityArbok(World par1World) 
 	{
 		super(par1World);
-		texture = "/pixelmon/image/arbok.png";
 		init();
 	}
 

@@ -9,7 +9,6 @@ public class EntityVenusaur extends EntityGroundPixelmon
 	public EntityVenusaur(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/venusaur.png";
 		init();
 	}
 

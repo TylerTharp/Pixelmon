@@ -11,7 +11,6 @@ public class EntityVoltorb extends EntityGroundPixelmon
 	public EntityVoltorb(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/voltorb.png";
 		init();
 	}
 

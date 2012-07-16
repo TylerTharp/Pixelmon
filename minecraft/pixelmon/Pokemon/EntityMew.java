@@ -9,7 +9,6 @@ public class EntityMew extends EntityGroundPixelmon
 	public EntityMew(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/mew.png";
 		init();
 	}
 

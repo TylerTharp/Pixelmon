@@ -8,7 +8,6 @@ public class EntityZubat extends EntityFlyingPixelmon {
 
 	public EntityZubat(World par1World) {
 		super(par1World);
-		texture = "/pixelmon/image/zubat.png";
 		init();
 	}
 

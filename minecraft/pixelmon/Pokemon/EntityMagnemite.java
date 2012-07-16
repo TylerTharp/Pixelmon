@@ -10,7 +10,6 @@ public class EntityMagnemite  extends EntityGroundPixelmon
 	public EntityMagnemite(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/magnemite.png";
 		init();
 	}
 

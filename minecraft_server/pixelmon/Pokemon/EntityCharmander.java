@@ -10,7 +10,6 @@ public class EntityCharmander extends EntityGroundPixelmon
 	public EntityCharmander(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/charmander.png";
 		init();
 	}
 
@@ -20,7 +19,7 @@ public class EntityCharmander extends EntityGroundPixelmon
 		isImmuneToFire = true;
 		super.init();
 		this.litUp = true;
-		this.litLevel = 35;
+		this.litLevel = 40;
 	}
 	
 	public void evolve() 

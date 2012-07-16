@@ -1,6 +1,7 @@
 package pixelmon.entities;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import pixelmon.*;
 import pixelmon.attacks.*;
@@ -55,12 +56,17 @@ public abstract class BaseEntityPixelmon extends EntityTameable implements IHave
 		stats.IVs = PixelmonIVStore.CreateNewIVs();
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
 		dataWatcher.addObject(19, -1);
+		dataWatcher.addObject(19, (short) 0);
 		getNavigator().setAvoidsWater(true);
 		setSize(0.5f, 0.5f);
 		aggression = rand.nextInt(11) - 5;
 	}
 
 	public void init() {
+		if ((new Random()).nextFloat() < 1 / 8192f) {
+			System.out.println("Shiny " + name + " spawned");
+			dataWatcher.updateObject(20, (short) 1);
+		}
 		dataWatcher.addObject(18, "");
 		moveSpeed = getMoveSpeed();// + getMoveSpeed();
 		stats.BaseStats = DatabaseStats.GetBaseStats(name);
@@ -382,12 +388,23 @@ public abstract class BaseEntityPixelmon extends EntityTameable implements IHave
 	public void setLvlString(String string) {
 		dataWatcher.updateObject(18, string);
 	}
-	
+
 	public int getPokemonId() {
 		return dataWatcher.getWatchableObjectInt(19);
 	}
 
 	public void setPokemonId(int id) {
 		dataWatcher.updateObject(19, id);
+	}
+
+	public boolean getIsShiny() {
+		return dataWatcher.getWatchableObjectShort(20) == 1;
+	}
+
+	public void setIsShiny(boolean isShiny) {
+		if (isShiny)
+			dataWatcher.updateObject(20, (short) 1);
+		else
+			dataWatcher.updateObject(20, (short) 0);
 	}
 }

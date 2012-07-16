@@ -10,7 +10,6 @@ public class EntityCharizard extends EntityGroundPixelmon
 	public EntityCharizard(World world)
 	{
 		super(world);
-		texture = "/pixelmon/image/charizard.png";
 		init();
 	}
 

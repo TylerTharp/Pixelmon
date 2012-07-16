@@ -1,4 +1,4 @@
-package pixelmon;
+package pixelmon.render;
 
 import net.minecraft.src.EntityLiving;
 import net.minecraft.src.ModelBase;

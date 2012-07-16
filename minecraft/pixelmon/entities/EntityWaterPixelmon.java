@@ -1,6 +1,7 @@
 package pixelmon.entities;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import pixelmon.ChatHandler;
 import pixelmon.LevelManager;
@@ -61,6 +62,7 @@ public abstract class EntityWaterPixelmon extends EntityTameableWaterPokemon imp
 		setSize(0.5f, 0.5f);
 		stats.IVs = PixelmonIVStore.CreateNewIVs();
 		dataWatcher.addObject(19, -1);
+		dataWatcher.addObject(20, (short) 0);
 	}
 
 	public Stats getStats() {
@@ -68,6 +70,10 @@ public abstract class EntityWaterPixelmon extends EntityTameableWaterPokemon imp
 	}
 
 	public void init() {
+		if ((new Random()).nextFloat() < 1 / 8192f) {
+			System.out.println("Shiny " + name + " spawned");
+			dataWatcher.updateObject(20, (short) 1);
+		}
 		dataWatcher.addObject(18, "");
 		stats.BaseStats = DatabaseStats.GetBaseStats(name);
 		type.add(stats.BaseStats.Type1);
@@ -81,6 +87,14 @@ public abstract class EntityWaterPixelmon extends EntityTameableWaterPokemon imp
 		setSize(stats.BaseStats.Height, width);
 		helper.getLvl();
 		this.field_21080_l = 1.0F / (this.rand.nextFloat() + 1.0F) * swimFrequency;
+	}
+
+	@Override
+	public String getTexture() {
+		if (dataWatcher.getWatchableObjectShort(20) == 1)
+			return "/pixelmon/texture/shiny/shiny" + name.toLowerCase() + ".png";
+		else
+			return "/pixelmon/texture/" + name.toLowerCase() + ".png";
 	}
 
 	public void loadMoveset() {
@@ -352,12 +366,23 @@ public abstract class EntityWaterPixelmon extends EntityTameableWaterPokemon imp
 	public String getLvlString() {
 		return dataWatcher.getWatchableObjectString(18);
 	}
-	
+
 	public int getPokemonId() {
 		return dataWatcher.getWatchableObjectInt(19);
 	}
-	
+
 	public void setPokemonId(int id) {
 		dataWatcher.updateObject(19, id);
+	}
+
+	public boolean getIsShiny() {
+		return dataWatcher.getWatchableObjectShort(20) == 1;
+	}
+
+	public void setIsShiny(boolean isShiny) {
+		if (isShiny)
+			dataWatcher.updateObject(20, (short) 1);
+		else
+			dataWatcher.updateObject(20, (short) 0);
 	}
 }
