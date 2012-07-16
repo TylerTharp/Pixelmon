@@ -68,6 +68,7 @@ public class GuiPC extends GuiScreen {
 					partySlots[i].setPokemon(p);
 				}
 			}
+			sort();
 		} else {
 			mouseSlot = new SlotPC(0, 0, (NBTTagCompound) null);
 			for (int i = 0; i < mod_Pixelmon.computerManager.getBoxList().length; i++) {
@@ -95,6 +96,26 @@ public class GuiPC extends GuiScreen {
 				if (n != null) {
 					partySlots[i].setPokemon(n);
 				}
+			}
+		}
+	}
+	
+	public void sort(){
+		if(!ModLoader.getMinecraftInstance().theWorld.isRemote){
+			return;
+		}
+		for(int i = 0; i < pcSlots.length; i++){
+			for(int j = 0; j < pcSlots[i].length; j++){
+				PixelmonDataPacket p = pcSlots[i][j].pokemonData;
+				if(p != null){
+					System.out.println(p.order);
+				}
+			}
+		}
+		for(int i = 0; i < partySlots.length; i++){
+			PixelmonDataPacket p = partySlots[i].pokemonData;
+			if(p != null){
+				System.out.println(p.order);
 			}
 		}
 	}
@@ -169,17 +190,17 @@ public class GuiPC extends GuiScreen {
 				mouseSlot.clearPokemon();
 			} else if (new Rectangle(checkX, checkY, 32, 32).contains(par1, par2)) {
 				if(ModLoader.getMinecraftInstance().theWorld.isRemote){
-					if (mouseSlot.pokemonData != null) {
-						for (int i = 0; i < mod_Pixelmon.computerManager.getBoxList().length; i++) {
-							ComputerBox c = mod_Pixelmon.computerManager.getBoxList()[i];
-							if (c.hasSpace()) {
-								int j = c.getNextSpace();
-								//IHaveHelper e = (IHaveHelper) PixelmonEntityList.createEntityFromNBT(mouseSlot.pokemonData, ModLoader.getMinecraftInstance().theWorld);
-								mc.displayGuiScreen(new GuiScreenPokeCheckerPC(e.getHelper(), this, i, j));
-								break;
-							}
-						}
-					}
+//					if (mouseSlot.pokemonData != null) {
+//						for (int i = 0; i < mod_Pixelmon.computerManager.getBoxList().length; i++) {
+//							ComputerBox c = mod_Pixelmon.computerManager.getBoxList()[i];
+//							if (c.hasSpace()) {
+//								int j = c.getNextSpace();
+//								//IHaveHelper e = (IHaveHelper) PixelmonEntityList.createEntityFromNBT(mouseSlot.pokemonData, ModLoader.getMinecraftInstance().theWorld);
+//								mc.displayGuiScreen(new GuiScreenPokeCheckerPC(e.getHelper(), this, i, j));
+//								break;
+//							}
+//						}
+//					}
 				}
 				else{
 					if (mouseSlot.pokemon != null) {
