@@ -163,7 +163,7 @@ public class mod_Pixelmon extends NetworkMod {
 	 */
 
 	public String getVersion() {
-		return "version 1.4.2a for 1.2.5";
+		return "version 1.4.3 for 1.2.5";
 	}
 
 	private static int configurationProperties() {

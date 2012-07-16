@@ -11,6 +11,8 @@ import net.minecraft.src.mod_Pixelmon;
 import org.lwjgl.input.Keyboard;
 
 import pixelmon.attacks.BattleController;
+import pixelmon.comm.EnumPackets;
+import pixelmon.comm.PacketCreator;
 import pixelmon.entities.PixelmonEntityHelper;
 import pixelmon.storage.PokeballManager;
 
@@ -68,8 +70,12 @@ public class GuiChoosePokemon extends GuiScreen {
 			mc.displayGuiScreen(null);
 			mc.setIngameFocus();
 		} else {
-			if (parentGui!=null)
-				;
+			
+			if (parentGui!=null){
+				if (par1GuiButton.id<6){
+					ModLoader.sendPacket(PacketCreator.createPacket(EnumPackets.SwitchPokemon, par1GuiButton.id));	
+				}
+			}
 			else
 				mc.displayGuiScreen(parentGui);
 		}
