@@ -191,17 +191,16 @@ public class GuiPC extends GuiContainer {
 				mouseSlot.clearPokemon();
 			} else if (new Rectangle(checkX, checkY, 32, 32).contains(par1, par2)) {
 				if(ModLoader.getMinecraftInstance().theWorld.isRemote){
-//					if (mouseSlot.pokemonData != null) {
-//						for (int i = 0; i < mod_Pixelmon.computerManager.getBoxList().length; i++) {
-//							ComputerBox c = mod_Pixelmon.computerManager.getBoxList()[i];
-//							if (c.hasSpace()) {
-//								int j = c.getNextSpace();
-//								//IHaveHelper e = (IHaveHelper) PixelmonEntityList.createEntityFromNBT(mouseSlot.pokemonData, ModLoader.getMinecraftInstance().theWorld);
-//								mc.displayGuiScreen(new GuiScreenPokeCheckerPC(e.getHelper(), this, i, j));
-//								break;
-//							}
-//						}
-//					}
+					if (mouseSlot.pokemonData != null) {
+						for (int i = 0; i < mod_Pixelmon.computerManager.getBoxList().length; i++) {
+							ComputerBox c = mod_Pixelmon.computerManager.getBoxList()[i];
+							if (c.hasSpace()) {
+								int j = c.getNextSpace();
+								mc.displayGuiScreen(new GuiScreenPokeCheckerPC(mouseSlot.pokemonData, this, i, j));
+								break;
+							}
+						}
+					}
 				}
 				else{
 					if (mouseSlot.pokemon != null) {
@@ -371,6 +370,7 @@ public class GuiPC extends GuiContainer {
 		if (ModLoader.getMinecraftInstance().theWorld.isRemote) {
 			int image = 0;
 			for (int a = 0; a < pcSlots[boxNumber].length; a++) {
+				image = 0;
 				SlotPCPC slot = pcSlots[boxNumber][a];
 				if (slot.pokemonData == null) {
 					continue;
@@ -386,6 +386,7 @@ public class GuiPC extends GuiContainer {
 				drawImageQuad(image, slot.x, slot.y, 30f, 30f, 0f, 0f, 1f, 1f);
 			}
 			for (int a = 0; a < partySlots.length; a++) {
+				image = 0;
 				SlotPCParty slot = partySlots[a];
 				if (slot.pokemonData == null) {
 					continue;
@@ -400,8 +401,8 @@ public class GuiPC extends GuiContainer {
 				image = ModLoader.getMinecraftInstance().renderEngine.getTexture("/pixelmon/sprites/" + numString + ".png");
 				drawImageQuad(image, slot.x, slot.y, 30f, 30f, 0f, 0f, 1f, 1f);
 			}
+			image = 0;
 			if (mouseSlot.pokemonData != null) {
-				drawImageQuad(image, mouseSlot.x, mouseSlot.y, 30f, 30f, 0f, 0f, 1f, 1f);
 				PixelmonDataPacket p = mouseSlot.pokemonData;
 				String numString = "";
 				if (p.nationalPokedexNumber < 10)
