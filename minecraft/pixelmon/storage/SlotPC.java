@@ -43,6 +43,7 @@ public class SlotPC {
 
 	public void clearPokemon() {
 		pokemon = null;
+		pokemonData = null;
 	}
 
 	public void setPokemon(NBTTagCompound n) {
