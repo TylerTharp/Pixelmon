@@ -441,6 +441,30 @@ public class mod_Pixelmon extends NetworkMod {
 	}
 
 	public boolean onTickInGUI(float f, Minecraft mc, GuiScreen gui) {
+		if(gui != null && gui instanceof GuiContainerCreative){
+			ContainerCreative container = (ContainerCreative) ((GuiContainerCreative) gui).inventorySlots;
+			int pos = 0;
+			boolean found = false;
+			for(Object o: container.itemList){
+				ItemStack i = (ItemStack) o;
+				int id = i.getItem().shiftedIndex;
+				if(id == healerIdle.blockID || id == leafStoneOre.blockID || id == thunderStoneOre.blockID || id == pc.blockID){
+					found = true;
+				}
+				else if(id < 256){
+					pos++;
+				}
+			}
+			if(!found){
+				container.itemList.add(pos, new ItemStack(healerIdle, 1));
+				pos++;
+				container.itemList.add(pos, new ItemStack(leafStoneOre, 1));
+				pos++;
+				container.itemList.add(pos, new ItemStack(thunderStoneOre, 1));
+				pos++;
+				container.itemList.add(pos, new ItemStack(pc, 1));
+			}
+		}
 		return true;
 	}
 
