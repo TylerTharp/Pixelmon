@@ -45,7 +45,10 @@ public class GuiScreenPokeChecker extends GuiScreen {
 			mc.setIngameFocus();
 			break;
 		case 1:
-			mc.displayGuiScreen(new GuiRenamePokemon(target, this));
+			if (ModLoader.getMinecraftInstance().theWorld.isRemote)
+				mc.displayGuiScreen(new GuiRenamePokemon(targetPacket, this));
+			else
+				mc.displayGuiScreen(new GuiRenamePokemon(target, this));
 		}
 
 	}

@@ -40,5 +40,22 @@ public class PacketCreator {
 		packet.data = bytes.toByteArray();
 		packet.length = packet.data.length;
 		return packet;
+	}
+	
+	public static Packet createStringPacket(EnumPackets epacket, int i1, String s1){
+		ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+		DataOutputStream data = new DataOutputStream(bytes);
+		Packet250CustomPayload packet = new Packet250CustomPayload();
+		try{
+			data.writeInt(epacket.getIndex());
+			data.writeInt(i1);
+			Packet.writeString(s1, data);
+		}catch(IOException e){
+			e.printStackTrace();
 		}
+		packet.channel="Pixelmon";
+		packet.data = bytes.toByteArray();
+		packet.length = packet.data.length;
+		return packet;
+	}
 }
