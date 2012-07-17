@@ -5,6 +5,7 @@ import java.util.Random;
 
 import pixelmon.ChatHandler;
 import pixelmon.LevelManager;
+import pixelmon.WorldHelper;
 import pixelmon.attacks.BattleController;
 import pixelmon.attacks.IBattleParticipant;
 import pixelmon.attacks.Moveset;
@@ -52,6 +53,8 @@ public abstract class EntityWaterPixelmon extends EntityTameableWaterPokemon imp
 	public float swimSpeed = 1.5f;
 	public float decayRate = 0.99f;
 	public int refreshRate = 100;
+	protected int depthRangeStart=0;
+	protected int depthRangeEnd=100;
 	private boolean isSwimming = true;
 	public boolean isMale;
 	public PixelmonEntityHelper helper = new PixelmonEntityHelper(this);
@@ -251,7 +254,9 @@ public abstract class EntityWaterPixelmon extends EntityTameableWaterPokemon imp
 	 * entity.
 	 */
 	public boolean getCanSpawnHere() {
-		return true;
+		int wdepth= WorldHelper.getWaterDepth((int)posX, (int)posY, (int)posZ, worldObj);
+		if ( wdepth >= depthRangeStart && wdepth < depthRangeEnd) return true;
+		return false;
 	}
 
 	public abstract void evolve();

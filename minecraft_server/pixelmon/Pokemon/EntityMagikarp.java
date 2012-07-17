@@ -21,6 +21,8 @@ public class EntityMagikarp extends EntityWaterPixelmon
 		name = "Magikarp";
 		isImmuneToFire = false;
 		super.init();
+		depthRangeStart =0;
+		depthRangeEnd=5;
 	}
 
 	public float getMoveSpeed() 
