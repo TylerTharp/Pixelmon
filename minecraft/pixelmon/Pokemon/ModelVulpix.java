@@ -44,21 +44,22 @@ public class ModelVulpix extends ModelBase
     ModelRenderer TFluffMiddleL;
     ModelRenderer TFluffOuterL;
     ModelRenderer TFluffOuterR;
-    ModelRenderer Head;
+    ModelRenderer HEADBASE;
+    ModelRenderer Bangs;
+    ModelRenderer HCurlR;
     ModelRenderer HCurlL;
     ModelRenderer HCurlM;
-    ModelRenderer HCurlR;
     ModelRenderer Ear1;
     ModelRenderer Ear2;
-    ModelRenderer Nose;
     ModelRenderer Shape1;
-    ModelRenderer Bangs;
+    ModelRenderer Nose;
+    ModelRenderer Head;
   
   public ModelVulpix()
   {
     textureWidth = 64;
     textureHeight = 32;
-    setTextureOffset("Head.Head_pieces", 0, 0);
+    setTextureOffset("HEADBASE.WhateverIwant", 0, 0);
     
       Body = new ModelRenderer(this, 27, 20);
       Body.addBox(-4F, -2F, -3F, 4, 5, 4);
@@ -206,64 +207,82 @@ public class ModelVulpix extends ModelBase
       TFluffOuterR.setTextureSize(64, 32);
       TFluffOuterR.mirror = true;
       setRotation(TFluffOuterR, 2.443461F, 0F, -1.48353F);
-    Head = new ModelRenderer(this, "Head");
-    Head.setRotationPoint(0F, 17F, -3F);
-    setRotation(Head, 0F, 0F, 0F);
-    Head.mirror = true;
-      Head = new ModelRenderer(this, 10, 1);
-      Head.addBox(-2F, -4F, -4F, 4, 4, 4);
-      Head.setRotationPoint(0F, 0F, 0F);
-      Head.setTextureSize(64, 32);
-      Head.mirror = true;
-      setRotation(Head, 0F, 0F, 0F);
-      Ear1 = new ModelRenderer(this, 10, 16);
-      Ear1.addBox(-11F, -10.8F, -1.6F, 2, 3, 1);
-      Ear1.setRotationPoint(0F, 0F, 0F);
-      Ear1.setTextureSize(64, 32);
-      Ear1.mirror = true;
-      setRotation(Ear1, 0F, 0.4363323F, -0.8726646F);
-      Ear2 = new ModelRenderer(this, 10, 16);
-      Ear2.addBox(9F, -10.8F, -1.6F, 2, 3, 1);
-      Ear2.setRotationPoint(0F, 0F, 0F);
-      Ear2.setTextureSize(64, 32);
-      Ear2.mirror = true;
-      setRotation(Ear2, 0F, -0.4363323F, 0.8726646F);
-      HCurlM = new ModelRenderer(this, 1, 4);
-      HCurlM.addBox(-0.5F, -8.5F, -7.4F, 1, 3, 3);
-      HCurlM.setRotationPoint(0F, 0F, 0F);
-      HCurlM.setTextureSize(64, 32);
-      HCurlM.mirror = true;
-      setRotation(HCurlM, 0.3490659F, 0F, 0F);
-      HCurlL = new ModelRenderer(this, 1, 4);
-      HCurlL.addBox(6.15F, -10.1F, -6.7F, 1, 3, 3);
-      HCurlL.setRotationPoint(0F, 0F, 0F);
-      HCurlL.setTextureSize(64, 32);
-      HCurlL.mirror = true;
-      setRotation(HCurlL, 0.3490659F, -0.2617994F, 0.6108652F);
-      HCurlR = new ModelRenderer(this, 1, 4);
-      HCurlR.addBox(-7.15F, -10.1F, -6.7F, 1, 3, 3);
-      HCurlR.setRotationPoint(0F, 0F, 0F);
-      HCurlR.setTextureSize(64, 32);
-      HCurlR.mirror = true;
-      setRotation(HCurlR, 0.3490659F, 0.2617994F, -0.6108652F);
-      Nose = new ModelRenderer(this, 1, 11);
-      Nose.addBox(-1F, -2.5F, -6F, 2, 2, 2);
-      Nose.setRotationPoint(0F, 0F, 0F);
-      Nose.setTextureSize(64, 32);
-      Nose.mirror = true;
-      setRotation(Nose, 0F, 0F, 0F);
+    HEADBASE = new ModelRenderer(this, "HEADBASE");
+    HEADBASE.setRotationPoint(0F, 16F, -4F);
+    setRotation(HEADBASE, 0F, 0F, 0F);
+    HEADBASE.mirror = true;
+      ModelRenderer Bangs = new ModelRenderer(this, 1, 1);
       Bangs = new ModelRenderer(this, 1, 1);
-      Bangs.addBox(-9F, -7F, -3.65F, 2, 0, 2);
-      Bangs.setRotationPoint(0F, 0F, 0F);
+      Bangs.addBox(-2F, 0F, -2F, 2, 0, 2);
+      Bangs.setRotationPoint(-0.2F, -3.8F, -0.8F);
       Bangs.setTextureSize(64, 32);
       Bangs.mirror = true;
       setRotation(Bangs, 0.1919862F, -0.9250245F, -0.2792527F);
+      ModelRenderer HCurlR = new ModelRenderer(this, 1, 4);
+      HCurlR = new ModelRenderer(this, 1, 4);
+      HCurlR.addBox(-0.5F, -2.5F, -2F, 1, 3, 3);
+      HCurlR.setRotationPoint(0F, -2.8F, -0.2F);
+      HCurlR.setTextureSize(64, 32);
+      HCurlR.mirror = true;
+      setRotation(HCurlR, 0.3490659F, 0.2617994F, -0.6108652F);
+      ModelRenderer HCurlL = new ModelRenderer(this, 1, 4);
+      HCurlL = new ModelRenderer(this, 1, 4);
+      HCurlL.addBox(-0.5F, -2.5F, -2F, 1, 3, 3);
+      HCurlL.setRotationPoint(0F, -2.8F, -0.2F);
+      HCurlL.setTextureSize(64, 32);
+      HCurlL.mirror = true;
+      setRotation(HCurlL, 0.3490659F, -0.2617994F, 0.6108652F);
+      ModelRenderer HCurlM = new ModelRenderer(this, 1, 4);
+      HCurlM = new ModelRenderer(this, 1, 4);
+      HCurlM.addBox(-0.5F, -2.5F, -2F, 1, 3, 3);
+      HCurlM.setRotationPoint(0F, -2.8F, -0.2F);
+      HCurlM.setTextureSize(64, 32);
+      HCurlM.mirror = true;
+      setRotation(HCurlM, 0.3490659F, 0F, 0F);
+      ModelRenderer Ear2 = new ModelRenderer(this, 10, 16);
+      Ear2 = new ModelRenderer(this, 10, 16);
+      Ear2.addBox(-1F, -3F, -0.5F, 2, 3, 1);
+      Ear2.setRotationPoint(1.2F, -2.5F, 0F);
+      Ear2.setTextureSize(64, 32);
+      Ear2.mirror = true;
+      setRotation(Ear2, 0F, -0.4363323F, 0.8726646F);
+      ModelRenderer Ear1 = new ModelRenderer(this, 10, 16);
+      Ear1 = new ModelRenderer(this, 10, 16);
+      Ear1.addBox(-1F, -3F, -0.5F, 2, 3, 1);
+      Ear1.setRotationPoint(-1.2F, -2.5F, 0F);
+      Ear1.setTextureSize(64, 32);
+      Ear1.mirror = true;
+      setRotation(Ear1, 0F, 0.4363323F, -0.8726646F);
+      ModelRenderer Shape1 = new ModelRenderer(this, 26, 0);
       Shape1 = new ModelRenderer(this, 26, 0);
-      Shape1.addBox(-0.5F, -2.6F, -6.2F, 1, 1, 4);
-      Shape1.setRotationPoint(0F, 0F, 0F);
+      Shape1.addBox(-0.5F, -0.5F, -3F, 1, 1, 4);
+      Shape1.setRotationPoint(0F, -1.1F, -2.2F);
       Shape1.setTextureSize(64, 32);
       Shape1.mirror = true;
       setRotation(Shape1, 0F, 0F, 0F);
+      ModelRenderer Nose = new ModelRenderer(this, 1, 11);
+      Nose = new ModelRenderer(this, 1, 11);
+      Nose.addBox(-1F, -1F, -2F, 2, 2, 2);
+      Nose.setRotationPoint(0F, -0.5F, -3F);
+      Nose.setTextureSize(64, 32);
+      Nose.mirror = true;
+      setRotation(Nose, 0F, 0F, 0F);
+      ModelRenderer Head = new ModelRenderer(this, 10, 1);
+      Head = new ModelRenderer(this, 10, 1);
+      Head.addBox(-3F, -3F, -2F, 4, 4, 4);
+      Head.setRotationPoint(1F, 0F, -1F);
+      Head.setTextureSize(64, 32);
+      Head.mirror = true;
+      setRotation(Head, 0F, 0F, 0F);
+      HEADBASE.addChild(Bangs);
+      HEADBASE.addChild(HCurlR);
+      HEADBASE.addChild(HCurlL);
+      HEADBASE.addChild(HCurlM);
+      HEADBASE.addChild(Ear1);
+      HEADBASE.addChild(Ear2);
+      HEADBASE.addChild(Shape1);
+      HEADBASE.addChild(Nose);
+      HEADBASE.addChild(Head);
   }
   
   public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
@@ -294,16 +313,7 @@ public class ModelVulpix extends ModelBase
     TFluffMiddleL.render(f5);
     TFluffOuterL.render(f5);
     TFluffOuterR.render(f5);
-    Head.render(f5);
-    Ear1.render(f5);
-    Ear2.render(f5);
-    HCurlL.render(f5);
-    HCurlM.render(f5);
-    HCurlR.render(f5);
-    Nose.render(f5);
-    Shape1.render(f5);
-    Bangs.render(f5);
-    
+    HEADBASE.render(f5);
   }
   
   private void setRotation(ModelRenderer model, float x, float y, float z)
@@ -316,15 +326,6 @@ public class ModelVulpix extends ModelBase
   public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5)
   {
     super.setRotationAngles(f, f1, f2, f3, f4, f5);
-    
-    Leg1.rotateAngleX = MathHelper.cos(f * 0.6662F) * 0.4F * f1;
-    Leg2.rotateAngleX = MathHelper.cos(f * 0.6662F + (float)Math.PI) * 0.4F * f1;
-    Leg1.rotateAngleY = 0.0F;
-    Leg2.rotateAngleY = 0.0F;
-    Leg4.rotateAngleX = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
-    Leg3.rotateAngleX = MathHelper.cos(f * 0.6662F + (float)Math.PI) * 0.4F * f1;
-    Leg4.rotateAngleY = 0.0F;
-    Leg3.rotateAngleY = 0.0F;
   }
 
 }
