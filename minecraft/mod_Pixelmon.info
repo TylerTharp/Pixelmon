@@ -1,0 +1,20 @@
+[
+{
+  "modid" : "mod_Pixelmon",
+  "name" : "Pixelmon",
+  "version" : "1.5",
+  "url" : "http://pixelmon.freeforums.org/index.php",
+  "credits" : "Lots of people have contributed to MinecraftForge",
+  "authors": [
+    "LexManos",
+    "Eloraam",
+    "Spacetoad"
+  ],
+  "description": "Minecraft Forge is a common open source API allowing a broad range of mods to work cooperatively together.\nIt allows many mods to be created without them editing the main Minecraft code.",
+  "logoFile" : "/forge_logo.png",
+  "updateUrl" : "http://pixelmon.freeforums.org/releases-f22.html",
+  "parent" : "",
+  "screenshots": [
+  ]
+}
+]
