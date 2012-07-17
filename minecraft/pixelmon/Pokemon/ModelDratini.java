@@ -12,6 +12,7 @@
 package pixelmon.Pokemon;
 
 import net.minecraft.src.Entity;
+import net.minecraft.src.MathHelper;
 import net.minecraft.src.ModelBase;
 import net.minecraft.src.ModelRenderer;
 
@@ -381,6 +382,33 @@ public class ModelDratini extends ModelBase
   public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5)
   {
     super.setRotationAngles(f, f1, f2, f3, f4, f5);
+    float PI = (float) Math.PI;
+   	float TopAngle = 1 * PI / 4;
+   	float initialOffset = PI / 2;
+   	float offset = PI * 3 / 11;
+   	float animationSpeed = -0.35f;
+   	float dampingFactor = 0.99f;
+   	float currentAngle = 0;
+   	TAIL1PIECE.rotateAngleY = ((float) Math.pow(dampingFactor, -5)) * TopAngle * (MathHelper.cos(animationSpeed * f + initialOffset));
+   	currentAngle = TAIL1PIECE.rotateAngleY;
+   	TAIL2PIECE.rotateAngleY = ((float) Math.pow(dampingFactor, 2)) * TopAngle * (MathHelper.cos(animationSpeed * f + 1f * offset + initialOffset))
+   			- currentAngle;
+   	currentAngle = TAIL1PIECE.rotateAngleY + TAIL2PIECE.rotateAngleY;
+   	TAIL3PIECE.rotateAngleY = ((float) Math.pow(dampingFactor, 3)) * TopAngle
+   			* (MathHelper.cos(animationSpeed * f + 1.1f * 2 * offset + PI / 9 + initialOffset)) - currentAngle;
+   	currentAngle = TAIL1PIECE.rotateAngleY + TAIL2PIECE.rotateAngleY + TAIL3PIECE.rotateAngleY;
+   	TAIL4PIECE.rotateAngleY = ((float) Math.pow(dampingFactor, 5)) * TopAngle
+   			* (MathHelper.cos(animationSpeed * f + 1.2f * 3 * offset + 2 * PI / 9 + initialOffset)) - currentAngle;// -PI/6;
+   	currentAngle = TAIL1PIECE.rotateAngleY + TAIL2PIECE.rotateAngleY + TAIL3PIECE.rotateAngleY + TAIL4PIECE.rotateAngleY;
+   	TAIL5PIECE.rotateAngleY = ((float) Math.pow(dampingFactor, 6)) * TopAngle
+   			* (MathHelper.cos(animationSpeed * f + 1.3f * 4 * offset + PI / 9 + initialOffset)) - currentAngle;// -PI/7;
+   	currentAngle = currentAngle + TAIL5PIECE.rotateAngleY;
+   	TAIL7PIECE.rotateAngleY = ((float) Math.pow(dampingFactor, 7)) * TopAngle * (MathHelper.cos(animationSpeed * f + 1.4f * 5 * offset + initialOffset))
+   			- currentAngle;// -PI/8;
+   	currentAngle = currentAngle + TAIL7PIECE.rotateAngleY;
+   	TAIL8PIECE.rotateAngleY = ((float) Math.pow(dampingFactor, 6)) * TopAngle * (MathHelper.cos(animationSpeed * f + 1.5f * 6 * offset + initialOffset))
+   			- currentAngle;
+   	currentAngle = currentAngle +TAIL8PIECE.rotateAngleY;
   }
 
 }

@@ -225,6 +225,7 @@ public class PixelmonEntityList {
 		addMapping(EntitySolrock.class, "Solrock", PixelmonIDList.solrockId, new RenderPixelmon(new ModelSolrock(), 0.5F), ClassType.Pixelmon);
 		addMapping(EntityLunatone.class, "Lunatone", PixelmonIDList.lunatoneId, new RenderPixelmon(new ModelLunatone(), 0.5F), ClassType.Pixelmon);
 		addMapping(EntityNidoranMale.class, "NidoranMale", PixelmonIDList.nidoranMaleId, new RenderPixelmon(new ModelNidoranMale(), 0.5F), ClassType.Pixelmon);
+		addMapping(EntityVaporeon.class, "Vaporeon", PixelmonIDList.vaporeonId, new RenderPixelmon(new ModelVaporeon(), 0.5F), ClassType.Pixelmon);
 		
 		addMapping(EntityTrainerYoungster.class, "Youngster", TrainerIDList.trainerYoungsterId, new RenderTrainer(new ModelYoungster(), 0.5F), ClassType.Trainer);
 		addMapping(EntityTrainerYoungster02.class, "Youngster2", TrainerIDList.trainerYoungster2Id, new RenderTrainer(new ModelYoungster02(), 0.5F), ClassType.Trainer);
