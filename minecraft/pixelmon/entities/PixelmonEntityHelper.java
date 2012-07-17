@@ -668,7 +668,7 @@ public class PixelmonEntityHelper {
 			p.posZ = pos.zCoord;
 		}
 	}
-	
+
 	private void setIsShiny(boolean isShiny) {
 		if (pixelmon instanceof BaseEntityPixelmon)
 			((BaseEntityPixelmon) pixelmon).setIsShiny(isShiny);
@@ -682,5 +682,12 @@ public class PixelmonEntityHelper {
 		else if (pixelmon instanceof EntityWaterPixelmon)
 			return ((EntityWaterPixelmon) pixelmon).getIsShiny();
 		return false;
+	}
+
+	public void setIsDead(boolean b) {
+		if (pixelmon instanceof BaseEntityPixelmon)
+			((BaseEntityPixelmon) pixelmon).isDead = b;
+		if (pixelmon instanceof EntityWaterPixelmon)
+			((EntityWaterPixelmon) pixelmon).isDead = b;
 	}
 }

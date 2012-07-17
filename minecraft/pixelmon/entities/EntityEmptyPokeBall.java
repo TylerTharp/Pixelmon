@@ -171,15 +171,16 @@ public class EntityEmptyPokeBall extends EntityThrowable {
 			p.catchInPokeball();
 			spawnCaptureParticles();
 			waitTime = 0;
-			isUnloaded = false;
 			isWaiting = false;
 			setDead();
 		} else {
 			spawnFailParticles();
 			waitTime = 0;
 			isWaiting = false;
-			isUnloaded = false;
+			p.getEntity().setPosition(posX, posY, posZ);
 			worldObj.spawnEntityInWorld(p.getEntity());
+			p.getEntity().setPosition(posX, posY, posZ);
+			p.setIsDead(false);
 			setDead();
 		}
 	}
