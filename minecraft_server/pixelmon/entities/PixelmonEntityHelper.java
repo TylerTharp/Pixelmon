@@ -130,7 +130,8 @@ public class PixelmonEntityHelper {
 			BaseEntityPixelmon p = (BaseEntityPixelmon) pixelmon;
 			if (p.lvl == null) {
 				p.lvl = new LevelManager(p.helper);
-				p.lvl.setLevel(mod_Pixelmon.getRandomNumberBetween(5, 10));
+				p.lvl.setLevel(mod_Pixelmon.getRandomNumberBetween(getStats().BaseStats.SpawnLevel, 
+						getStats().BaseStats.SpawnLevel + getStats().BaseStats.SpawnLevelRange));
 				p.setHealth(p.stats.HP);
 				p.lvl.updateEntityString();
 			}
@@ -139,7 +140,8 @@ public class PixelmonEntityHelper {
 			EntityWaterPixelmon p = (EntityWaterPixelmon) pixelmon;
 			if (p.lvl == null) {
 				p.lvl = new LevelManager(p.helper);
-				p.lvl.setLevel(mod_Pixelmon.getRandomNumberBetween(5, 10));
+				p.lvl.setLevel(mod_Pixelmon.getRandomNumberBetween(getStats().BaseStats.SpawnLevel, 
+						getStats().BaseStats.SpawnLevel + getStats().BaseStats.SpawnLevelRange));
 				p.setHealth(p.stats.HP);
 				p.lvl.updateEntityString();
 			}

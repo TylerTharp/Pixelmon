@@ -43,6 +43,8 @@ public class DatabaseStats {
 				stats.BaseExp = rs.getInt("BaseExp");
 				stats.ExperienceGroup = ExperienceGroup.getExperienceGroup(rs.getString("ExperienceGroup"));
 				stats.nationalPokedexNumber = rs.getInt("NationalPokedexNumber");
+				stats.SpawnLevel = rs.getInt("SpawnLevel");
+				stats.SpawnLevelRange= rs.getInt("SpawnLevelRange");
 				rs.getString("Type2");
 				if (!rs.wasNull())
 					stats.Type2 = Type.parseType(rs.getString("Type2"));
