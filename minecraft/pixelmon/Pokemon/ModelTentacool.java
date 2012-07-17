@@ -261,6 +261,23 @@ public class ModelTentacool extends ModelBase
       Body.setTextureSize(64, 32);
       Body.mirror = true;
       setRotation(Body, 0F, 0F, 0F);
+      Head.addChild(Red_Dot);
+      Head.addChild(Back);
+      Head.addChild(Left);
+      Head.addChild(Right);
+      Head.addChild(Red_Dot_Mound);
+      Head.addChild(Red_Dot1);
+      Head.addChild(Red_Thing_Mound);
+      Head.addChild(Red_Thing_);
+      Head.addChild(Red_Thing_2);
+      Head.addChild(Nose);
+      Head.addChild(extension);
+      Head.addChild(Body);
+      Head.addChild(Eyebrow);
+      Head.addChild(Eyebrow_1);
+      Head.addChild(Eyebrow_2);
+      Head.addChild(Eyebrow_3);
+      Head.addChild(Red_Thing_2_Mound);
   }
   
   public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
