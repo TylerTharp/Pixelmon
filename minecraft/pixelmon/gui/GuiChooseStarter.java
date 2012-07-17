@@ -40,6 +40,8 @@ public class GuiChooseStarter extends GuiScreen {
 		String pixelmonName = starterList[button.id];
 		if (!ModLoader.getMinecraftInstance().theWorld.isRemote) {
 			IHaveHelper pixelmon = (IHaveHelper)PixelmonEntityList.createEntityByName(pixelmonName, ModLoader.getMinecraftInstance().theWorld);
+			pixelmon.getHelper().getLvl().setLevel(5);
+			pixelmon.getHelper().loadMoveset();
 			mod_Pixelmon.pokeballManager.getPlayerStorage(ModLoader.getMinecraftInstance().thePlayer).addToParty(pixelmon.getHelper());
 			pixelmon.catchInPokeball();
 		} else {

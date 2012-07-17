@@ -39,6 +39,8 @@ public class PacketHandler implements IConnectionHandler, IPacketHandler {
 			if (packetID == EnumPackets.ChooseStarter.getIndex()) {
 				EntityPlayer player = ((NetServerHandler) network.getNetHandler()).getPlayerEntity();
 				IHaveHelper p = (IHaveHelper) PixelmonEntityList.createEntityByName(StarterList.getStarterStringList()[dataStream.readInt()], player.worldObj);
+				p.getHelper().getLvl().setLevel(5);
+				p.getHelper().loadMoveset();
 				mod_Pixelmon.pokeballManager.getPlayerStorage(player).addToParty(p.getHelper());
 			} else if (packetID == EnumPackets.RegisterPlayer.getIndex()) {
 				EntityPlayer player = ((NetServerHandler) network.getNetHandler()).getPlayerEntity();
