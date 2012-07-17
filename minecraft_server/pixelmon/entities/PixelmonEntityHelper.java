@@ -666,4 +666,11 @@ public class PixelmonEntityHelper {
 			return ((EntityWaterPixelmon) pixelmon).getIsShiny();
 		return false;
 	}
+
+	public void setIsDead(boolean b) {
+		if (pixelmon instanceof BaseEntityPixelmon)
+			((BaseEntityPixelmon) pixelmon).isDead = b;
+		if (pixelmon instanceof EntityWaterPixelmon)
+			((EntityWaterPixelmon) pixelmon).isDead = b;
+	}
 }

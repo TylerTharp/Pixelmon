@@ -173,6 +173,7 @@ public class EntityEmptyPokeBall extends EntityThrowable {
 			p.getEntity().setPosition(posX, posY, posZ);
 			worldObj.spawnEntityInWorld(p.getEntity());
 			p.getEntity().setPosition(posX, posY, posZ);
+			p.setIsDead(false);
 			setDead();
 		}
 	}
