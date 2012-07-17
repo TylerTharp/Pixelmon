@@ -240,6 +240,10 @@ public class ModelStaryu extends ModelBase
   public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5)
   {
     super.setRotationAngles(f, f1, f2, f3, f4, f5);
+    Small2.rotateAngleX = Small2.rotateAngleY = Small2.rotateAngleY = 0F;
+    Mid2.rotateAngleX = Mid2.rotateAngleY = Mid2.rotateAngleY = 0F;
+    Big2.rotateAngleX = Big2.rotateAngleY = Big2.rotateAngleY = 0F;
+    
   }
 
 }
