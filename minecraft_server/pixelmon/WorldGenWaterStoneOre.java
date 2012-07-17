@@ -13,6 +13,17 @@ public class WorldGenWaterStoneOre extends WorldGenerator{
 		if((world.getBlockId(x, y, z) == Block.waterStill.blockID || world.getBlockId(x, y, z) == Block.waterMoving.blockID)
 				&& (world.getBlockId(x, y - 1, z) != Block.waterStill.blockID && 
 				world.getBlockId(x, y, z) != Block.waterMoving.blockID)){
+			int pos = 0;
+			while(pos > 5){
+				pos++;
+				if(world.getBlockId(x, y + pos, z) == Block.waterStill.blockID || world.getBlockId(x, y + pos, z) == Block.waterMoving.blockID){
+					
+				}
+				else{
+					return false;
+				}
+				
+			}
 			world.setBlockWithNotify(x, y, z, mod_Pixelmon.waterStoneOre.blockID);
 			return true;
 		}
