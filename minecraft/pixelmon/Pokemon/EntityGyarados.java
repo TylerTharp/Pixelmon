@@ -33,9 +33,4 @@ public class EntityGyarados extends EntityWaterPixelmon
 	{
 
 	}
-	
-	public boolean getCanSpawnHere() {
-		
-		return  this.posY < 60.0D && super.getCanSpawnHere();
-	}
 }

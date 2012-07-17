@@ -64,7 +64,6 @@ public abstract class BaseEntityPixelmon extends EntityTameable implements IHave
 		dataWatcher.addObject(19, -1); // pokemonId
 		dataWatcher.addObject(20, (short) 0); // pokemonId
 		getNavigator().setAvoidsWater(true);
-		setSize(0.5f, 0.5f);
 		aggression = rand.nextInt(11) - 5;
 	}
 
