@@ -330,13 +330,13 @@ public class mod_Pixelmon extends NetworkMod {
 	public void addRecipes() {
 		ModLoader.addRecipe(new ItemStack(healerIdle),
 				new Object[] { "IRI", "RDR", "IRI", Character.valueOf('D'), new ItemStack(Item.diamond), Character.valueOf('I'), Item.ingotIron, Character.valueOf('R'), Block.stone });
-		ModLoader.addRecipe(new ItemStack(pokeBall, 1), new Object[] { "RRR", "CBC", "III", Character.valueOf('R'), new ItemStack(Item.dyePowder, 1, 1), Character.valueOf('B'), Block.button,
+		ModLoader.addRecipe(new ItemStack(pokeBall, 3), new Object[] { "RRR", "CBC", "III", Character.valueOf('R'), new ItemStack(Item.dyePowder, 1, 1), Character.valueOf('B'), Block.button,
 				Character.valueOf('I'), Item.ingotIron, Character.valueOf('C'), coalDust });
 		ModLoader.addRecipe(
-				new ItemStack(greatBall),
+				new ItemStack(greatBall, 2),
 				new Object[] { "LLL", "CBC", "III", Character.valueOf('L'), new ItemStack(Item.dyePowder, 1, 4), Character.valueOf('C'), coalDust, Character.valueOf('B'), Block.button,
 						Character.valueOf('I'), Item.ingotIron });
-		ModLoader.addRecipe(new ItemStack(ultraBall), new Object[] { "GGG", "CBC", "III", Character.valueOf('G'), Item.ingotGold, Character.valueOf('C'), coalDust, Character.valueOf('B'),
+		ModLoader.addRecipe(new ItemStack(ultraBall, 1), new Object[] { "GGG", "CBC", "III", Character.valueOf('G'), Item.ingotGold, Character.valueOf('C'), coalDust, Character.valueOf('B'),
 				Block.button, Character.valueOf('I'), Item.ingotIron });
 		ModLoader.addRecipe(new ItemStack(masterBall), new Object[] { "PPP", "OBO", "DDD", Character.valueOf('P'), new ItemStack(Item.dyePowder, 1, 5), Character.valueOf('O'), Block.obsidian,
 				Character.valueOf('B'), Block.button, Character.valueOf('D'), Item.diamond });
