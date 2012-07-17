@@ -45,55 +45,55 @@ public class ModelStaryu extends ModelBase
       Small1.setRotationPoint(4F, 10.6F, 0F);
       Small1.setTextureSize(64, 32);
       Small1.mirror = true;
-      setRotation(Small1, 1.152537F, -1.854283F, -0.8179294F);
+      setRotation(Small1, 0F, 0.7854F, 0.8179294F);
       Mid1 = new ModelRenderer(this, 0, 0);
       Mid1.addBox(-1.5F, -6F, -1.5F, 3, 3, 3);
       Mid1.setRotationPoint(4F, 10.6F, 0F);
       Mid1.setTextureSize(64, 32);
       Mid1.mirror = true;
-      setRotation(Mid1, 1.152537F, -1.854283F, -0.8179294F);
+      setRotation(Mid1, 0F, 0.7854F, 0.8179294F);
       Big1 = new ModelRenderer(this, 0, 0);
       Big1.addBox(-2F, -3F, -2F, 4, 3, 4);
       Big1.setRotationPoint(4F, 10.6F, 0F);
       Big1.setTextureSize(64, 32);
       Big1.mirror = true;
-      setRotation(Big1, 1.152537F, -1.854283F, -0.8179294F);
+      setRotation(Big1, 0F, 0.7854F, 0.8179294F);
       Small2 = new ModelRenderer(this, 0, 0);
       Small2.addBox(-1F, -8F, -1F, 2, 2, 2);
       Small2.setRotationPoint(-2F, 10.6F, 0F);
       Small2.setTextureSize(64, 32);
       Small2.mirror = true;
-      setRotation(Small2, 1.152537F, 1.305899F, -0.8179294F);
+      setRotation(Small2, 0F, 0.7854F, -0.8179294F);
       Mid2 = new ModelRenderer(this, 0, 0);
       Mid2.addBox(-1.5F, -6F, -1.5F, 3, 3, 3);
       Mid2.setRotationPoint(-2F, 10.6F, 0F);
       Mid2.setTextureSize(64, 32);
       Mid2.mirror = true;
-      setRotation(Mid2, 1.152537F, 1.305899F, -0.8179294F);
+      setRotation(Mid2, 0F, 0.7854F, -0.8179294F);
       Big2 = new ModelRenderer(this, 0, 0);
       Big2.addBox(-2F, -3F, -2F, 4, 3, 4);
       Big2.setRotationPoint(-2F, 10.6F, 0F);
       Big2.setTextureSize(64, 32);
       Big2.mirror = true;
-      setRotation(Big2, 1.152537F, 1.305899F, -0.8179294F);
+      setRotation(Big2, 0F, 0.7854F, -0.8179294F);
       Small3 = new ModelRenderer(this, 0, 0);
       Small3.addBox(-1F, -8F, -1F, 2, 2, 2);
       Small3.setRotationPoint(-1F, 13.6F, 0F);
       Small3.setTextureSize(64, 32);
       Small3.mirror = true;
-      setRotation(Small3, 2.899932F, 0.6738623F, 0.2974289F);
+      setRotation(Small3, 0F, 0.6738623F, -2.45619F);
       Mid3 = new ModelRenderer(this, 0, 0);
       Mid3.addBox(-1.5F, -6F, -1.5F, 3, 3, 3);
       Mid3.setRotationPoint(-1F, 13.6F, 0F);
       Mid3.setTextureSize(64, 32);
       Mid3.mirror = true;
-      setRotation(Mid3, 2.899932F, 0.6738623F, 0.2974289F);
+      setRotation(Mid3, 0F, 0.6738623F, -2.45619F);
       Big3 = new ModelRenderer(this, 0, 0);
       Big3.addBox(-2F, -3F, -2F, 4, 3, 4);
       Big3.setRotationPoint(-1F, 13.6F, 0F);
       Big3.setTextureSize(64, 32);
       Big3.mirror = true;
-      setRotation(Big3, 2.899932F, 0.6738623F, 0.2974289F);
+      setRotation(Big3, 0F, 0.6738623F, -2.45619F);
       SMall4 = new ModelRenderer(this, 0, 0);
       SMall4.addBox(-1F, -8F, -1F, 2, 2, 2);
       SMall4.setRotationPoint(1F, 7.6F, 0F);
@@ -117,19 +117,19 @@ public class ModelStaryu extends ModelBase
       Small5.setRotationPoint(3F, 13.6F, 0F);
       Small5.setTextureSize(64, 32);
       Small5.mirror = true;
-      setRotation(Small5, 2.899932F, -2.411963F, 0.2974289F);
+      setRotation(Small5, 0F, 0.7854F, 2.45619F);
       Mid5 = new ModelRenderer(this, 0, 0);
       Mid5.addBox(-1.5F, -6F, -1.5F, 3, 3, 3);
       Mid5.setRotationPoint(3F, 13.6F, 0F);
       Mid5.setTextureSize(64, 32);
       Mid5.mirror = true;
-      setRotation(Mid5, 2.899932F, -2.411963F, 0.2974289F);
+      setRotation(Mid5, 0F, 0.7854F, 2.45619F);
       Big5 = new ModelRenderer(this, 0, 0);
       Big5.addBox(-2F, -3F, -2F, 4, 3, 4);
       Big5.setRotationPoint(3F, 13.6F, 0F);
       Big5.setTextureSize(64, 32);
       Big5.mirror = true;
-      setRotation(Big5, 2.899932F, -2.411963F, 0.2974289F);
+      setRotation(Big5, 0F, 0.7854F, 2.45619F);
       Shape1 = new ModelRenderer(this, 52, 29);
       Shape1.addBox(-4.2F, -0.5F, -0.5F, 4, 1, 2);
       Shape1.setRotationPoint(1F, 10.5F, -3F);
@@ -239,12 +239,6 @@ public class ModelStaryu extends ModelBase
   
   public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5)
   {
-    super.setRotationAngles(f, f1, f2, f3, f4, f5); //1.152537F, -1.854283F, -0.8179294F
-    Small2.rotateAngleX = Mid2.rotateAngleX = Big2.rotateAngleX = 1.152537F;
-    Small2.rotateAngleY = Mid2.rotateAngleY = Big2.rotateAngleY = -1.854283F;
-    Small2.rotateAngleZ = Mid2.rotateAngleZ = Big2.rotateAngleZ = -0.8179294F;
-    Small3.rotateAngleX = Mid3.rotateAngleX = Big3.rotateAngleX = 2.899932F;//1.152537F, 1.305899F, -0.8179294F
-    Small3.rotateAngleY = Mid3.rotateAngleY = Big3.rotateAngleY = 0.6738623F;
-    Small3.rotateAngleZ = Mid3.rotateAngleZ = Big3.rotateAngleZ = 0.2974289F;
+    super.setRotationAngles(f, f1, f2, f3, f4, f5); 
   }
 }
