@@ -18,6 +18,8 @@ public class EntityHorsea extends EntityWaterPixelmon
 	{
 		name = "Horsea";
 		isImmuneToFire = false;
+		depthRangeStart = 2;
+		depthRangeEnd = 20;
 		super.init();
 	}
 
