@@ -49,7 +49,6 @@ public abstract class EntityWaterPixelmon extends EntityTameableWaterPokemon imp
 	public BattleStats battleStats = new BattleStats();
 	public ArrayList<StatusEffectBase> status = new ArrayList<StatusEffectBase>();
 	public BattleController bc;
-	public boolean stayNearSurface = true;
 	private float field_21080_l;
 	public float swimFrequency = 0.6f;
 	public float swimSpeed = 1.5f;
@@ -241,13 +240,14 @@ public abstract class EntityWaterPixelmon extends EntityTameableWaterPokemon imp
 
 	protected void updateEntityActionState() {
 		if (count == 0) {
+			int wdepth = WorldHelper.getWaterDepth((int)posX, (int)posY, (int)posZ, worldObj);
 			// if (rand.nextInt(90) == 0 || randomMotionVecX == 0.0F
 			// && randomMotionVecY == 0.0F && randomMotionVecZ == 0.0F) {
 			count = refreshRate - refreshRate / 2 + rand.nextInt(refreshRate / 2);
 			randomMotionVecX = (-0.5f + rand.nextFloat()) * 0.2F;
-			if (stayNearSurface && posY < surfaceHeight - 5)
+			if (wdepth >= depthRangeEnd)
 				randomMotionVecY = (0.02F + rand.nextFloat()) * 0.1F;
-			else if (stayNearSurface && posY > surfaceHeight - 0.5)
+			else if (wdepth <= depthRangeStart)
 				randomMotionVecY = (-0.02F + rand.nextFloat()) * 0.1F;
 			else
 				randomMotionVecY = rand.nextFloat() * 0.1F;

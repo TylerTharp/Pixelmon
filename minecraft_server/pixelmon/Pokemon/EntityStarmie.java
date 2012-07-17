@@ -18,7 +18,7 @@ public class EntityStarmie extends EntityWaterPixelmon
 	public void init() 
 	{
 		name = "Starmie";
-		stayNearSurface = false;
+		depthRangeStart=4;
 		isImmuneToFire = false;
 		super.init();
 	}
@@ -34,7 +34,6 @@ public class EntityStarmie extends EntityWaterPixelmon
 	}
 	
 	public boolean getCanSpawnHere() {
-		
-		return  this.posY < 55.0D && super.getCanSpawnHere();
+		return  worldObj.getBlockId((int)posX,(int)Math.ceil(posY)-1,(int)posZ)!= Block.waterStill.blockID && super.getCanSpawnHere();
 	}
 }

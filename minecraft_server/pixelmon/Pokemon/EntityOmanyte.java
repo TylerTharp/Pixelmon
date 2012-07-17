@@ -13,7 +13,8 @@ public class EntityOmanyte extends EntityWaterPixelmon
 	public EntityOmanyte(World world)
 	{
 		super(world);
-		stayNearSurface = false;
+		depthRangeStart = 5;
+		depthRangeEnd = 10;
 		init();
 	}
 

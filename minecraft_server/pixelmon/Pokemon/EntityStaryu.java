@@ -18,7 +18,7 @@ public class EntityStaryu extends EntityWaterPixelmon
 	public void init() 
 	{
 		name = "Staryu";
-		stayNearSurface = false;
+		depthRangeStart=7;
 		isImmuneToFire = false;
 		super.init();
 	}
@@ -35,7 +35,6 @@ public class EntityStaryu extends EntityWaterPixelmon
 	}
 	
 	public boolean getCanSpawnHere() {
-		
-		return  this.posY < 55.0D && super.getCanSpawnHere();
+		return  worldObj.getBlockId((int)posX,(int)Math.ceil(posY)-1,(int)posZ)!= Block.waterStill.blockID && super.getCanSpawnHere();
 	}
 }

@@ -19,6 +19,8 @@ public class EntitySeaking extends EntityWaterPixelmon
 	public void init() 
 	{
 		name = "Seaking";
+		depthRangeStart=6;
+		depthRangeEnd=20;
 		isImmuneToFire = false;
 		super.init();
 	}

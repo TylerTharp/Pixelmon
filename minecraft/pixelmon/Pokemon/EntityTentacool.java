@@ -17,6 +17,8 @@ public class EntityTentacool extends EntityWaterPixelmon
 	public void init() 
 	{
 		name = "Tentacool";
+		depthRangeStart=1;
+		depthRangeEnd=4;
 		isImmuneToFire = false;
 		super.init();
 	}

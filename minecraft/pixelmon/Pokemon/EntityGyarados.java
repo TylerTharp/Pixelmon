@@ -17,7 +17,8 @@ public class EntityGyarados extends EntityWaterPixelmon
 	public void init() 
 	{
 		name = "Gyarados";
-		stayNearSurface = false;
+		depthRangeStart = 10;
+		depthRangeEnd = 100;
 		isImmuneToFire = false;
 		this.swimSpeed = 3;
 		super.init();

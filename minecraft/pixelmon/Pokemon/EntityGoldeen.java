@@ -19,6 +19,8 @@ public class EntityGoldeen extends EntityWaterPixelmon
 	public void init() 
 	{
 		name = "Goldeen";
+		depthRangeStart=2;
+		depthRangeEnd=10;
 		isImmuneToFire = false;
 		super.init();
 	}

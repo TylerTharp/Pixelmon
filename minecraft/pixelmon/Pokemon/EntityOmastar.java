@@ -17,7 +17,8 @@ public class EntityOmastar extends EntityWaterPixelmon
 	public void init() 
 	{
 		name = "Omastar";
-		stayNearSurface = false;
+		depthRangeStart = 5;
+		depthRangeEnd = 10;
 		isImmuneToFire = false;
 		super.init();
 	}

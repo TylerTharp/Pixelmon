@@ -11,6 +11,7 @@ public class EntityNidoranMale extends EntityGroundPixelmon
 	public EntityNidoranMale(World par1World) 
 	{
 		super(par1World);
+		texture = "/pixelmon/image/nidoranMale.png";
 		init();
 	}
 	
