@@ -52,8 +52,7 @@ public class GuiHandler implements IGuiHandler {
 		} else if (ID == EnumGui.PC.getIndex()) {
 			return new GuiPC();
 		} else if (ID == EnumGui.Healer.getIndex()) {
-			TileEntityPokemonHealer tileentityfurnace = (TileEntityPokemonHealer) world.getBlockTileEntity(x, y, z);
-			return new GuiHealer(player.inventory, tileentityfurnace);
+			return new GuiSMPHealer();
 		} else if (ID == EnumGui.PokeChecker.getIndex()) {
 			if (ModLoader.getMinecraftInstance().theWorld.isRemote)
 				return new GuiScreenPokeChecker(mod_Pixelmon.serverStorageDisplay.get(x));

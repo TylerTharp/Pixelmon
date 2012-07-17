@@ -192,7 +192,7 @@ public class BlockHealer extends BlockContainer {
 				.getBlockTileEntity(j, k, par4);
 
 		if (tileentityfurnace != null) {
-			par5EntityPlayer.openGui(mod_Pixelmon.instance, EnumGui.Healer.getIndex(), par1World, j, k, par4);
+			par5EntityPlayer.openGui(mod_Pixelmon.instance, EnumGui.Healer.getIndex(), par1World, 0,0,0);
 		}
 
 		return true;
