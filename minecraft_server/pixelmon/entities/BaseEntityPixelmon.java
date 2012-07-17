@@ -56,7 +56,7 @@ public abstract class BaseEntityPixelmon extends EntityTameable implements IHave
 		stats.IVs = PixelmonIVStore.CreateNewIVs();
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
 		dataWatcher.addObject(19, -1);
-		dataWatcher.addObject(19, (short) 0);
+		dataWatcher.addObject(20, (short) 0);
 		getNavigator().setAvoidsWater(true);
 		setSize(0.5f, 0.5f);
 		aggression = rand.nextInt(11) - 5;
