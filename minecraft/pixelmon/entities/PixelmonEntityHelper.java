@@ -139,7 +139,8 @@ public class PixelmonEntityHelper {
 			} else {
 				if (p.lvl == null && p.lvlString.isEmpty()) {
 					p.lvl = new LevelManager(p.helper);
-					p.lvl.setLevel(mod_Pixelmon.getRandomNumberBetween(5, 10));
+					p.lvl.setLevel(mod_Pixelmon.getRandomNumberBetween(getStats().BaseStats.SpawnLevel, 
+							getStats().BaseStats.SpawnLevel + getStats().BaseStats.SpawnLevelRange));
 					p.setHealth(p.stats.HP);
 				}
 			}
@@ -151,7 +152,8 @@ public class PixelmonEntityHelper {
 			} else {
 				if (p.lvl == null) {
 					p.lvl = new LevelManager(p.helper);
-					p.lvl.setLevel(mod_Pixelmon.getRandomNumberBetween(5, 10));
+					p.lvl.setLevel(mod_Pixelmon.getRandomNumberBetween(getStats().BaseStats.SpawnLevel, 
+							getStats().BaseStats.SpawnLevel + getStats().BaseStats.SpawnLevelRange));
 					p.setHealth(p.stats.HP);
 				}
 			}

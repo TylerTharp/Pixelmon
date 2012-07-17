@@ -20,6 +20,8 @@ public class BaseStats {
 	public int BaseExp;
 	public ExperienceGroup ExperienceGroup;
 	public int nationalPokedexNumber;
+	public int SpawnLevel;
+	public int SpawnLevelRange;
 
 	public String getNationalPokedexNumberString() {
 		if (nationalPokedexNumber < 10)
