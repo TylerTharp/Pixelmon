@@ -45,6 +45,7 @@ public class DatabaseStats {
 				stats.nationalPokedexNumber = rs.getInt("NationalPokedexNumber");
 				stats.SpawnLevel = rs.getInt("SpawnLevel");
 				stats.SpawnLevelRange= rs.getInt("SpawnLevelRange");
+				stats.IsRideable = rs.getBoolean("IsRideable");
 				rs.getString("Type2");
 				if (!rs.wasNull())
 					stats.Type2 = Type.parseType(rs.getString("Type2"));
