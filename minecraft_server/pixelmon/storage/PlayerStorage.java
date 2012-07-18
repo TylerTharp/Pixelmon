@@ -142,6 +142,7 @@ public class PlayerStorage {
 					n.setBoolean("IsInBall", false);
 					IHaveHelper e = (IHaveHelper) PixelmonEntityList.createEntityFromNBT(n, world);
 					e.setOwner(player);
+					e.getHelper().setIsDead(false);
 					return e;
 				}
 			}
