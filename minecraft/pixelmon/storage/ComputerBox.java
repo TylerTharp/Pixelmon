@@ -39,8 +39,6 @@ public class ComputerBox {
 	public void add(PixelmonEntityHelper p, int id) {
 		NBTTagCompound n = new NBTTagCompound();
 		p.setPokemonID(id);
-		if (p.getIsFainted())
-			if (p.getHealth()>0)p.setIsFainted(false);
 		p.writeEntityToNBT(n);
 		Entity entity1 = (Entity) p.getEntity();
 		entity1.writeToNBT(n);
@@ -50,6 +48,7 @@ public class ComputerBox {
 		n.setBoolean("IsInBall", true);
 		int pos = getNextSpace();
 		n.setInteger("StoragePosition", pos);
+		if (n.getShort("Health")>0)n.setBoolean("IsFainted",false);
 		storedPokemon[pos] = n;
 		hasChanged = true;
 	}

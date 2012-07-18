@@ -73,8 +73,6 @@ public class PlayerStorage {
 			p.setOwner(player);
 		else if (mode == PokeballManagerMode.Trainer)
 			p.setTrainer(trainer);
-		if (p.getIsFainted())
-			if (p.getHealth()>0)p.setIsFainted(false);
 		NBTTagCompound n = new NBTTagCompound();
 		int id =0;
 		if (mode == PokeballManagerMode.Player) id = ModLoader.getUniqueEntityId();
@@ -102,6 +100,7 @@ public class PlayerStorage {
 		n.setString("Nickname", n.getName());
 		n.setBoolean("IsInBall", true);
 		n.setInteger("PixelmonOrder", getNextOpen());
+		if (n.getShort("Health")>0)n.setBoolean("IsFainted",false);
 		partyPokemon[getNextOpen()] = n;
 	}
 
