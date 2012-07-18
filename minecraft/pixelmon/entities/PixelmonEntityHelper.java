@@ -695,4 +695,15 @@ public class PixelmonEntityHelper {
 			if (!b) ((BaseEntityPixelmon)pixelmon).deathTime=0;
 		}
 	}
+
+	public void clearVelocity() {
+		if (pixelmon instanceof BaseEntityPixelmon) {
+			((BaseEntityPixelmon) pixelmon).fallDistance = 0;
+			((BaseEntityPixelmon) pixelmon).setVelocity(0, 0, 0);
+		}
+		if (pixelmon instanceof EntityWaterPixelmon) {
+			((EntityWaterPixelmon) pixelmon).fallDistance = 0;
+			((EntityWaterPixelmon) pixelmon).setVelocity(0, 0, 0);
+		}
+	}
 }

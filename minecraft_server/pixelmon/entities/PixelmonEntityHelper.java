@@ -130,8 +130,7 @@ public class PixelmonEntityHelper {
 			BaseEntityPixelmon p = (BaseEntityPixelmon) pixelmon;
 			if (p.lvl == null) {
 				p.lvl = new LevelManager(p.helper);
-				p.lvl.setLevel(mod_Pixelmon.getRandomNumberBetween(getStats().BaseStats.SpawnLevel, 
-						getStats().BaseStats.SpawnLevel + getStats().BaseStats.SpawnLevelRange));
+				p.lvl.setLevel(mod_Pixelmon.getRandomNumberBetween(getStats().BaseStats.SpawnLevel, getStats().BaseStats.SpawnLevel + getStats().BaseStats.SpawnLevelRange));
 				p.setHealth(p.stats.HP);
 				p.lvl.updateEntityString();
 			}
@@ -140,8 +139,7 @@ public class PixelmonEntityHelper {
 			EntityWaterPixelmon p = (EntityWaterPixelmon) pixelmon;
 			if (p.lvl == null) {
 				p.lvl = new LevelManager(p.helper);
-				p.lvl.setLevel(mod_Pixelmon.getRandomNumberBetween(getStats().BaseStats.SpawnLevel, 
-						getStats().BaseStats.SpawnLevel + getStats().BaseStats.SpawnLevelRange));
+				p.lvl.setLevel(mod_Pixelmon.getRandomNumberBetween(getStats().BaseStats.SpawnLevel, getStats().BaseStats.SpawnLevel + getStats().BaseStats.SpawnLevelRange));
 				p.setHealth(p.stats.HP);
 				p.lvl.updateEntityString();
 			}
@@ -670,12 +668,24 @@ public class PixelmonEntityHelper {
 	}
 
 	public void setIsDead(boolean b) {
-		if (pixelmon instanceof BaseEntityPixelmon){
+		if (pixelmon instanceof BaseEntityPixelmon) {
 			((BaseEntityPixelmon) pixelmon).isDead = b;
-			if (!b) ((BaseEntityPixelmon)pixelmon).deathTime=0;
-		}if (pixelmon instanceof EntityWaterPixelmon){
+			if (!b)
+				((BaseEntityPixelmon) pixelmon).deathTime = 0;
+		}
+		if (pixelmon instanceof EntityWaterPixelmon) {
 			((EntityWaterPixelmon) pixelmon).isDead = b;
-			if (!b) ((BaseEntityPixelmon)pixelmon).deathTime=0;
+			if (!b)
+				((BaseEntityPixelmon) pixelmon).deathTime = 0;
+		}
+	}
+
+	public void clearVelocity() {
+		if (pixelmon instanceof BaseEntityPixelmon) {
+			((BaseEntityPixelmon) pixelmon).fallDistance = 0;
+		}
+		if (pixelmon instanceof EntityWaterPixelmon) {
+			((EntityWaterPixelmon) pixelmon).fallDistance = 0;
 		}
 	}
 }
