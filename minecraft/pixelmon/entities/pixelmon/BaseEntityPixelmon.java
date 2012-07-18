@@ -12,6 +12,7 @@ import pixelmon.entities.EntityTrainer;
 import pixelmon.entities.pixelmon.helpers.IHaveHelper;
 import pixelmon.entities.pixelmon.helpers.LevelHelper;
 import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
+import pixelmon.entities.pixelmon.helpers.RidingHelper;
 import pixelmon.enums.EnumGui;
 import pixelmon.gui.GuiHandler;
 import pixelmon.gui.GuiLearnMove;
@@ -61,6 +62,7 @@ public abstract class BaseEntityPixelmon extends EntityTameable implements IHave
 	public int aggression;
 	public boolean litUp;
 	public int litLevel;
+	private RidingHelper ridingHelper;
 
 	public BaseEntityPixelmon(World par1World) {
 		super(par1World);
@@ -91,6 +93,7 @@ public abstract class BaseEntityPixelmon extends EntityTameable implements IHave
 
 		helper.getLvl();
 		setSize(stats.BaseStats.Height, width);
+		ridingHelper = new RidingHelper(this, worldObj);
 	}
 
 	@Override
@@ -427,5 +430,30 @@ public abstract class BaseEntityPixelmon extends EntityTameable implements IHave
 			dataWatcher.updateObject(20, (short) 1);
 		else
 			dataWatcher.updateObject(20, (short) 0);
+	}
+
+	@Override
+	public void jump() {
+		super.jump();
+	}
+
+	@Override
+	public double getMountedYOffset() {
+		return ridingHelper.getMountedYOffset();
+	}
+
+	@Override
+	public void onLivingUpdate() {
+		ridingHelper.onLivingUpdate();
+	}
+
+	@Override
+	public void moveEntity(double d, double d1, double d2) {
+		ridingHelper.moveEntity(d, d1, d2);
+	}
+
+	@Override
+	public void updateRidden() {
+		ridingHelper.updateRidden();
 	}
 }

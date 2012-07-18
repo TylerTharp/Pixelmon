@@ -22,6 +22,7 @@ import pixelmon.entities.EntityTrainer;
 import pixelmon.entities.pixelmon.helpers.IHaveHelper;
 import pixelmon.entities.pixelmon.helpers.LevelHelper;
 import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
+import pixelmon.entities.pixelmon.helpers.RidingHelper;
 import pixelmon.storage.PokeballManager;
 
 import net.minecraft.src.Block;
@@ -62,6 +63,7 @@ public abstract class EntityWaterPixelmon extends EntityTameableWaterPokemon imp
 	private boolean isSwimming = true;
 	public boolean isMale;
 	public PixelmonEntityHelper helper = new PixelmonEntityHelper(this);
+	private RidingHelper ridingHelper;
 
 	public EntityWaterPixelmon(World par1World) {
 		super(par1World);
@@ -190,6 +192,7 @@ public abstract class EntityWaterPixelmon extends EntityTameableWaterPokemon imp
 
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
+		ridingHelper.onLivingUpdate();
 		if (!isSwimming || worldObj.isRemote) {
 			motionX = motionY = motionZ = 0;
 			return;
@@ -393,5 +396,25 @@ public abstract class EntityWaterPixelmon extends EntityTameableWaterPokemon imp
 			dataWatcher.updateObject(20, (short) 1);
 		else
 			dataWatcher.updateObject(20, (short) 0);
+	}
+	
+	@Override
+	public void jump() {
+		super.jump();
+	}
+
+	@Override
+	public double getMountedYOffset() {
+		return ridingHelper.getMountedYOffset();
+	}
+
+	@Override
+	public void moveEntity(double d, double d1, double d2) {
+		ridingHelper.moveEntity(d, d1, d2);
+	}
+
+	@Override
+	public void updateRidden() {
+		ridingHelper.updateRidden();
 	}
 }

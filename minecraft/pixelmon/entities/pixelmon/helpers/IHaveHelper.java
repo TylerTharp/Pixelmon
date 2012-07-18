@@ -43,4 +43,6 @@ public interface IHaveHelper {
 	int getPokemonId();
 
 	void setPokemonId(int uniqueEntityId);
+	
+	void jump();
 }
