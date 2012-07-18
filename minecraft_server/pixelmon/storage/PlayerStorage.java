@@ -323,19 +323,32 @@ public class PlayerStorage {
 	public void healAllPokemon() {
 		for (NBTTagCompound nbt : partyPokemon) {
 			if (nbt != null) {
-				nbt.setShort("Health", (short) nbt.getInteger("StatsHP"));
-				nbt.setBoolean("IsFainted", false);
-				int numMoves = nbt.getInteger("PixelmonNumberMoves");
-				for (int i = 0; i < numMoves; i++) {
-					nbt.setInteger("PixelmonMovePP" + i, nbt.getInteger("PixelmonMovePPBase" + i));
-				}
-				ModLoader.getMinecraftServerInstance().configManager.sendPacketToPlayer(player.username, new PixelmonDataPacket(nbt, mod_Pixelmon.instance,
-						EnumPackets.UpdateStorage).getPacket());
+				heal(nbt);
 			}
 		}
 	}
 
 	public IHaveHelper sendOutFromPosition(int pos, World worldObj) {
 		return sendOut(getIDFromPosition(pos),worldObj);
+	}
+
+	public void heal(int index) {
+		for (NBTTagCompound nbt : partyPokemon) {
+			if (nbt != null) {
+				if (nbt.getInteger("pixelmonID")== index)
+					heal(nbt);
+			}
+		}
+	}
+
+	private void heal(NBTTagCompound nbt) {
+		nbt.setShort("Health", (short) nbt.getInteger("StatsHP"));
+		nbt.setBoolean("IsFainted", false);
+		int numMoves = nbt.getInteger("PixelmonNumberMoves");
+		for (int i = 0; i < numMoves; i++) {
+			nbt.setInteger("PixelmonMovePP" + i, nbt.getInteger("PixelmonMovePPBase" + i));
+		}
+		ModLoader.getMinecraftServerInstance().configManager.sendPacketToPlayer(player.username, new PixelmonDataPacket(nbt, mod_Pixelmon.instance,
+				EnumPackets.UpdateStorage).getPacket());
 	}
 }

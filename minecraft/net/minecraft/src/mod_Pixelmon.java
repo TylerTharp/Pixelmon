@@ -480,7 +480,7 @@ public class mod_Pixelmon extends NetworkMod {
 
 		if (mc.thePlayer.sleeping) {
 			if (mc.theWorld.isRemote) {
-				Packet250CustomPayload packet = PacketCreator.createPacket(EnumPackets.HealPokemon, 0);
+				Packet250CustomPayload packet = PacketCreator.createPacket(EnumPackets.HealPokemon, -1);
 				ModLoader.sendPacket(packet);
 			} else {
 				for (NBTTagCompound nbt : pokeballManager.getPlayerStorage(ModLoader.getMinecraftInstance().thePlayer).getList()) {

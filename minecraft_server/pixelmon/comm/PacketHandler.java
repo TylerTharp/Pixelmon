@@ -98,7 +98,11 @@ public class PacketHandler implements IConnectionHandler, IPacketHandler {
 
 			} else if (packetID == EnumPackets.HealPokemon.getIndex()) {
 				EntityPlayer player = ((NetServerHandler) network.getNetHandler()).getPlayerEntity();
-				mod_Pixelmon.pokeballManager.getPlayerStorage(player).healAllPokemon();
+				int index = dataStream.readInt();
+				if (index==-1)
+					mod_Pixelmon.pokeballManager.getPlayerStorage(player).healAllPokemon();
+				else
+					mod_Pixelmon.pokeballManager.getPlayerStorage(player).heal(index);
 			} else if (packetID == EnumPackets.SwitchPokemon.getIndex()) {
 				EntityPlayer player = ((NetServerHandler) network.getNetHandler()).getPlayerEntity();
 				BattleController bc = mod_Pixelmon.battleRegistry.getBattle(player);
