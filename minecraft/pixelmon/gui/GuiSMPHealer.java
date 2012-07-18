@@ -23,10 +23,32 @@ public class GuiSMPHealer extends GuiScreen {
 			progressBars[i] = new ProgressBar();
 	}
 
+	public GuiButton cancelButton;
+	
 	@SuppressWarnings("unchecked")
 	public void initGui() {
+		if (ModLoader.getMinecraftInstance().theWorld.isRemote) {
+			int j=0;
+			for (PixelmonDataPacket p : mod_Pixelmon.serverStorageDisplay.pokemon) {
+				if (p!=null){
+					progressBars[j].value = (int)(((float)p.health)/((float)p.hp)*100f);
+					j++;
+				}
+			}
+
+		} else {
+			int j=0;
+			for (NBTTagCompound n: mod_Pixelmon.pokeballManager.getPlayerStorage(ModLoader.getMinecraftInstance().thePlayer).partyPokemon){
+				if (n!=null){
+					progressBars[j].value = (int)(((float)n.getShort("Health"))/((float)n.getInteger("StatsHP"))*100f);
+					j++;
+				}
+			}
+		}
 		controlList.clear();
-		controlList.add(new GuiButton(0, width /2-100, (int) (height * 0.8), StatCollector.translateToLocal("Heal")));
+		controlList.add(new GuiButton(0, width /2-100, (int) (height * 0.8),100,20, StatCollector.translateToLocal("Heal")));
+		cancelButton= new GuiButton(1, width /2, (int) (height * 0.8),100,20, StatCollector.translateToLocal("Cancel"));
+		controlList.add(cancelButton);
 	}
 
 	@Override
@@ -40,6 +62,29 @@ public class GuiSMPHealer extends GuiScreen {
 		for (int i = 0; i < num; i++) {
 			if (progressBars[i].value < 100) {
 				progressBars[i].value++;
+				if (progressBars[i].value==100)
+				{
+					int j=0;
+					if (ModLoader.getMinecraftInstance().theWorld.isRemote)
+					{
+						
+					}else{
+						for (NBTTagCompound nbt:mod_Pixelmon.pokeballManager.getPlayerStorage(ModLoader.getMinecraftInstance().thePlayer).partyPokemon){
+							if (nbt!=null){
+								if (j==i) {
+									nbt.setShort("Health", (short) nbt.getInteger("StatsHP"));
+									nbt.setBoolean("IsFainted", false);
+									int numMoves = nbt.getInteger("PixelmonNumberMoves");
+									for (int k = 0; k < numMoves; k++) {
+										nbt.setInteger("PixelmonMovePP" + k, nbt.getInteger("PixelmonMovePPBase" + k));
+									}
+								}
+								j++;
+							}
+						}
+					}
+					if (i==num-1) isHealing=false;
+				}
 				break;
 			}
 		}
@@ -47,7 +92,11 @@ public class GuiSMPHealer extends GuiScreen {
 	
 	public void actionPerformed(GuiButton b)
 	{
-		isHealing=true;
+		if (b.id ==0)
+			isHealing=true;
+		else
+			mc.displayGuiScreen(null);
+			
 	}
 
 	public void drawScreen(int i, int i1, float f) {
