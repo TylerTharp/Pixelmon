@@ -114,7 +114,6 @@ public class GuiPixelmonOverlay extends Gui implements IRenderWorldLastHandler {
 							this.drawTexturedModalRect(fontRenderer.getStringWidth(n.getString("Nickname")) + 35, var7 / 6 + i * 30 + 6 + offset, 33, 208, 5, 9);
 						else
 							this.drawTexturedModalRect(fontRenderer.getStringWidth(n.getString("Nickname")) + 35, var7 / 6 + i * 30 + 6 + offset, 33, 218, 5, 9);
-
 					}
 					int var9 = ModLoader.getMinecraftInstance().renderEngine.getTexture("/pixelmon/sprites/" + n.getString("NationalPokedexNumber"));
 					drawImageQuad(var9, 3, var7 / 6 + i * 30 + 3 + offset, 24f, 24f, 0f, 0f, 1f, 1f);
