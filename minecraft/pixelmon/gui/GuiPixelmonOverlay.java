@@ -102,6 +102,7 @@ public class GuiPixelmonOverlay extends Gui implements IRenderWorldLastHandler {
 			for (NBTTagCompound n : mod_Pixelmon.pokeballManager.getPlayerStorage(ModLoader.getMinecraftInstance().thePlayer).getList()) {
 				int offset = 0;
 				if (n != null) {
+					if (n.getBoolean("IsFainted") && n.getShort("Health")>0) n.setBoolean("IsFainted", false);
 					i = n.getInteger("PixelmonOrder");
 					if (!mod_Pixelmon.isGuiMinimized) {
 						if (n.getString("Nickname") == null || n.getString("Nickname").equalsIgnoreCase("")) {
@@ -119,7 +120,7 @@ public class GuiPixelmonOverlay extends Gui implements IRenderWorldLastHandler {
 					drawImageQuad(var9, 3, var7 / 6 + i * 30 + 3 + offset, 24f, 24f, 0f, 0f, 1f, 1f);
 					if (!mod_Pixelmon.isGuiMinimized) {
 						fontRenderer.drawString("Lvl " + n.getInteger("Level"), 32, var7 / 6 + i * 30 + fontRenderer.FONT_HEIGHT + 7 + offset, 0xFFFFFF);
-						if (n.getBoolean("IsFainted")) {
+						if (n.getBoolean("IsFainted") && n.getShort("Health")<=0) {
 							fontRenderer.drawString("Fainted", 33 + fontRenderer.getStringWidth("Lvl " + n.getInteger("Level")), var7 / 6 + i * 30
 									+ fontRenderer.FONT_HEIGHT + 7 + offset, 0xFFFFFF);
 						} else {
