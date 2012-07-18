@@ -39,6 +39,8 @@ public class ComputerBox {
 	public void add(PixelmonEntityHelper p, int id) {
 		NBTTagCompound n = new NBTTagCompound();
 		p.setPokemonID(id);
+		if (p.getIsFainted())
+			if (p.getHealth()>0)p.setIsFainted(false);
 		p.writeEntityToNBT(n);
 		Entity entity1 = (Entity) p.getEntity();
 		entity1.writeToNBT(n);
