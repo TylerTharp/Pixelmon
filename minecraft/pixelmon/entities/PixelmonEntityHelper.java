@@ -527,7 +527,7 @@ public class PixelmonEntityHelper {
 			((EntityWaterPixelmon) pixelmon).isMale = boolean1;
 	}
 
-	private void setIsFainted(boolean boolean1) {
+	public void setIsFainted(boolean boolean1) {
 		if (pixelmon instanceof BaseEntityPixelmon)
 			((BaseEntityPixelmon) pixelmon).isFainted = boolean1;
 		else if (pixelmon instanceof EntityWaterPixelmon)
