@@ -1,9 +1,9 @@
 package pixelmon.gui;
 
 import pixelmon.attacks.Attack;
-import pixelmon.entities.BaseEntityPixelmon;
-import pixelmon.entities.EntityWaterPixelmon;
-import pixelmon.helpers.PixelmonEntityHelper;
+import pixelmon.entities.pixelmon.BaseEntityPixelmon;
+import pixelmon.entities.pixelmon.EntityWaterPixelmon;
+import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 import net.minecraft.src.*;
 
 public class GuiLearnMove extends GuiScreen

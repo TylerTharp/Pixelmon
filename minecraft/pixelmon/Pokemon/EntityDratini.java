@@ -1,7 +1,7 @@
 package pixelmon.Pokemon;
 
 import net.minecraft.src.World;
-import pixelmon.entities.EntityWaterPixelmon;
+import pixelmon.entities.pixelmon.EntityWaterPixelmon;
 
 
 public class EntityDratini extends EntityWaterPixelmon

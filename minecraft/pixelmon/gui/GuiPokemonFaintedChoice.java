@@ -6,7 +6,7 @@ import net.minecraft.src.GuiScreen;
 import org.lwjgl.input.Keyboard;
 
 import pixelmon.attacks.BattleController;
-import pixelmon.entities.BaseEntityPixelmon;
+import pixelmon.entities.pixelmon.BaseEntityPixelmon;
 
 public class GuiPokemonFaintedChoice extends GuiScreen {
 

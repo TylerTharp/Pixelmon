@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
 
-import pixelmon.helpers.PixelmonEntityHelper;
+import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 
 import net.minecraft.src.Chunk;
 import net.minecraft.src.CompressedStreamTools;

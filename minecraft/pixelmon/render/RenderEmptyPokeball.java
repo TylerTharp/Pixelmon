@@ -9,7 +9,7 @@ import net.minecraft.src.mod_Pixelmon;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
-import pixelmon.entities.EntityEmptyPokeBall;
+import pixelmon.entities.pokeballs.EntityEmptyPokeBall;
 
 
 public class RenderEmptyPokeball extends RenderSnowball

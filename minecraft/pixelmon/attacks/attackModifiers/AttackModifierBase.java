@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import pixelmon.attacks.Attack;
 import pixelmon.attacks.EffectType;
 import pixelmon.attacks.attackEffects.EffectBase;
-import pixelmon.helpers.PixelmonEntityHelper;
+import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 
 
 public abstract class AttackModifierBase extends EffectBase{

@@ -1,7 +1,7 @@
 package pixelmon.Pokemon;
 
-import pixelmon.entities.BaseEntityPixelmon;
-import pixelmon.entities.EntityWaterPixelmon;
+import pixelmon.entities.pixelmon.BaseEntityPixelmon;
+import pixelmon.entities.pixelmon.EntityWaterPixelmon;
 import net.minecraft.src.*;
 
 

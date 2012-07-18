@@ -13,9 +13,9 @@ import org.lwjgl.opengl.GL11;
 
 import pixelmon.comm.PixelmonDataPacket;
 import pixelmon.entities.PixelmonEntityList;
+import pixelmon.entities.pixelmon.helpers.IHaveHelper;
 import pixelmon.gui.ContainerEmpty;
 import pixelmon.gui.GuiScreenPokeCheckerPC;
-import pixelmon.helpers.IHaveHelper;
 
 public class GuiPC extends GuiContainer {
 

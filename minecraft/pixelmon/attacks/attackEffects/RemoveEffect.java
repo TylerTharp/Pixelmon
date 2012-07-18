@@ -6,7 +6,7 @@ import pixelmon.ChatHandler;
 import pixelmon.attacks.EffectType;
 import pixelmon.attacks.statusEffects.StatusEffectBase;
 import pixelmon.attacks.statusEffects.StatusEffectType;
-import pixelmon.helpers.PixelmonEntityHelper;
+import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 
 import net.minecraft.src.ModLoader;
 

@@ -1,7 +1,7 @@
 package pixelmon.attacks.attackModifiers;
 
 import pixelmon.attacks.Attack;
-import pixelmon.helpers.PixelmonEntityHelper;
+import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 
 public class CriticalHitAttackModifier extends AttackModifierBase {
 

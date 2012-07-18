@@ -4,8 +4,8 @@ import java.util.Random;
 
 import pixelmon.comm.EnumPackets;
 import pixelmon.comm.PacketCreator;
-import pixelmon.entities.EntityPokeBall;
-import pixelmon.helpers.IHaveHelper;
+import pixelmon.entities.pixelmon.helpers.IHaveHelper;
+import pixelmon.entities.pokeballs.EntityPokeBall;
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.KeyBinding;
 import net.minecraft.src.MathHelper;

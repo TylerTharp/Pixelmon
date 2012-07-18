@@ -3,7 +3,7 @@ package pixelmon;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
-import pixelmon.entities.BaseEntityPixelmon;
+import pixelmon.entities.pixelmon.BaseEntityPixelmon;
 import pixelmon.gui.GuiPokedex;
 
 import net.minecraft.client.Minecraft;

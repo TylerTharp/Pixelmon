@@ -5,10 +5,10 @@ import net.minecraft.src.ModLoader;
 import net.minecraft.src.NBTTagCompound;
 import net.minecraft.src.mod_Pixelmon;
 import pixelmon.ChatHandler;
-import pixelmon.entities.BaseEntityPixelmon;
+import pixelmon.entities.pixelmon.BaseEntityPixelmon;
+import pixelmon.entities.pixelmon.helpers.IHaveHelper;
+import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 import pixelmon.gui.EnumGui;
-import pixelmon.helpers.IHaveHelper;
-import pixelmon.helpers.PixelmonEntityHelper;
 
 public class PlayerParticipant implements IBattleParticipant {
 	EntityPlayer player;

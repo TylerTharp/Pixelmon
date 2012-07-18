@@ -5,8 +5,8 @@ import org.lwjgl.input.Keyboard;
 import pixelmon.comm.EnumPackets;
 import pixelmon.comm.PacketCreator;
 import pixelmon.comm.PixelmonDataPacket;
-import pixelmon.entities.BaseEntityPixelmon;
-import pixelmon.helpers.PixelmonEntityHelper;
+import pixelmon.entities.pixelmon.BaseEntityPixelmon;
+import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 
 import net.minecraft.src.*;
 

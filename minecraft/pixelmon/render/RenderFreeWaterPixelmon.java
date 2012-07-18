@@ -12,9 +12,9 @@ import net.minecraft.src.mod_Pixelmon;
 
 import org.lwjgl.opengl.GL11;
 
-import pixelmon.entities.BaseEntityPixelmon;
-import pixelmon.entities.EntityWaterPixelmon;
-import pixelmon.helpers.IHaveHelper;
+import pixelmon.entities.pixelmon.BaseEntityPixelmon;
+import pixelmon.entities.pixelmon.EntityWaterPixelmon;
+import pixelmon.entities.pixelmon.helpers.IHaveHelper;
 
 public class RenderFreeWaterPixelmon extends RenderLiving{
 	public RenderFreeWaterPixelmon(ModelBase par1ModelBase, float par2) { //par2 = shadow size

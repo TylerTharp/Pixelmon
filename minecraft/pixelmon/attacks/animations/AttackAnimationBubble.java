@@ -1,6 +1,6 @@
 package pixelmon.attacks.animations;
 
-import pixelmon.entities.BaseEntityPixelmon;
+import pixelmon.entities.pixelmon.BaseEntityPixelmon;
 import net.minecraft.src.EntityBubbleFX;
 import net.minecraft.src.EntityLiving;
 import net.minecraft.src.ModLoader;

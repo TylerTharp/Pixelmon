@@ -1,7 +1,7 @@
 package pixelmon.gui;
 
-import pixelmon.helpers.IHaveHelper;
-import pixelmon.helpers.PixelmonEntityHelper;
+import pixelmon.entities.pixelmon.helpers.IHaveHelper;
+import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 import net.minecraft.src.*;
 
 public class GuiEvolve extends GuiScreen

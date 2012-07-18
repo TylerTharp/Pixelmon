@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import pixelmon.ChatHandler;
 import pixelmon.attacks.Attack;
-import pixelmon.helpers.PixelmonEntityHelper;
+import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 
 import net.minecraft.src.DamageSource;
 import net.minecraft.src.EntityLiving;

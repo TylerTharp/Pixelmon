@@ -6,11 +6,11 @@ import java.util.Random;
 import pixelmon.ChatHandler;
 import pixelmon.attacks.statusEffects.StatusEffectBase;
 import pixelmon.database.BattleStats;
-import pixelmon.entities.BaseEntityPixelmon;
 import pixelmon.entities.EntityTrainer;
+import pixelmon.entities.pixelmon.BaseEntityPixelmon;
+import pixelmon.entities.pixelmon.helpers.IHaveHelper;
+import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 import pixelmon.gui.EnumGui;
-import pixelmon.helpers.IHaveHelper;
-import pixelmon.helpers.PixelmonEntityHelper;
 import pixelmon.storage.PokeballManager;
 
 import net.minecraft.src.EntityLiving;

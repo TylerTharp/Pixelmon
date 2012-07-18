@@ -1,6 +1,6 @@
 package pixelmon;
 
-import pixelmon.entities.BaseEntityPixelmon;
+import pixelmon.entities.pixelmon.BaseEntityPixelmon;
 import net.minecraft.src.EntitySmokeFX;
 import net.minecraft.src.ModLoader;
 

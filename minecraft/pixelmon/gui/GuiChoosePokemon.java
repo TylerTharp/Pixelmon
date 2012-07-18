@@ -14,7 +14,7 @@ import pixelmon.attacks.BattleController;
 import pixelmon.comm.EnumPackets;
 import pixelmon.comm.PacketCreator;
 import pixelmon.comm.PixelmonDataPacket;
-import pixelmon.helpers.PixelmonEntityHelper;
+import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 import pixelmon.storage.PokeballManager;
 
 public class GuiChoosePokemon extends GuiScreen {

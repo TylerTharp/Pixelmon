@@ -4,7 +4,7 @@ import java.io.*;
 
 import pixelmon.StarterList;
 import pixelmon.entities.PixelmonEntityList;
-import pixelmon.helpers.IHaveHelper;
+import pixelmon.entities.pixelmon.helpers.IHaveHelper;
 import pixelmon.storage.PixelmonServerStore;
 
 import net.minecraft.src.EntityPlayer;

@@ -7,7 +7,7 @@ import java.io.IOException;
 import pixelmon.attacks.Type;
 import pixelmon.database.BaseStats;
 import pixelmon.database.DatabaseStats;
-import pixelmon.helpers.PixelmonEntityHelper;
+import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 
 import net.minecraft.src.Entity;
 import net.minecraft.src.EntityLiving;

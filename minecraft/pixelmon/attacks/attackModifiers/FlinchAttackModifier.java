@@ -2,7 +2,7 @@ package pixelmon.attacks.attackModifiers;
 
 import pixelmon.ChatHandler;
 import pixelmon.attacks.Attack;
-import pixelmon.helpers.PixelmonEntityHelper;
+import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 import net.minecraft.src.ModLoader;
 
 public class FlinchAttackModifier extends AttackModifierBase {

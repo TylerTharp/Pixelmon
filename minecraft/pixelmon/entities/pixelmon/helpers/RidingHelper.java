@@ -1,4 +1,4 @@
-package pixelmon.helpers;
+package pixelmon.entities.pixelmon.helpers;
 
 public class RidingHelper {
 

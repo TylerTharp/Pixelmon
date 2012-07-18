@@ -1,7 +1,7 @@
 package pixelmon.Pokemon;
 
 import net.minecraft.src.World;
-import pixelmon.entities.EntityGroundPixelmon;
+import pixelmon.entities.pixelmon.EntityGroundPixelmon;
 
 public class EntityVaporeon  extends EntityGroundPixelmon
 {

@@ -3,7 +3,7 @@ package pixelmon.attacks.specialAttacks;
 import java.util.ArrayList;
 
 import pixelmon.attacks.Attack;
-import pixelmon.helpers.PixelmonEntityHelper;
+import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 
 import net.minecraft.src.DamageSource;
 import net.minecraft.src.EntityLiving;

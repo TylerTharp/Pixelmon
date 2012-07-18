@@ -9,8 +9,8 @@ import pixelmon.ChatHandler;
 import pixelmon.database.DatabaseMoves;
 import pixelmon.entities.EntityTrainer;
 import pixelmon.entities.PixelmonEntityList;
-import pixelmon.helpers.IHaveHelper;
-import pixelmon.helpers.PixelmonEntityHelper;
+import pixelmon.entities.pixelmon.helpers.IHaveHelper;
+import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 import pixelmon.storage.PokeballManager.PokeballManagerMode;
 
 import net.minecraft.src.Entity;

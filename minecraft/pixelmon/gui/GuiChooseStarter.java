@@ -9,10 +9,10 @@ import java.util.List;
 import pixelmon.StarterList;
 import pixelmon.comm.EnumPackets;
 import pixelmon.comm.PacketCreator;
-import pixelmon.entities.BaseEntityPixelmon;
 import pixelmon.entities.PixelmonEntityList;
-import pixelmon.helpers.IHaveHelper;
-import pixelmon.helpers.WildPokemonHelper;
+import pixelmon.entities.pixelmon.BaseEntityPixelmon;
+import pixelmon.entities.pixelmon.helpers.IHaveHelper;
+import pixelmon.entities.pixelmon.helpers.WildPokemonHelper;
 import pixelmon.storage.PokeballManager;
 
 import net.minecraft.client.Minecraft;

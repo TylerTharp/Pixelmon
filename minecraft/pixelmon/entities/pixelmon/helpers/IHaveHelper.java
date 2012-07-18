@@ -1,4 +1,4 @@
-package pixelmon.helpers;
+package pixelmon.entities.pixelmon.helpers;
 
 import pixelmon.attacks.BattleController;
 import pixelmon.entities.EntityTrainer;

@@ -1,6 +1,6 @@
-package pixelmon.helpers;
+package pixelmon.entities.pixelmon.helpers;
 
-import pixelmon.entities.BaseEntityPixelmon;
+import pixelmon.entities.pixelmon.BaseEntityPixelmon;
 import net.minecraft.src.ModLoader;
 import net.minecraft.src.World;
 

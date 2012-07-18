@@ -1,6 +1,6 @@
 package pixelmon;
 
-import pixelmon.entities.EntityEmptyPokeBall;
+import pixelmon.entities.pokeballs.EntityEmptyPokeBall;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;

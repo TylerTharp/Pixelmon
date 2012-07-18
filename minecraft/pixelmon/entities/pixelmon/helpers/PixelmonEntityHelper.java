@@ -1,4 +1,4 @@
-package pixelmon.helpers;
+package pixelmon.entities.pixelmon.helpers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,15 +16,15 @@ import pixelmon.attacks.statusEffects.StatusEffectBase;
 import pixelmon.database.BattleStats;
 import pixelmon.database.DatabaseStats;
 import pixelmon.database.Stats;
-import pixelmon.entities.BaseEntityPixelmon;
 import pixelmon.entities.EntityTrainer;
-import pixelmon.entities.EntityWaterPixelmon;
 import pixelmon.entities.EvolutionInfo;
 import pixelmon.entities.PixelmonEntityList;
+import pixelmon.entities.pixelmon.BaseEntityPixelmon;
+import pixelmon.entities.pixelmon.EntityWaterPixelmon;
+import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 import pixelmon.gui.EnumGui;
 import pixelmon.gui.GuiPokedex;
 import pixelmon.gui.GuiScreenPokeChecker;
-import pixelmon.helpers.PixelmonEntityHelper;
 
 import net.minecraft.src.DamageSource;
 import net.minecraft.src.Entity;

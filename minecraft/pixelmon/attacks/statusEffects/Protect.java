@@ -5,7 +5,7 @@ import java.util.Random;
 
 import pixelmon.ChatHandler;
 import pixelmon.attacks.Attack;
-import pixelmon.helpers.PixelmonEntityHelper;
+import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 
 import net.minecraft.src.ModLoader;
 

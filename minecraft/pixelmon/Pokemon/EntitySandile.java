@@ -1,9 +1,9 @@
 package pixelmon.Pokemon;
 
 import net.minecraft.src.*;
-import pixelmon.entities.BaseEntityPixelmon;
-import pixelmon.entities.EntityGroundPixelmon;
 import pixelmon.entities.PixelmonEntityList.ClassType;
+import pixelmon.entities.pixelmon.BaseEntityPixelmon;
+import pixelmon.entities.pixelmon.EntityGroundPixelmon;
 
 public class EntitySandile extends EntityGroundPixelmon
 {

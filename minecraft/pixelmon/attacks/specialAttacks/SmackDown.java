@@ -7,7 +7,7 @@ import pixelmon.attacks.Attack;
 import pixelmon.attacks.statusEffects.SmackedDown;
 import pixelmon.attacks.statusEffects.StatusEffectBase;
 import pixelmon.attacks.statusEffects.StatusEffectType;
-import pixelmon.helpers.PixelmonEntityHelper;
+import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 
 import net.minecraft.src.ModLoader;
 

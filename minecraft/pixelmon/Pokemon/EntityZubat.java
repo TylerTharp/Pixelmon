@@ -1,6 +1,6 @@
 package pixelmon.Pokemon;
 
-import pixelmon.entities.EntityFlyingPixelmon;
+import pixelmon.entities.pixelmon.EntityFlyingPixelmon;
 import net.minecraft.src.MathHelper;
 import net.minecraft.src.World;
 

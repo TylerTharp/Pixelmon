@@ -8,8 +8,8 @@ import org.lwjgl.opengl.GL11;
 import pixelmon.ContainerPokedex;
 import pixelmon.Pokedex;
 import pixelmon.PokedexEntry;
-import pixelmon.entities.BaseEntityPixelmon;
-import pixelmon.helpers.PixelmonEntityHelper;
+import pixelmon.entities.pixelmon.BaseEntityPixelmon;
+import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 import net.minecraft.src.*;
 
 public class GuiPokedex extends GuiContainer

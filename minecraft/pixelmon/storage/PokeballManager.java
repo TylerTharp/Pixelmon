@@ -13,11 +13,11 @@ import java.util.List;
 import java.util.Random;
 
 import pixelmon.ChatHandler;
-import pixelmon.entities.BaseEntityPixelmon;
 import pixelmon.entities.PixelmonEntityList;
+import pixelmon.entities.pixelmon.BaseEntityPixelmon;
+import pixelmon.entities.pixelmon.helpers.IHaveHelper;
+import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 import pixelmon.gui.EnumGui;
-import pixelmon.helpers.IHaveHelper;
-import pixelmon.helpers.PixelmonEntityHelper;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 

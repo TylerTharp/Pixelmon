@@ -14,8 +14,8 @@ import org.lwjgl.opengl.GL11;
 
 import pixelmon.LevelManager;
 import pixelmon.comm.PixelmonDataPacket;
-import pixelmon.entities.BaseEntityPixelmon;
-import pixelmon.helpers.IHaveHelper;
+import pixelmon.entities.pixelmon.BaseEntityPixelmon;
+import pixelmon.entities.pixelmon.helpers.IHaveHelper;
 
 public class RenderPixelmon extends RenderLiving {
 	public RenderPixelmon(ModelBase par1ModelBase, float par2) { // par2 =
