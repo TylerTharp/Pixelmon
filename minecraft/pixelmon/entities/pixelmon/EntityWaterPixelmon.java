@@ -95,6 +95,7 @@ public abstract class EntityWaterPixelmon extends EntityTameableWaterPokemon imp
 		setSize(stats.BaseStats.Height, width);
 		helper.getLvl();
 		this.field_21080_l = 1.0F / (this.rand.nextFloat() + 1.0F) * swimFrequency;
+		ridingHelper = new RidingHelper(this,worldObj);
 	}
 
 	@Override
@@ -416,5 +417,9 @@ public abstract class EntityWaterPixelmon extends EntityTameableWaterPokemon imp
 	@Override
 	public void updateRidden() {
 		ridingHelper.updateRidden();
+	}
+	
+	public void doMoveEntity(double motionX, double motionY, double motionZ){
+		super.moveEntity(motionX, motionY, motionZ);
 	}
 }

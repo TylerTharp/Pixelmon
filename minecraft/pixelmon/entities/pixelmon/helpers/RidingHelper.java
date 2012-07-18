@@ -129,9 +129,9 @@ public class RidingHelper {
 			}
 
 			// Submit!
-			parent.moveEntity(parent.motionX, parent.motionY, parent.motionZ);
+			((IHaveHelper)parent).doMoveEntity(parent.motionX, parent.motionY, parent.motionZ);
 		} else
-			parent.moveEntity(d, d1, d2);
+			((IHaveHelper)parent).doMoveEntity(d, d1, d2);
 	}
 
 	public void updateRidden() {

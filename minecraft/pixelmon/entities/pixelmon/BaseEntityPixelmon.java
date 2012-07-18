@@ -444,6 +444,7 @@ public abstract class BaseEntityPixelmon extends EntityTameable implements IHave
 
 	@Override
 	public void onLivingUpdate() {
+		super.onLivingUpdate();
 		ridingHelper.onLivingUpdate();
 	}
 
@@ -455,5 +456,9 @@ public abstract class BaseEntityPixelmon extends EntityTameable implements IHave
 	@Override
 	public void updateRidden() {
 		ridingHelper.updateRidden();
+	}
+	
+	public void doMoveEntity(double motionX, double motionY, double motionZ){
+		super.moveEntity(motionX, motionY, motionZ);
 	}
 }

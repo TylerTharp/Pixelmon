@@ -45,4 +45,6 @@ public interface IHaveHelper {
 	void setPokemonId(int uniqueEntityId);
 	
 	void jump();
+
+	void doMoveEntity(double motionX, double motionY, double motionZ);
 }

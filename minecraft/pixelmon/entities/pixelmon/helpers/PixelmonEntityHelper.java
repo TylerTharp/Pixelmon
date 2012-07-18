@@ -437,8 +437,14 @@ public class PixelmonEntityHelper {
 		if (entity instanceof EntityPlayer) {
 			EntityPlayer entity1 = (EntityPlayer) entity;
 			ItemStack itemstack = entity1.getCurrentEquippedItem();
-			if (itemstack == null)
+			if (itemstack == null){
+				if (getStats().BaseStats.IsRideable){
+					entity.mountEntity((EntityLiving)pixelmon);
+					return true;
+				}
 				return false;
+			}
+			
 			boolean flag = false;
 			if (itemstack.itemID == mod_Pixelmon.rareCandy.shiftedIndex && getOwner() == entity) {
 				getLvl().awardEXP(getLvl().getExpToNextLevel() - getLvl().getExp());
