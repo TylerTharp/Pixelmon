@@ -3,14 +3,14 @@ package pixelmon.attacks;
 import java.util.ArrayList;
 import java.util.Random;
 
-import pixelmon.ChatHandler;
 import pixelmon.attacks.statusEffects.StatusEffectBase;
+import pixelmon.comm.ChatHandler;
 import pixelmon.database.BattleStats;
-import pixelmon.entities.BaseEntityPixelmon;
 import pixelmon.entities.EntityTrainer;
-import pixelmon.entities.IHaveHelper;
-import pixelmon.entities.PixelmonEntityHelper;
-import pixelmon.gui.EnumGui;
+import pixelmon.entities.pixelmon.BaseEntityPixelmon;
+import pixelmon.entities.pixelmon.helpers.IHaveHelper;
+import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
+import pixelmon.enums.EnumGui;
 import pixelmon.storage.PokeballManager;
 
 import net.minecraft.src.EntityLiving;

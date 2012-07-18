@@ -7,10 +7,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import pixelmon.EnumBiomes;
-import pixelmon.EnumEvolutionStone;
 import pixelmon.attacks.Type;
-import pixelmon.entities.EvolutionInfo;
+import pixelmon.enums.EnumBiomes;
+import pixelmon.enums.EnumEvolutionStone;
 
 import net.minecraft.src.BiomeGenBase;
 import net.minecraft.src.EnumCreatureType;

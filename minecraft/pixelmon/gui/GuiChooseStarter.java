@@ -6,10 +6,10 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
+import pixelmon.PixelmonEntityList;
 import pixelmon.StarterList;
 import pixelmon.comm.EnumPackets;
 import pixelmon.comm.PacketCreator;
-import pixelmon.entities.PixelmonEntityList;
 import pixelmon.entities.pixelmon.BaseEntityPixelmon;
 import pixelmon.entities.pixelmon.helpers.IHaveHelper;
 import pixelmon.entities.pixelmon.helpers.WildPokemonHelper;

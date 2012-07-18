@@ -1,6 +1,6 @@
 package pixelmon.Pokemon;
 
-import pixelmon.entities.EntityGroundPixelmon;
+import pixelmon.entities.pixelmon.EntityGroundPixelmon;
 import net.minecraft.src.*;
 
 public class EntityGeodude extends EntityGroundPixelmon

@@ -12,10 +12,10 @@ import net.minecraft.src.mod_Pixelmon;
 
 import org.lwjgl.opengl.GL11;
 
-import pixelmon.LevelManager;
 import pixelmon.comm.PixelmonDataPacket;
 import pixelmon.entities.pixelmon.BaseEntityPixelmon;
 import pixelmon.entities.pixelmon.helpers.IHaveHelper;
+import pixelmon.entities.pixelmon.helpers.LevelHelper;
 
 public class RenderPixelmon extends RenderLiving {
 	public RenderPixelmon(ModelBase par1ModelBase, float par2) { // par2 =
@@ -24,7 +24,7 @@ public class RenderPixelmon extends RenderLiving {
 		super(par1ModelBase, par2);
 	}
 
-	private LevelManager lvlInstance;
+	private LevelHelper lvlInstance;
 
 	public void doRenderLiving(EntityLiving entityLiving, double d, double d1, double d2, float f, float f1) {
 		super.doRenderLiving(entityLiving, d, d1, d2, f, f1);

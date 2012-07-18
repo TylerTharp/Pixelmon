@@ -16,7 +16,7 @@ import net.minecraft.src.NBTTagCompound;
 
 public class ComputerBox {
 	public boolean hasChanged = false;
-	static final int boxLimit = 30;
+	public static final int boxLimit = 30;
 	public int position;
 	private NBTTagCompound[] storedPokemon = new NBTTagCompound[boxLimit];
 

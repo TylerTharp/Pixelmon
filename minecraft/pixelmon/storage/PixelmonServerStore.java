@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import pixelmon.comm.PixelmonDataPacket;
 
 public class PixelmonServerStore {
-	static ArrayList<PixelmonDataPacket> store = new ArrayList<PixelmonDataPacket>();
+	public static ArrayList<PixelmonDataPacket> store = new ArrayList<PixelmonDataPacket>();
 
 	public static void addToList(DataInputStream dataStream) {
 		PixelmonDataPacket packet = new PixelmonDataPacket();

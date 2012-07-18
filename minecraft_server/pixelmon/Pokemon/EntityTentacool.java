@@ -1,8 +1,8 @@
 package pixelmon.Pokemon;
 
-import pixelmon.entities.BaseEntityPixelmon;
-import pixelmon.entities.EntityWaterPixelmon;
-import pixelmon.entities.IHaveHelper;
+import pixelmon.entities.pixelmon.BaseEntityPixelmon;
+import pixelmon.entities.pixelmon.EntityWaterPixelmon;
+import pixelmon.entities.pixelmon.helpers.IHaveHelper;
 import net.minecraft.src.*;
 
 public class EntityTentacool extends EntityWaterPixelmon

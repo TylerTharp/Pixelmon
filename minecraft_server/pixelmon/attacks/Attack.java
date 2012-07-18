@@ -5,7 +5,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-import pixelmon.ChatHandler;
 import pixelmon.attacks.animations.AttackAnimationParser;
 import pixelmon.attacks.animations.IAttackAnimation;
 import pixelmon.attacks.attackEffects.EffectBase;
@@ -15,9 +14,10 @@ import pixelmon.attacks.attackModifiers.AttackModifierType;
 import pixelmon.attacks.specialAttacks.MultiTurnSpecialAttackBase;
 import pixelmon.attacks.statusEffects.StatusEffectBase;
 import pixelmon.attacks.statusEffects.StatusEffectType;
-import pixelmon.entities.BaseEntityPixelmon;
-import pixelmon.entities.IHaveHelper;
-import pixelmon.entities.PixelmonEntityHelper;
+import pixelmon.comm.ChatHandler;
+import pixelmon.entities.pixelmon.BaseEntityPixelmon;
+import pixelmon.entities.pixelmon.helpers.IHaveHelper;
+import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 
 import net.minecraft.src.*;
 

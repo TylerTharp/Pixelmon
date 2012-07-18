@@ -8,12 +8,12 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import pixelmon.ChatHandler;
 import pixelmon.attacks.*;
 import pixelmon.attacks.animations.AttackAnimationLeapForward;
 import pixelmon.attacks.animations.AttackAnimationParser;
 import pixelmon.attacks.animations.IAttackAnimation;
 import pixelmon.attacks.attackEffects.EffectBase;
+import pixelmon.comm.ChatHandler;
 
 
 public class DatabaseMoves {

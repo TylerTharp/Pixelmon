@@ -2,10 +2,10 @@ package pixelmon.attacks.specialAttacks;
 
 import java.util.ArrayList;
 
-import pixelmon.ChatHandler;
 import pixelmon.attacks.Attack;
 import pixelmon.attacks.attackEffects.EffectBase.ApplyStage;
-import pixelmon.entities.PixelmonEntityHelper;
+import pixelmon.comm.ChatHandler;
+import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 
 import net.minecraft.src.DamageSource;
 import net.minecraft.src.EntityLiving;

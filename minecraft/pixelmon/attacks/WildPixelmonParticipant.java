@@ -2,7 +2,7 @@ package pixelmon.attacks;
 
 import net.minecraft.src.ModLoader;
 import net.minecraft.src.NBTTagCompound;
-import pixelmon.ChatHandler;
+import pixelmon.comm.ChatHandler;
 import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 
 public class WildPixelmonParticipant implements IBattleParticipant {

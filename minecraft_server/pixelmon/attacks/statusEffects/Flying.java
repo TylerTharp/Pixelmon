@@ -3,7 +3,7 @@ package pixelmon.attacks.statusEffects;
 import java.util.ArrayList;
 
 import pixelmon.attacks.Attack;
-import pixelmon.entities.PixelmonEntityHelper;
+import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 
 
 public class Flying extends StatusEffectBase {

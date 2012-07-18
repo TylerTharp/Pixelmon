@@ -3,7 +3,7 @@ package pixelmon.Pokemon;
 import net.minecraft.src.Block;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.World;
-import pixelmon.entities.EntityGroundPixelmon;
+import pixelmon.entities.pixelmon.EntityGroundPixelmon;
 
 public class EntityMareep extends EntityGroundPixelmon
 {

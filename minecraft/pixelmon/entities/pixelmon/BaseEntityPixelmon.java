@@ -6,15 +6,17 @@ import java.util.Random;
 import pixelmon.*;
 import pixelmon.attacks.*;
 import pixelmon.attacks.statusEffects.StatusEffectBase;
+import pixelmon.comm.ChatHandler;
 import pixelmon.database.*;
 import pixelmon.entities.EntityTrainer;
 import pixelmon.entities.pixelmon.helpers.IHaveHelper;
+import pixelmon.entities.pixelmon.helpers.LevelHelper;
 import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
-import pixelmon.gui.EnumGui;
+import pixelmon.enums.EnumGui;
 import pixelmon.gui.GuiHandler;
 import pixelmon.gui.GuiLearnMove;
-import pixelmon.gui.GuiPokedex;
 import pixelmon.gui.GuiScreenPokeChecker;
+import pixelmon.gui.pokedex.GuiPokedex;
 
 import net.minecraft.src.Block;
 import net.minecraft.src.DamageSource;
@@ -43,7 +45,7 @@ public abstract class BaseEntityPixelmon extends EntityTameable implements IHave
 	public String nickname = "";
 	public float scale = 1F;
 	public float maxScale = 1.25F;
-	public LevelManager lvl;
+	public LevelHelper lvl;
 	public ArrayList<Type> type = new ArrayList<Type>();
 	public Moveset moveset = new Moveset();
 	public double caughtBall = 0;

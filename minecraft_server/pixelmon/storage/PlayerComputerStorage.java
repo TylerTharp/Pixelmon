@@ -2,10 +2,10 @@ package pixelmon.storage;
 
 import java.util.Iterator;
 
-import pixelmon.ChatHandler;
+import pixelmon.comm.ChatHandler;
 import pixelmon.comm.EnumPackets;
 import pixelmon.comm.PixelmonDataPacket;
-import pixelmon.entities.PixelmonEntityHelper;
+import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.ModLoader;
 import net.minecraft.src.NBTBase;

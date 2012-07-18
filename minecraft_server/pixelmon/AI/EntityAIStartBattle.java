@@ -1,7 +1,7 @@
 package pixelmon.AI;
 
-import pixelmon.entities.BaseEntityPixelmon;
-import pixelmon.entities.IHaveHelper;
+import pixelmon.entities.pixelmon.BaseEntityPixelmon;
+import pixelmon.entities.pixelmon.helpers.IHaveHelper;
 import net.minecraft.src.Entity;
 import net.minecraft.src.EntityAIBase;
 import net.minecraft.src.EntityPlayer;

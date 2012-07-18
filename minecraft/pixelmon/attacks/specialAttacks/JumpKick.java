@@ -2,11 +2,11 @@ package pixelmon.attacks.specialAttacks;
 
 import java.util.ArrayList;
 
-import pixelmon.ChatHandler;
 import pixelmon.attacks.Attack;
 import pixelmon.attacks.attackEffects.EffectBase;
 import pixelmon.attacks.statusEffects.StatusEffectBase;
 import pixelmon.attacks.statusEffects.StatusEffectType;
+import pixelmon.comm.ChatHandler;
 import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 
 import net.minecraft.src.DamageSource;

@@ -3,9 +3,9 @@ package pixelmon.attacks.specialAttacks;
 import java.util.ArrayList;
 import java.util.Random;
 
-import pixelmon.ChatHandler;
 import pixelmon.attacks.Attack;
-import pixelmon.entities.PixelmonEntityHelper;
+import pixelmon.comm.ChatHandler;
+import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 
 import net.minecraft.src.ModLoader;
 

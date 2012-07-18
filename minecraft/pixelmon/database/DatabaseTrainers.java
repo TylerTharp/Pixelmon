@@ -6,8 +6,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Random;
 
-import pixelmon.EnumBiomes;
 import pixelmon.attacks.Type;
+import pixelmon.enums.EnumBiomes;
 
 import net.minecraft.src.BiomeGenBase;
 

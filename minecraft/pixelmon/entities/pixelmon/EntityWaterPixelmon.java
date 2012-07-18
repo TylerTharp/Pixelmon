@@ -3,8 +3,6 @@ package pixelmon.entities.pixelmon;
 import java.util.ArrayList;
 import java.util.Random;
 
-import pixelmon.ChatHandler;
-import pixelmon.LevelManager;
 import pixelmon.WorldHelper;
 import pixelmon.attacks.BattleController;
 import pixelmon.attacks.IBattleParticipant;
@@ -14,14 +12,15 @@ import pixelmon.attacks.TrainerParticipant;
 import pixelmon.attacks.Type;
 import pixelmon.attacks.WildPixelmonParticipant;
 import pixelmon.attacks.statusEffects.StatusEffectBase;
+import pixelmon.comm.ChatHandler;
 import pixelmon.database.BattleStats;
 import pixelmon.database.DatabaseMoves;
 import pixelmon.database.DatabaseStats;
 import pixelmon.database.PixelmonIVStore;
 import pixelmon.database.Stats;
-import pixelmon.entities.EntityTameableWaterPokemon;
 import pixelmon.entities.EntityTrainer;
 import pixelmon.entities.pixelmon.helpers.IHaveHelper;
+import pixelmon.entities.pixelmon.helpers.LevelHelper;
 import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 import pixelmon.storage.PokeballManager;
 
@@ -43,7 +42,7 @@ public abstract class EntityWaterPixelmon extends EntityTameableWaterPokemon imp
 	public String nickname = "";
 	public float scale = 1F;
 	public float maxScale = 1.25F;
-	public LevelManager lvl;
+	public LevelHelper lvl;
 	public ArrayList<Type> type = new ArrayList<Type>();
 	public Moveset moveset = new Moveset();
 	public double caughtBall = 0;

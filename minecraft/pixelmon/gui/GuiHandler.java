@@ -1,13 +1,14 @@
 package pixelmon.gui;
 
 import pixelmon.StarterList;
-import pixelmon.TileEntityPokemonHealer;
 import pixelmon.attacks.BattleController;
 import pixelmon.attacks.BattleRegistry;
 import pixelmon.database.DatabaseMoves;
 import pixelmon.entities.pixelmon.BaseEntityPixelmon;
 import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
-import pixelmon.storage.GuiPC;
+import pixelmon.enums.EnumGui;
+import pixelmon.gui.pc.GuiPC;
+import pixelmon.gui.pokedex.GuiPokedex;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.ModLoader;
 import net.minecraft.src.World;

@@ -2,8 +2,8 @@ package pixelmon.comm;
 
 import java.io.*;
 
+import pixelmon.PixelmonEntityList;
 import pixelmon.StarterList;
-import pixelmon.entities.PixelmonEntityList;
 import pixelmon.entities.pixelmon.helpers.IHaveHelper;
 import pixelmon.storage.PixelmonServerStore;
 

@@ -10,8 +10,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import pixelmon.ChatHandler;
-import pixelmon.entities.PixelmonEntityHelper;
+import pixelmon.comm.ChatHandler;
+import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 
 import cpw.mods.fml.server.FMLServerHandler;
 

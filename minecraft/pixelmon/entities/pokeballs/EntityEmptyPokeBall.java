@@ -4,7 +4,7 @@ import java.util.Random;
 
 import org.lwjgl.util.vector.Vector3f;
 
-import pixelmon.ChatHandler;
+import pixelmon.comm.ChatHandler;
 import pixelmon.entities.pixelmon.helpers.IHaveHelper;
 import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 import pixelmon.storage.PokeballManager;

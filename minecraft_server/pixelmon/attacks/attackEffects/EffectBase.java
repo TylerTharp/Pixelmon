@@ -6,7 +6,7 @@ import pixelmon.attacks.EffectType;
 import pixelmon.attacks.attackModifiers.ChanceModifier;
 import pixelmon.attacks.attackModifiers.ModifierBase;
 import pixelmon.attacks.attackModifiers.ModifierType;
-import pixelmon.entities.PixelmonEntityHelper;
+import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 
 
 public abstract class EffectBase {

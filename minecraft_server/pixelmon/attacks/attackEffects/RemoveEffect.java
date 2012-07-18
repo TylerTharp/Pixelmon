@@ -2,11 +2,11 @@ package pixelmon.attacks.attackEffects;
 
 import java.util.ArrayList;
 
-import pixelmon.ChatHandler;
 import pixelmon.attacks.EffectType;
 import pixelmon.attacks.statusEffects.StatusEffectBase;
 import pixelmon.attacks.statusEffects.StatusEffectType;
-import pixelmon.entities.PixelmonEntityHelper;
+import pixelmon.comm.ChatHandler;
+import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 
 import net.minecraft.src.ModLoader;
 

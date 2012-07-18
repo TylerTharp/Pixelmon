@@ -3,7 +3,7 @@ package pixelmon.attacks.attackModifiers;
 import pixelmon.attacks.Attack;
 import pixelmon.attacks.attackEffects.EffectParser;
 import pixelmon.attacks.attackEffects.EffectParser.ValueType;
-import pixelmon.entities.PixelmonEntityHelper;
+import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 import net.minecraft.src.DamageSource;
 import net.minecraft.src.EntityLiving;
 

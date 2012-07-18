@@ -5,10 +5,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-import pixelmon.ChatHandler;
+import pixelmon.PixelmonEntityList;
+import pixelmon.comm.ChatHandler;
 import pixelmon.database.DatabaseMoves;
 import pixelmon.entities.EntityTrainer;
-import pixelmon.entities.PixelmonEntityList;
 import pixelmon.entities.pixelmon.helpers.IHaveHelper;
 import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 import pixelmon.storage.PokeballManager.PokeballManagerMode;

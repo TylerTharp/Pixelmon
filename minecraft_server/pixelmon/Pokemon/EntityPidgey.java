@@ -1,9 +1,9 @@
 package pixelmon.Pokemon;
 
-import pixelmon.entities.BaseEntityPixelmon;
-import pixelmon.entities.EntityFlyingPixelmon;
-import pixelmon.entities.EntityGroundPixelmon;
-import pixelmon.entities.IHaveHelper;
+import pixelmon.entities.pixelmon.BaseEntityPixelmon;
+import pixelmon.entities.pixelmon.EntityFlyingPixelmon;
+import pixelmon.entities.pixelmon.EntityGroundPixelmon;
+import pixelmon.entities.pixelmon.helpers.IHaveHelper;
 import net.minecraft.src.World;
 
 public class EntityPidgey extends EntityFlyingPixelmon

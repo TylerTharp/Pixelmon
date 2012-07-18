@@ -7,7 +7,7 @@ import pixelmon.attacks.EffectType;
 import pixelmon.attacks.attackEffects.EffectBase;
 import pixelmon.attacks.attackEffects.EffectBase.ApplyStage;
 import pixelmon.attacks.attackModifiers.AttackModifierType;
-import pixelmon.entities.PixelmonEntityHelper;
+import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 
 
 public abstract class SpecialAttackBase extends EffectBase{

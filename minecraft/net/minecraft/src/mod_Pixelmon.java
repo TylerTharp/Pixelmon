@@ -20,16 +20,10 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
-import pixelmon.BlockEvolutionStoneOre;
-import pixelmon.BlockHealer;
-import pixelmon.EnumEvolutionStone;
-import pixelmon.ItemEmptyPokeBall;
-import pixelmon.ItemEvolutionStone;
-import pixelmon.ItemPokedex;
 import pixelmon.KeyboardHandler;
-import pixelmon.PixelmonIDList;
-import pixelmon.TileEntityPokemonHealer;
-import pixelmon.TrainerIDList;
+import pixelmon.IDListPixelmon;
+import pixelmon.IDListTrainer;
+import pixelmon.PixelmonEntityList;
 import pixelmon.WorldGenLeafStoneOre;
 import pixelmon.WorldGenWaterStoneOre;
 import pixelmon.Pokemon.EntityBulbasaur;
@@ -38,25 +32,30 @@ import pixelmon.Pokemon.EntityEevee;
 import pixelmon.Pokemon.EntitySquirtle;
 import pixelmon.attacks.Attack;
 import pixelmon.attacks.BattleRegistry;
+import pixelmon.blocks.BlockEvolutionStoneOre;
+import pixelmon.blocks.BlockHealer;
+import pixelmon.blocks.BlockPC;
 import pixelmon.comm.EnumPackets;
 import pixelmon.comm.PacketCreator;
 import pixelmon.comm.PacketHandler;
 import pixelmon.database.DatabaseHelper;
 import pixelmon.database.DatabaseMoves;
 import pixelmon.entities.EntityTrainer;
-import pixelmon.entities.PixelmonEntityList;
 import pixelmon.entities.pixelmon.BaseEntityPixelmon;
 import pixelmon.entities.pixelmon.helpers.IHaveHelper;
 import pixelmon.entities.pokeballs.EntityEmptyPokeBall;
 import pixelmon.entities.pokeballs.EntityPokeBall;
-import pixelmon.gui.EnumGui;
+import pixelmon.enums.EnumEvolutionStone;
+import pixelmon.enums.EnumGui;
 import pixelmon.gui.GuiChooseStarter;
 import pixelmon.gui.GuiHandler;
 import pixelmon.gui.GuiPixelmonOverlay;
+import pixelmon.items.ItemEmptyPokeBall;
+import pixelmon.items.ItemEvolutionStone;
+import pixelmon.items.ItemPokedex;
 import pixelmon.render.RenderEmptyPokeball;
 import pixelmon.render.RenderPokeball;
 import pixelmon.render.RenderTrainer;
-import pixelmon.storage.BlockPC;
 import pixelmon.storage.ComputerManager;
 import pixelmon.storage.PokeballManager;
 import pixelmon.storage.ServerStorageDisplay;
@@ -171,8 +170,8 @@ public class mod_Pixelmon extends NetworkMod {
 		pcId = Integer.parseInt(configuration.getOrCreateBlockIdProperty("PC", 205).value);
 		waterStoneOreId = Integer.parseInt(configuration.getOrCreateBlockIdProperty("WaterStoneOre", 206).value);
 
-		PixelmonIDList.load(configuration);
-		TrainerIDList.load(configuration);
+		IDListPixelmon.load(configuration);
+		IDListTrainer.load(configuration);
 
 		isInMetric = Boolean.parseBoolean((configuration.getOrCreateBooleanProperty("Metric", "Pokedex", true)).value);
 
@@ -300,13 +299,12 @@ public class mod_Pixelmon extends NetworkMod {
 	}
 
 	public void registerEntities() {
-		ModLoader.registerTileEntity(TileEntityPokemonHealer.class, "Healer");
 		removeNormalMobsAndCreatures();
 		PixelmonEntityList.registerEntities();
-		MinecraftForge.registerEntity(EntityEmptyPokeBall.class, this, PixelmonIDList.i, 50, 1, true);
-		PixelmonIDList.i++;
-		MinecraftForge.registerEntity(EntityPokeBall.class, this, PixelmonIDList.i, 50, 1, true);
-		PixelmonIDList.i++;
+		MinecraftForge.registerEntity(EntityEmptyPokeBall.class, this, IDListPixelmon.i, 50, 1, true);
+		IDListPixelmon.i++;
+		MinecraftForge.registerEntity(EntityPokeBall.class, this, IDListPixelmon.i, 50, 1, true);
+		IDListPixelmon.i++;
 	}
 
 	public void addSpawns() {

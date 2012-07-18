@@ -12,7 +12,7 @@ import pixelmon.Pokemon.EntityEevee;
 import pixelmon.Pokemon.EntitySquirtle;
 import pixelmon.attacks.Attack;
 import pixelmon.database.DatabaseMoves;
-import pixelmon.entities.BaseEntityPixelmon;
+import pixelmon.entities.pixelmon.BaseEntityPixelmon;
 
 public class StarterList {
 	private static String[] starterList = new String[]{"Bulbasaur", "Squirtle", "Charmander", "Eevee"};

@@ -12,12 +12,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-import pixelmon.ChatHandler;
-import pixelmon.entities.BaseEntityPixelmon;
-import pixelmon.entities.IHaveHelper;
-import pixelmon.entities.PixelmonEntityHelper;
-import pixelmon.entities.PixelmonEntityList;
-import pixelmon.gui.EnumGui;
+import pixelmon.PixelmonEntityList;
+import pixelmon.comm.ChatHandler;
+import pixelmon.entities.pixelmon.BaseEntityPixelmon;
+import pixelmon.entities.pixelmon.helpers.IHaveHelper;
+import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
+import pixelmon.enums.EnumGui;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.server.FMLServerHandler;

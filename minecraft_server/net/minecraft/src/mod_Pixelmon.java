@@ -15,11 +15,20 @@ import pixelmon.Pokemon.EntityEevee;
 import pixelmon.Pokemon.EntitySquirtle;
 import pixelmon.attacks.Attack;
 import pixelmon.attacks.BattleRegistry;
+import pixelmon.blocks.BlockEvolutionStoneOre;
+import pixelmon.blocks.BlockHealer;
+import pixelmon.blocks.BlockPC;
 import pixelmon.comm.PacketHandler;
 import pixelmon.database.DatabaseHelper;
 import pixelmon.database.DatabaseMoves;
 import pixelmon.entities.*;
+import pixelmon.entities.pokeballs.EntityEmptyPokeBall;
+import pixelmon.entities.pokeballs.EntityPokeBall;
+import pixelmon.enums.EnumEvolutionStone;
 import pixelmon.gui.GuiHandler;
+import pixelmon.items.ItemEmptyPokeBall;
+import pixelmon.items.ItemEvolutionStone;
+import pixelmon.items.ItemPokedex;
 import pixelmon.storage.*;
 import pixelmon.storage.PokeballManager.PokeballManagerMode;
 
@@ -146,8 +155,8 @@ public class mod_Pixelmon extends NetworkMod {
 		leafStoneOreId = Integer.parseInt(configuration.getOrCreateBlockIdProperty("LeafStoneOre", 204).value);
 		pcId = Integer.parseInt(configuration.getOrCreateBlockIdProperty("PC", 205).value);
 		waterStoneOreId = Integer.parseInt(configuration.getOrCreateBlockIdProperty("WaterStoneOre", 206).value);
-		PixelmonIDList.load(configuration);
-		TrainerIDList.load(configuration);
+		IDListPixelmon.load(configuration);
+		IDListTrainer.load(configuration);
 		
 
 		isInMetric = Boolean.parseBoolean((configuration.getOrCreateBooleanProperty("Metric", "Pokedex", true)).value);
@@ -263,11 +272,10 @@ public class mod_Pixelmon extends NetworkMod {
 	}
 
 	public void registerEntities() {
-		ModLoader.registerTileEntity(TileEntityPokemonHealer.class, "Healer");
 		removeNormalMobsAndCreatures();
 		PixelmonEntityList.registerEntities();
-		MinecraftForge.registerEntity(EntityEmptyPokeBall.class, this, PixelmonIDList.i, 50, 1, true); PixelmonIDList.i++;
-		MinecraftForge.registerEntity(EntityPokeBall.class, this, PixelmonIDList.i, 50, 1, true); PixelmonIDList.i++;
+		MinecraftForge.registerEntity(EntityEmptyPokeBall.class, this, IDListPixelmon.i, 50, 1, true); IDListPixelmon.i++;
+		MinecraftForge.registerEntity(EntityPokeBall.class, this, IDListPixelmon.i, 50, 1, true); IDListPixelmon.i++;
 	}
 
 	public void addSpawns() {

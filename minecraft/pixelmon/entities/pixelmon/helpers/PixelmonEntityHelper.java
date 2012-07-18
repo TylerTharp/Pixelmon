@@ -5,26 +5,25 @@ import java.util.List;
 
 import org.lwjgl.util.vector.Vector3f;
 
-import pixelmon.ChatHandler;
-import pixelmon.ItemEvolutionStone;
-import pixelmon.LevelManager;
+import pixelmon.PixelmonEntityList;
 import pixelmon.attacks.Attack;
 import pixelmon.attacks.BattleController;
 import pixelmon.attacks.Moveset;
 import pixelmon.attacks.Type;
 import pixelmon.attacks.statusEffects.StatusEffectBase;
+import pixelmon.comm.ChatHandler;
 import pixelmon.database.BattleStats;
 import pixelmon.database.DatabaseStats;
+import pixelmon.database.EvolutionInfo;
 import pixelmon.database.Stats;
 import pixelmon.entities.EntityTrainer;
-import pixelmon.entities.EvolutionInfo;
-import pixelmon.entities.PixelmonEntityList;
 import pixelmon.entities.pixelmon.BaseEntityPixelmon;
 import pixelmon.entities.pixelmon.EntityWaterPixelmon;
 import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
-import pixelmon.gui.EnumGui;
-import pixelmon.gui.GuiPokedex;
+import pixelmon.enums.EnumGui;
 import pixelmon.gui.GuiScreenPokeChecker;
+import pixelmon.gui.pokedex.GuiPokedex;
+import pixelmon.items.ItemEvolutionStone;
 
 import net.minecraft.src.DamageSource;
 import net.minecraft.src.Entity;
@@ -130,14 +129,14 @@ public class PixelmonEntityHelper {
 		return null;
 	}
 
-	public LevelManager getLvl() {
+	public LevelHelper getLvl() {
 		if (pixelmon instanceof BaseEntityPixelmon) {
 			BaseEntityPixelmon p = (BaseEntityPixelmon) pixelmon;
 			if (ModLoader.getMinecraftInstance().theWorld.isRemote) {
-				return LevelManager.readFromLvlString(p.getLvlString());
+				return LevelHelper.readFromLvlString(p.getLvlString());
 			} else {
 				if (p.lvl == null && p.lvlString.isEmpty()) {
-					p.lvl = new LevelManager(p.helper);
+					p.lvl = new LevelHelper(p.helper);
 					p.lvl.setLevel(mod_Pixelmon.getRandomNumberBetween(getStats().BaseStats.SpawnLevel, 
 							getStats().BaseStats.SpawnLevel + getStats().BaseStats.SpawnLevelRange));
 					p.setHealth(p.stats.HP);
@@ -147,10 +146,10 @@ public class PixelmonEntityHelper {
 		} else if (pixelmon instanceof EntityWaterPixelmon) {
 			EntityWaterPixelmon p = (EntityWaterPixelmon) pixelmon;
 			if (ModLoader.getMinecraftInstance().theWorld.isRemote) {
-				return LevelManager.readFromLvlString(p.getLvlString());
+				return LevelHelper.readFromLvlString(p.getLvlString());
 			} else {
 				if (p.lvl == null) {
-					p.lvl = new LevelManager(p.helper);
+					p.lvl = new LevelHelper(p.helper);
 					p.lvl.setLevel(mod_Pixelmon.getRandomNumberBetween(getStats().BaseStats.SpawnLevel, 
 							getStats().BaseStats.SpawnLevel + getStats().BaseStats.SpawnLevelRange));
 					p.setHealth(p.stats.HP);

@@ -1,5 +1,6 @@
 package pixelmon.gui;
 
+import pixelmon.enums.EnumGui;
 import net.minecraft.src.Container;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.World;

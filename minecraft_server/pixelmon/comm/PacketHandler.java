@@ -3,15 +3,14 @@ package pixelmon.comm;
 import java.io.*;
 import java.util.Random;
 
-import pixelmon.ChatHandler;
+import pixelmon.PixelmonEntityList;
 import pixelmon.StarterList;
 import pixelmon.attacks.BattleController;
 import pixelmon.attacks.BattleRegistry;
 import pixelmon.attacks.PlayerParticipant;
-import pixelmon.entities.EntityPokeBall;
-import pixelmon.entities.IHaveHelper;
-import pixelmon.entities.PixelmonEntityList;
-import pixelmon.gui.EnumGui;
+import pixelmon.entities.pixelmon.helpers.IHaveHelper;
+import pixelmon.entities.pokeballs.EntityPokeBall;
+import pixelmon.enums.EnumGui;
 
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.MathHelper;

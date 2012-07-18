@@ -1,6 +1,6 @@
 package pixelmon.attacks;
 
-import pixelmon.entities.PixelmonEntityHelper;
+import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
 
 public interface IBattleParticipant {
 	boolean isWild = false;
