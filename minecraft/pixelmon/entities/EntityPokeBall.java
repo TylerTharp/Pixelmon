@@ -1,5 +1,7 @@
 package pixelmon.entities;
 
+import pixelmon.helpers.IHaveHelper;
+import pixelmon.helpers.PixelmonEntityHelper;
 import pixelmon.storage.PokeballManager;
 import net.minecraft.src.EntityCrit2FX;
 import net.minecraft.src.EntityLiving;

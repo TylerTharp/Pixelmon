@@ -6,7 +6,7 @@ import pixelmon.attacks.Attack;
 import pixelmon.attacks.attackEffects.EffectBase;
 import pixelmon.attacks.statusEffects.StatusEffectBase;
 import pixelmon.attacks.statusEffects.StatusEffectType;
-import pixelmon.entities.PixelmonEntityHelper;
+import pixelmon.helpers.PixelmonEntityHelper;
 
 import net.minecraft.src.DamageSource;
 import net.minecraft.src.EntityLiving;

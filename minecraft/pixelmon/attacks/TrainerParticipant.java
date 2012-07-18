@@ -6,7 +6,7 @@ import net.minecraft.src.NBTTagCompound;
 import net.minecraft.src.mod_Pixelmon;
 import pixelmon.ChatHandler;
 import pixelmon.entities.EntityTrainer;
-import pixelmon.entities.PixelmonEntityHelper;
+import pixelmon.helpers.PixelmonEntityHelper;
 
 public class TrainerParticipant implements IBattleParticipant {
 

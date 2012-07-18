@@ -6,7 +6,7 @@ import pixelmon.comm.EnumPackets;
 import pixelmon.comm.PacketCreator;
 import pixelmon.comm.PixelmonDataPacket;
 import pixelmon.entities.BaseEntityPixelmon;
-import pixelmon.entities.PixelmonEntityHelper;
+import pixelmon.helpers.PixelmonEntityHelper;
 
 import net.minecraft.src.*;
 

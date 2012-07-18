@@ -1,4 +1,4 @@
-package pixelmon.entities;
+package pixelmon.helpers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,12 +20,11 @@ import pixelmon.entities.BaseEntityPixelmon;
 import pixelmon.entities.EntityTrainer;
 import pixelmon.entities.EntityWaterPixelmon;
 import pixelmon.entities.EvolutionInfo;
-import pixelmon.entities.IHaveHelper;
-import pixelmon.entities.PixelmonEntityHelper;
 import pixelmon.entities.PixelmonEntityList;
 import pixelmon.gui.EnumGui;
 import pixelmon.gui.GuiPokedex;
 import pixelmon.gui.GuiScreenPokeChecker;
+import pixelmon.helpers.PixelmonEntityHelper;
 
 import net.minecraft.src.DamageSource;
 import net.minecraft.src.Entity;

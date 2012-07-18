@@ -1,7 +1,7 @@
 package pixelmon.gui;
 
 import pixelmon.comm.PixelmonDataPacket;
-import pixelmon.entities.PixelmonEntityHelper;
+import pixelmon.helpers.PixelmonEntityHelper;
 import pixelmon.storage.GuiPC;
 import net.minecraft.src.GuiButton;
 import net.minecraft.src.StatCollector;

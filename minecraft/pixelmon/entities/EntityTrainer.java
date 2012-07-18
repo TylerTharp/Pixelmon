@@ -5,6 +5,7 @@ import java.util.Random;
 import pixelmon.ChatHandler;
 import pixelmon.database.DatabaseTrainers;
 import pixelmon.database.TrainerInfo;
+import pixelmon.helpers.IHaveHelper;
 import pixelmon.storage.PlayerStorage;
 import pixelmon.storage.PokeballManager;
 import pixelmon.storage.PokeballManager.PokeballManagerMode;

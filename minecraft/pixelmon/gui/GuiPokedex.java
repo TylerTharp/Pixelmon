@@ -9,7 +9,7 @@ import pixelmon.ContainerPokedex;
 import pixelmon.Pokedex;
 import pixelmon.PokedexEntry;
 import pixelmon.entities.BaseEntityPixelmon;
-import pixelmon.entities.PixelmonEntityHelper;
+import pixelmon.helpers.PixelmonEntityHelper;
 import net.minecraft.src.*;
 
 public class GuiPokedex extends GuiContainer

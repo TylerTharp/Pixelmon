@@ -4,7 +4,7 @@ import pixelmon.attacks.Attack;
 import pixelmon.attacks.Type;
 import pixelmon.comm.PixelmonDataPacket;
 import pixelmon.entities.BaseEntityPixelmon;
-import pixelmon.entities.PixelmonEntityHelper;
+import pixelmon.helpers.PixelmonEntityHelper;
 import net.minecraft.src.GuiButton;
 import net.minecraft.src.GuiScreen;
 import net.minecraft.src.ModLoader;

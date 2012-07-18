@@ -5,6 +5,7 @@ import java.util.List;
 import pixelmon.AI.EntityAINearestPixelmonTarget;
 import pixelmon.AI.EntityAIStartBattle;
 import pixelmon.attacks.BattleController;
+import pixelmon.helpers.PixelmonEntityHelper;
 
 import net.minecraft.src.*;
 

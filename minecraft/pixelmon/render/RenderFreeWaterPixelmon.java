@@ -14,7 +14,7 @@ import org.lwjgl.opengl.GL11;
 
 import pixelmon.entities.BaseEntityPixelmon;
 import pixelmon.entities.EntityWaterPixelmon;
-import pixelmon.entities.IHaveHelper;
+import pixelmon.helpers.IHaveHelper;
 
 public class RenderFreeWaterPixelmon extends RenderLiving{
 	public RenderFreeWaterPixelmon(ModelBase par1ModelBase, float par2) { //par2 = shadow size

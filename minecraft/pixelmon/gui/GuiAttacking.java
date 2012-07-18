@@ -18,7 +18,7 @@ import pixelmon.comm.EnumPackets;
 import pixelmon.comm.PacketCreator;
 import pixelmon.comm.PixelmonDataPacket;
 import pixelmon.entities.BaseEntityPixelmon;
-import pixelmon.entities.PixelmonEntityHelper;
+import pixelmon.helpers.PixelmonEntityHelper;
 import pixelmon.storage.PixelmonServerStore;
 
 public class GuiAttacking extends GuiScreen {

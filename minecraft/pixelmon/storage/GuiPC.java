@@ -12,10 +12,10 @@ import net.minecraft.src.mod_Pixelmon;
 import org.lwjgl.opengl.GL11;
 
 import pixelmon.comm.PixelmonDataPacket;
-import pixelmon.entities.IHaveHelper;
 import pixelmon.entities.PixelmonEntityList;
 import pixelmon.gui.ContainerEmpty;
 import pixelmon.gui.GuiScreenPokeCheckerPC;
+import pixelmon.helpers.IHaveHelper;
 
 public class GuiPC extends GuiContainer {
 

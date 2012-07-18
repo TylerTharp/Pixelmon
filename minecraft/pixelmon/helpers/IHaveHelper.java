@@ -1,6 +1,7 @@
-package pixelmon.entities;
+package pixelmon.helpers;
 
 import pixelmon.attacks.BattleController;
+import pixelmon.entities.EntityTrainer;
 import net.minecraft.src.EntityLookHelper;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.NBTTagCompound;

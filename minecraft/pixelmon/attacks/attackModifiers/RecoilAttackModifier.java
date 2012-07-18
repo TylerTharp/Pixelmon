@@ -3,7 +3,7 @@ package pixelmon.attacks.attackModifiers;
 import pixelmon.ChatHandler;
 import pixelmon.attacks.Attack;
 import pixelmon.attacks.attackEffects.EffectBase;
-import pixelmon.entities.PixelmonEntityHelper;
+import pixelmon.helpers.PixelmonEntityHelper;
 import net.minecraft.src.DamageSource;
 import net.minecraft.src.EntityLiving;
 import net.minecraft.src.ModLoader;

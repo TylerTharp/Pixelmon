@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import pixelmon.attacks.Attack;
 import pixelmon.attacks.Type;
-import pixelmon.entities.PixelmonEntityHelper;
+import pixelmon.helpers.PixelmonEntityHelper;
 
 import net.minecraft.src.mod_Pixelmon;
 

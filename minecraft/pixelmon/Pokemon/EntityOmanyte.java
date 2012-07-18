@@ -2,7 +2,7 @@ package pixelmon.Pokemon;
 
 import pixelmon.entities.BaseEntityPixelmon;
 import pixelmon.entities.EntityWaterPixelmon;
-import pixelmon.entities.IHaveHelper;
+import pixelmon.helpers.IHaveHelper;
 import net.minecraft.src.*;
 
 

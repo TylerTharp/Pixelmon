@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import pixelmon.attacks.*;
 import pixelmon.attacks.attackEffects.EffectBase;
 import pixelmon.attacks.attackEffects.EffectBase.ApplyStage;
-import pixelmon.entities.IHaveHelper;
-import pixelmon.entities.PixelmonEntityHelper;
+import pixelmon.helpers.IHaveHelper;
+import pixelmon.helpers.PixelmonEntityHelper;
 
 
 import net.minecraft.src.DamageSource;

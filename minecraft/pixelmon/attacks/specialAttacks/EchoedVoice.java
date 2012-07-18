@@ -3,7 +3,7 @@ package pixelmon.attacks.specialAttacks;
 import java.util.ArrayList;
 
 import pixelmon.attacks.Attack;
-import pixelmon.entities.PixelmonEntityHelper;
+import pixelmon.helpers.PixelmonEntityHelper;
 
 
 public class EchoedVoice extends SpecialAttackBase {

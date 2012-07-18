@@ -16,8 +16,8 @@ import pixelmon.attacks.specialAttacks.MultiTurnSpecialAttackBase;
 import pixelmon.attacks.statusEffects.StatusEffectBase;
 import pixelmon.attacks.statusEffects.StatusEffectType;
 import pixelmon.entities.BaseEntityPixelmon;
-import pixelmon.entities.IHaveHelper;
-import pixelmon.entities.PixelmonEntityHelper;
+import pixelmon.helpers.IHaveHelper;
+import pixelmon.helpers.PixelmonEntityHelper;
 
 import net.minecraft.src.*;
 

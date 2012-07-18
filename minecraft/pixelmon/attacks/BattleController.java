@@ -8,9 +8,9 @@ import pixelmon.attacks.statusEffects.StatusEffectBase;
 import pixelmon.database.BattleStats;
 import pixelmon.entities.BaseEntityPixelmon;
 import pixelmon.entities.EntityTrainer;
-import pixelmon.entities.IHaveHelper;
-import pixelmon.entities.PixelmonEntityHelper;
 import pixelmon.gui.EnumGui;
+import pixelmon.helpers.IHaveHelper;
+import pixelmon.helpers.PixelmonEntityHelper;
 import pixelmon.storage.PokeballManager;
 
 import net.minecraft.src.EntityLiving;

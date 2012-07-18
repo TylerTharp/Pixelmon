@@ -3,7 +3,7 @@ package pixelmon.Pokemon;
 import pixelmon.entities.BaseEntityPixelmon;
 import pixelmon.entities.EntityFlyingPixelmon;
 import pixelmon.entities.EntityGroundPixelmon;
-import pixelmon.entities.IHaveHelper;
+import pixelmon.helpers.IHaveHelper;
 import net.minecraft.src.World;
 
 public class EntityPidgey extends EntityFlyingPixelmon

@@ -7,8 +7,8 @@ import pixelmon.database.DatabaseMoves;
 import pixelmon.database.ExperienceGroup;
 import pixelmon.entities.BaseEntityPixelmon;
 import pixelmon.entities.EntityWaterPixelmon;
-import pixelmon.entities.PixelmonEntityHelper;
 import pixelmon.gui.EnumGui;
+import pixelmon.helpers.PixelmonEntityHelper;
 
 import cpw.mods.fml.common.registry.FMLRegistry;
 

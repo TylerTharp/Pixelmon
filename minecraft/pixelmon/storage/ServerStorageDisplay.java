@@ -11,8 +11,8 @@ import net.minecraft.src.forge.IThrowableEntity;
 import net.minecraft.src.forge.MinecraftForge;
 import pixelmon.comm.PixelmonDataPacket;
 import pixelmon.entities.BaseEntityPixelmon;
-import pixelmon.entities.IHaveHelper;
-import pixelmon.entities.PixelmonEntityHelper;
+import pixelmon.helpers.IHaveHelper;
+import pixelmon.helpers.PixelmonEntityHelper;
 
 public class ServerStorageDisplay {
 	public PixelmonDataPacket[] pokemon = new PixelmonDataPacket[6];

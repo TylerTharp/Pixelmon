@@ -12,6 +12,8 @@ import pixelmon.gui.GuiHandler;
 import pixelmon.gui.GuiLearnMove;
 import pixelmon.gui.GuiPokedex;
 import pixelmon.gui.GuiScreenPokeChecker;
+import pixelmon.helpers.IHaveHelper;
+import pixelmon.helpers.PixelmonEntityHelper;
 
 import net.minecraft.src.Block;
 import net.minecraft.src.DamageSource;
@@ -96,7 +98,7 @@ public abstract class BaseEntityPixelmon extends EntityTameable implements IHave
 			return "/pixelmon/texture/" + name.toLowerCase() + ".png";
 	}
 
-	BattleController bc;
+	public BattleController bc;
 	public EntityTrainer trainer;
 	public String lvlString = "";
 	private String ownerName;

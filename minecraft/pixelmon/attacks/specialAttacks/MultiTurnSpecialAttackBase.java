@@ -10,7 +10,7 @@ import pixelmon.attacks.attackEffects.EffectBase.ApplyStage;
 import pixelmon.attacks.attackModifiers.ChanceModifier;
 import pixelmon.attacks.attackModifiers.ModifierBase;
 import pixelmon.attacks.attackModifiers.ModifierType;
-import pixelmon.entities.PixelmonEntityHelper;
+import pixelmon.helpers.PixelmonEntityHelper;
 
 
 public abstract class MultiTurnSpecialAttackBase extends EffectBase {

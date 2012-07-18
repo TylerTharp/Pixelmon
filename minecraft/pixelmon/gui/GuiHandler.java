@@ -6,7 +6,7 @@ import pixelmon.attacks.BattleController;
 import pixelmon.attacks.BattleRegistry;
 import pixelmon.database.DatabaseMoves;
 import pixelmon.entities.BaseEntityPixelmon;
-import pixelmon.entities.PixelmonEntityHelper;
+import pixelmon.helpers.PixelmonEntityHelper;
 import pixelmon.storage.GuiPC;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.ModLoader;

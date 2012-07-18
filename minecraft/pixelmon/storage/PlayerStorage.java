@@ -8,9 +8,9 @@ import java.util.Random;
 import pixelmon.ChatHandler;
 import pixelmon.database.DatabaseMoves;
 import pixelmon.entities.EntityTrainer;
-import pixelmon.entities.IHaveHelper;
-import pixelmon.entities.PixelmonEntityHelper;
 import pixelmon.entities.PixelmonEntityList;
+import pixelmon.helpers.IHaveHelper;
+import pixelmon.helpers.PixelmonEntityHelper;
 import pixelmon.storage.PokeballManager.PokeballManagerMode;
 
 import net.minecraft.src.Entity;

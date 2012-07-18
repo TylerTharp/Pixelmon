@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import pixelmon.ChatHandler;
 import pixelmon.attacks.EffectType;
-import pixelmon.entities.PixelmonEntityHelper;
+import pixelmon.helpers.PixelmonEntityHelper;
 
 import net.minecraft.src.ModLoader;
 

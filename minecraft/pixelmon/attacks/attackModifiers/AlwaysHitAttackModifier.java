@@ -1,7 +1,7 @@
 package pixelmon.attacks.attackModifiers;
 
 import pixelmon.attacks.Attack;
-import pixelmon.entities.PixelmonEntityHelper;
+import pixelmon.helpers.PixelmonEntityHelper;
 
 public class AlwaysHitAttackModifier extends AttackModifierBase {
 

@@ -19,6 +19,8 @@ import pixelmon.database.DatabaseMoves;
 import pixelmon.database.DatabaseStats;
 import pixelmon.database.PixelmonIVStore;
 import pixelmon.database.Stats;
+import pixelmon.helpers.IHaveHelper;
+import pixelmon.helpers.PixelmonEntityHelper;
 import pixelmon.storage.PokeballManager;
 
 import net.minecraft.src.Block;

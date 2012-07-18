@@ -5,7 +5,7 @@ import java.util.Random;
 import pixelmon.comm.EnumPackets;
 import pixelmon.comm.PacketCreator;
 import pixelmon.entities.EntityPokeBall;
-import pixelmon.entities.IHaveHelper;
+import pixelmon.helpers.IHaveHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.KeyBinding;
 import net.minecraft.src.MathHelper;
