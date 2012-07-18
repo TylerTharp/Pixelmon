@@ -142,6 +142,8 @@ public class mod_Pixelmon extends NetworkMod {
 	public static final KeyBinding sendPixelmonKey = new KeyBinding("Send/Recieve Pixelmon", Keyboard.KEY_P);
 	public static final KeyBinding nextPixelmonKey = new KeyBinding("Next Pixelmon", 27);
 	public static final KeyBinding previousPixelmonKey = new KeyBinding("Previous Pixelmon", 26);
+	//Debug Key
+	public static final KeyBinding debugKey = new KeyBinding("Debug Key [Pixelmon]", Keyboard.KEY_F1);
 	public static GuiPixelmonOverlay pixelmonOverlay = new GuiPixelmonOverlay();
 
 	public static final PokeballManager pokeballManager = new PokeballManager();
@@ -254,6 +256,7 @@ public class mod_Pixelmon extends NetworkMod {
 		ModLoader.registerKey(this, nextPixelmonKey, false);
 		ModLoader.registerKey(this, previousPixelmonKey, false);
 		ModLoader.registerKey(this, sendPixelmonKey, false);
+		ModLoader.registerKey(this, minmizePixelmonKey, false);
 		ModLoader.registerKey(this, minmizePixelmonKey, false);
 		alreadySet = true;
 	}
@@ -614,6 +617,12 @@ public class mod_Pixelmon extends NetworkMod {
 		return null;
 	}
 
+	//For the debug Keybinding
+	public static void debugKeyFunction(Minecraft mc)
+	{
+		
+	}
+	
 	public class UpdateHandler extends UpdateManagerMod {
 		public UpdateHandler(BaseMod m) {
 			super(m);
