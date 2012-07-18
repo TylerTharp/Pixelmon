@@ -49,7 +49,7 @@ public class GuiSMPHealer extends GuiScreen {
 		}
 		controlList.clear();
 		controlList.add(new GuiButton(0, width / 2 - 100, (int) (height * 0.8), 100, 20, StatCollector.translateToLocal("Heal")));
-		cancelButton = new GuiButton(1, width / 2, (int) (height * 0.8), 100, 20, StatCollector.translateToLocal("Cancel"));
+		cancelButton = new GuiButton(1, width / 2, (int) (height * 0.8), 100, 20, StatCollector.translateToLocal("Close"));
 		controlList.add(cancelButton);
 	}
 
