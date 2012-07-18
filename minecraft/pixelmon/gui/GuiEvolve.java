@@ -9,17 +9,17 @@ public class GuiEvolve extends GuiScreen
 	
 	public IHaveHelper beginPixelmon, finishPixelmon;
 	private PixelmonEntityHelper b, f;
-	private String text1, text2, cancel;
+	private String start, complete, cancel;
 	
 	public GuiEvolve(IHaveHelper start, IHaveHelper end)
 	{
 		beginPixelmon = start;
 		finishPixelmon = end;
-		b = new PixelmonEntityHelper(beginPixelmon);
-		f = new PixelmonEntityHelper(finishPixelmon);
-		text1 = "What? Your " + getName(b)
+		b = beginPixelmon.getHelper();
+		f = finishPixelmon.getHelper();
+		this.start = "What? Your " + getName(b)
 				+ " is evolving!";
-		text2 = "Congratulations, your " + getName(b) + " evolved into " + f.getName() + "!";
+		complete = "Congratulations, your " + getName(b) + " evolved into " + f.getName() + "!";
 		cancel = "Huh? " + getName(b) + " stopped evolving!";
 	}
 	
@@ -31,5 +31,10 @@ public class GuiEvolve extends GuiScreen
 	public void initGui()
 	{
 		controlList.clear();
+	}
+	
+	public void updateScreen()
+	{
+		mod_Pixelmon.drawModelToScreen(1, 1, 1, mc.displayWidth / 2, mc.displayWidth / 2, b.getEntity(), this, true);
 	}
 }

@@ -74,6 +74,9 @@ public class KeyboardHandler {
 			}
 		} else if (event == mod_Pixelmon.minmizePixelmonKey) {
 			mod_Pixelmon.isGuiMinimized = !mod_Pixelmon.isGuiMinimized;
+		} else if (event == mod_Pixelmon.debugKey) {
+			Minecraft mc = ModLoader.getMinecraftInstance();
+			mod_Pixelmon.debugKeyFunction(mc);
 		}
 	}
 }
