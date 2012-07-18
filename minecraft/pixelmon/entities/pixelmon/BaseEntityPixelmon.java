@@ -93,7 +93,8 @@ public abstract class BaseEntityPixelmon extends EntityTameable implements IHave
 
 		helper.getLvl();
 		setSize(stats.BaseStats.Height, width);
-		ridingHelper = new RidingHelper(this, worldObj);
+		if (stats.BaseStats.IsRideable)
+			ridingHelper = new RidingHelper(this, worldObj);
 	}
 
 	@Override
@@ -439,26 +440,31 @@ public abstract class BaseEntityPixelmon extends EntityTameable implements IHave
 
 	@Override
 	public double getMountedYOffset() {
-		return ridingHelper.getMountedYOffset();
+		if (ridingHelper != null)
+			return ridingHelper.getMountedYOffset();
+		else
+			return super.getMountedYOffset();
 	}
 
 	@Override
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
-		ridingHelper.onLivingUpdate();
+		if (ridingHelper != null) ridingHelper.onLivingUpdate();
 	}
 
 	@Override
 	public void moveEntity(double d, double d1, double d2) {
-		ridingHelper.moveEntity(d, d1, d2);
+		if (ridingHelper != null) ridingHelper.moveEntity(d, d1, d2);
+		else super.moveEntity(d, d1, d2);
 	}
 
 	@Override
 	public void updateRidden() {
-		ridingHelper.updateRidden();
+		if (ridingHelper != null) ridingHelper.updateRidden();
+		else super.updateRidden();
 	}
-	
-	public void doMoveEntity(double motionX, double motionY, double motionZ){
+
+	public void doMoveEntity(double motionX, double motionY, double motionZ) {
 		super.moveEntity(motionX, motionY, motionZ);
 	}
 }

@@ -58,8 +58,8 @@ public abstract class EntityWaterPixelmon extends EntityTameableWaterPokemon imp
 	public float swimSpeed = 1.5f;
 	public float decayRate = 0.99f;
 	public int refreshRate = 100;
-	protected int depthRangeStart=0;
-	protected int depthRangeEnd=100;
+	protected int depthRangeStart = 0;
+	protected int depthRangeEnd = 100;
 	private boolean isSwimming = true;
 	public boolean isMale;
 	public PixelmonEntityHelper helper = new PixelmonEntityHelper(this);
@@ -95,7 +95,7 @@ public abstract class EntityWaterPixelmon extends EntityTameableWaterPokemon imp
 		setSize(stats.BaseStats.Height, width);
 		helper.getLvl();
 		this.field_21080_l = 1.0F / (this.rand.nextFloat() + 1.0F) * swimFrequency;
-		ridingHelper = new RidingHelper(this,worldObj);
+		ridingHelper = new RidingHelper(this, worldObj);
 	}
 
 	@Override
@@ -193,7 +193,8 @@ public abstract class EntityWaterPixelmon extends EntityTameableWaterPokemon imp
 
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
-		ridingHelper.onLivingUpdate();
+		if (ridingHelper != null)
+			ridingHelper.onLivingUpdate();
 		if (!isSwimming || worldObj.isRemote) {
 			motionX = motionY = motionZ = 0;
 			return;
@@ -247,7 +248,7 @@ public abstract class EntityWaterPixelmon extends EntityTameableWaterPokemon imp
 
 	protected void updateEntityActionState() {
 		if (count == 0) {
-			int wdepth = WorldHelper.getWaterDepth((int)posX, (int)posY, (int)posZ, worldObj);
+			int wdepth = WorldHelper.getWaterDepth((int) posX, (int) posY, (int) posZ, worldObj);
 			// if (rand.nextInt(90) == 0 || randomMotionVecX == 0.0F
 			// && randomMotionVecY == 0.0F && randomMotionVecZ == 0.0F) {
 			count = refreshRate - refreshRate / 2 + rand.nextInt(refreshRate / 2);
@@ -270,8 +271,9 @@ public abstract class EntityWaterPixelmon extends EntityTameableWaterPokemon imp
 	 * entity.
 	 */
 	public boolean getCanSpawnHere() {
-		int wdepth= WorldHelper.getWaterDepth((int)posX, (int)posY, (int)posZ, worldObj);
-		if ( wdepth >= depthRangeStart && wdepth < depthRangeEnd) return true;
+		int wdepth = WorldHelper.getWaterDepth((int) posX, (int) posY, (int) posZ, worldObj);
+		if (wdepth >= depthRangeStart && wdepth < depthRangeEnd)
+			return true;
 		return false;
 	}
 
@@ -398,7 +400,7 @@ public abstract class EntityWaterPixelmon extends EntityTameableWaterPokemon imp
 		else
 			dataWatcher.updateObject(20, (short) 0);
 	}
-	
+
 	@Override
 	public void jump() {
 		super.jump();
@@ -406,20 +408,29 @@ public abstract class EntityWaterPixelmon extends EntityTameableWaterPokemon imp
 
 	@Override
 	public double getMountedYOffset() {
-		return ridingHelper.getMountedYOffset();
+		if (ridingHelper != null)
+			return ridingHelper.getMountedYOffset();
+		else
+			return super.getMountedYOffset();
 	}
 
 	@Override
 	public void moveEntity(double d, double d1, double d2) {
-		ridingHelper.moveEntity(d, d1, d2);
+		if (ridingHelper != null)
+			ridingHelper.moveEntity(d, d1, d2);
+		else
+			super.moveEntity(d, d1, d2);
 	}
 
 	@Override
 	public void updateRidden() {
-		ridingHelper.updateRidden();
+		if (ridingHelper != null)
+			ridingHelper.updateRidden();
+		else
+			super.updateRidden();
 	}
-	
-	public void doMoveEntity(double motionX, double motionY, double motionZ){
+
+	public void doMoveEntity(double motionX, double motionY, double motionZ) {
 		super.moveEntity(motionX, motionY, motionZ);
 	}
 }
