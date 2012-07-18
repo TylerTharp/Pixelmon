@@ -31,7 +31,7 @@ public class ProgressBar {
 		tessellator.addVertex(x + width/2, y, 0.0);
 		
 		int barWidth = (int) (((float) value) / ((float) maxValue) * (((float) width) - 6f));
-		tessellator.setColorRGBA_F(0.2F, 1.0F, 0.2F, 1.0F);
+		tessellator.setColorRGBA_F(1.0f-((float)value/(float)maxValue)*0.8F, 0.2F+((float)value/(float)maxValue)*0.8F, 0.2F, 1.0F);
 		tessellator.addVertex(x - width/2+3, y+3, 0.0);
 		tessellator.addVertex(x - width/2+3, y+height-3, 0.0);
 		tessellator.addVertex(x - width/2+3+barWidth, y+height-3, 0.0);

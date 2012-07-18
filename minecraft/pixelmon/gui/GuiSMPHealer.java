@@ -144,7 +144,6 @@ public class GuiSMPHealer extends GuiScreen {
 		fontRenderer.FONT_HEIGHT = 10;
 		drawString(fontRenderer, pixelmon.getString("Nickname"), x, y, 0xDDDDDD);
 		drawCenteredString(fontRenderer, pixelmon.getShort("Health") + "/" + pixelmon.getInteger("StatsHP"), x + fontRenderer.getStringWidth(pixelmon.getString("Nickname")) / 2, y + 15, 0xDDDDDD);
-
 	}
 
 	public void drawPokemonStats(PixelmonDataPacket pixelmon, int x, int y, boolean isMine) {
