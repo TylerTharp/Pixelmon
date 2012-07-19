@@ -12,6 +12,8 @@ import net.minecraft.src.mod_Pixelmon;
 import org.lwjgl.opengl.GL11;
 
 import pixelmon.PixelmonEntityList;
+import pixelmon.comm.EnumPackets;
+import pixelmon.comm.PacketCreator;
 import pixelmon.comm.PixelmonDataPacket;
 import pixelmon.entities.pixelmon.helpers.IHaveHelper;
 import pixelmon.gui.ContainerEmpty;
@@ -108,18 +110,38 @@ public class GuiPC extends GuiContainer {
 		if(!ModLoader.getMinecraftInstance().theWorld.isRemote){
 			return;
 		}
+		SlotPCPC[][] temp = new SlotPCPC[ComputerManager.boxCount][ComputerBox.boxLimit];
 		for(int i = 0; i < pcSlots.length; i++){
 			for(int j = 0; j < pcSlots[i].length; j++){
 				PixelmonDataPacket p = pcSlots[i][j].pokemonData;
 				if(p != null){
-					System.out.println(p.order);
+					int box = p.boxNumber;
+					int pos = p.order;
+					System.out.println(box + " : " + pos);
+					temp[box][pos] = new SlotPCPC(pcSlots[box][pos].x, pcSlots[box][pos].y, box, pos, null);
+					temp[box][pos].setPokemon(p);
 				}
 			}
+		}
+		int z = 0;
+		for(SlotPCPC[] i: temp){
+			int y = 0;
+			for(SlotPCPC j : temp[z]){
+				if(j != null){
+					pcSlots[z][y] = j;
+				}
+				else{
+					pcSlots[z][y].setPokemon((PixelmonDataPacket) null);
+				}
+				y++;
+			}
+			z++;
 		}
 		for(int i = 0; i < partySlots.length; i++){
 			PixelmonDataPacket p = partySlots[i].pokemonData;
 			if(p != null){
-				System.out.println(p.order);
+				int pos = p.order;
+				partySlots[pos].setPokemon(p);
 			}
 		}
 	}
@@ -161,19 +183,33 @@ public class GuiPC extends GuiContainer {
 			SlotPC slot = getSlotAt(par1, par2);
 			if (slot != null) {
 				if(ModLoader.getMinecraftInstance().theWorld.isRemote){
+					boolean changed = false;
 					PixelmonDataPacket temp = slot.pokemonData;
 					if ((slot instanceof SlotPCParty && mouseSlot.pokemonData == null && checkIfLast())) {
 						return;
-					} else {
+					}
+					if(slot.pokemonData != null){
 						slot.setPokemon((PixelmonDataPacket) null);
+						changed = true;
 					}
 					if (mouseSlot.pokemonData != null) {
 						slot.setPokemon(mouseSlot.pokemonData);
 						mouseSlot.pokemonData = null;
+						changed = true;
 					}
-					if (temp != null) {
-						mouseSlot.pokemonData = temp;
+					mouseSlot.pokemonData = temp;
+					if(changed){
+						if(slot instanceof SlotPCParty){
+							int pos = ((SlotPCParty) slot).partyPosition;
+							ModLoader.sendPacket(PacketCreator.createPacket(EnumPackets.PCClick, -1, boxNumber, pos));
+						}
+						if(slot instanceof SlotPCPC){
+							int boxNumber = ((SlotPCPC) slot).boxNumber;
+							int pos = ((SlotPCPC) slot).boxPosition;
+							ModLoader.sendPacket(PacketCreator.createPacket(EnumPackets.PCClick, this.boxNumber, boxNumber, pos));
+						}
 					}
+					return;
 				}
 				else{
 					NBTTagCompound temp = slot.pokemon;
@@ -191,7 +227,13 @@ public class GuiPC extends GuiContainer {
 					}
 				}
 			} else if (new Rectangle(trashX, trashY, 32, 32).contains(par1, par2)) {
+				if(ModLoader.getMinecraftInstance().theWorld.isRemote){
+					if(mouseSlot.pokemonData != null){
+						ModLoader.sendPacket(PacketCreator.createPacket(EnumPackets.PCClick, -2));
+					}
+				}
 				mouseSlot.clearPokemon();
+				return;
 			} else if (new Rectangle(checkX, checkY, 32, 32).contains(par1, par2)) {
 				if(ModLoader.getMinecraftInstance().theWorld.isRemote){
 					if (mouseSlot.pokemonData != null) {
@@ -199,11 +241,13 @@ public class GuiPC extends GuiContainer {
 							ComputerBox c = mod_Pixelmon.computerManager.getBoxList()[i];
 							if (c.hasSpace()) {
 								int j = c.getNextSpace();
+								ModLoader.sendPacket(PacketCreator.createPacket(EnumPackets.PCClick, -3, i, j));
 								mc.displayGuiScreen(new GuiScreenPokeCheckerPC(mouseSlot.pokemonData, this, i, j));
 								break;
 							}
 						}
 					}
+					return;
 				}
 				else{
 					if (mouseSlot.pokemon != null) {
@@ -223,7 +267,7 @@ public class GuiPC extends GuiContainer {
 				return;
 			}
 			if(ModLoader.getMinecraftInstance().theWorld.isRemote){
-				
+				return;
 			}
 			else{
 				for (int i = 0; i < pcSlots.length; i++) {
@@ -277,6 +321,16 @@ public class GuiPC extends GuiContainer {
 		super.onGuiClosed();
 		if(ModLoader.getMinecraftInstance().theWorld.isRemote){
 			 	PixelmonServerStore.store.clear();
+			 	if (mouseSlot.pokemonData != null) {
+					for (int i = 0; i < mod_Pixelmon.computerManager.getBoxList().length; i++) {
+						ComputerBox c = mod_Pixelmon.computerManager.getBoxList()[i];
+						if (c.hasSpace()) {
+							int j = c.getNextSpace();
+							ModLoader.sendPacket(PacketCreator.createPacket(EnumPackets.PCClick, -4, i, j));
+							break;
+						}
+					}
+				}
 		}
 		else{
 			for (int i = 0; i < pcSlots.length; i++) {

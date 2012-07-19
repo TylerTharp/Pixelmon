@@ -28,6 +28,11 @@ import net.minecraft.src.forge.MessageManager;
 public class PacketHandler implements IConnectionHandler, IPacketHandler {
 
 	static EntityPokeBall currentPokeball = null;
+	PacketPCClickHandler pcHandler;
+	
+	public PacketHandler(){
+		pcHandler = new PacketPCClickHandler();
+	}
 
 	@Override
 	public void onPacketData(NetworkManager network, String channel, byte[] data) {
@@ -139,6 +144,10 @@ public class PacketHandler implements IConnectionHandler, IPacketHandler {
 					}
 				}
 				mod_Pixelmon.pokeballManager.save();
+			}
+			else if(packetID == EnumPackets.PCClick.getIndex()){
+				EntityPlayer player = ((NetServerHandler) network.getNetHandler()).getPlayerEntity();
+				pcHandler.handle(dataStream, player);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
