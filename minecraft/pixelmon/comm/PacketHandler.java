@@ -26,7 +26,7 @@ public class PacketHandler implements IConnectionHandler, IPacketHandler {
 			int packetID = dataStream.readInt();
 			if (packetID == EnumPackets.AddToStorage.getIndex()) {
 				mod_Pixelmon.serverStorageDisplay.add(dataStream);
-			} else if (packetID == EnumPackets.AddToStorage.getIndex()) {
+			} else if (packetID == EnumPackets.RemoveFromStorage.getIndex()) {
 				mod_Pixelmon.serverStorageDisplay.remove(dataStream.readInt());
 			} else if (packetID == EnumPackets.UpdateStorage.getIndex()) {
 				mod_Pixelmon.serverStorageDisplay.update(dataStream);
