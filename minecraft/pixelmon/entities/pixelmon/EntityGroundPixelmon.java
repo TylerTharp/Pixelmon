@@ -26,7 +26,7 @@ public abstract class EntityGroundPixelmon extends BaseEntityPixelmon {
 	
 	public void init(){
 		super.init();
-		
+		loadAI();
 	}
 	public void loadAI(){
 		tasks = new EntityAITasks();
