@@ -47,7 +47,7 @@ public class ComputerBox {
 		n.setString("Nickname", n.getName());
 		n.setBoolean("IsInBall", true);
 		int pos = getNextSpace();
-		n.setInteger("StoragePosition", pos);
+		n.setInteger("PixelmonOrder", pos);
 		n.setInteger("BoxNumber", position);
 		if (n.getShort("Health")>0)n.setBoolean("IsFainted",false);
 		storedPokemon[pos] = n;
@@ -91,7 +91,7 @@ public class ComputerBox {
 		while (i.hasNext()) {
 			NBTTagCompound tag = i.next();
 			tag.setName(tag.getString("Name"));
-			int pos = tag.getInteger("StoragePosition");
+			int pos = tag.getInteger("PixelmonOrder");
 			storedPokemon[pos] = tag;
 		}
 		hasChanged = false;
