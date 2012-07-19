@@ -25,11 +25,12 @@ public class BlockPC extends Block {
 
 	public boolean blockActivated(World world, int x, int y, int z, EntityPlayer player) {
 		PlayerComputerStorage s = mod_Pixelmon.computerManager.getPlayerStorage(player);
-		ComputerBox b = s.getBoxFromPosition(0);
-		for (NBTTagCompound n : b.getStoredPokemon()) {
-			if (n != null) {
-				PixelmonDataPacket p = new PixelmonDataPacket(n, mod_Pixelmon.instance, EnumPackets.AddToTempStore);
-				ModLoader.getMinecraftServerInstance().configManager.sendPacketToPlayer(player.username, p.getPacket());
+		for(ComputerBox b : s.getBoxList()){
+			for(NBTTagCompound n: b.getStoredPokemon()){
+				if (n != null) {
+					PixelmonDataPacket p = new PixelmonDataPacket(n, mod_Pixelmon.instance, EnumPackets.AddToTempStore);
+					ModLoader.getMinecraftServerInstance().configManager.sendPacketToPlayer(player.username, p.getPacket());
+				}
 			}
 		}
 		player.openGui(mod_Pixelmon.instance, EnumGui.PC.getIndex(), world, x, y, z); // GUIPC
