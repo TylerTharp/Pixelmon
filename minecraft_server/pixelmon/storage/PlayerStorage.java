@@ -107,9 +107,9 @@ public class PlayerStorage {
 		n.setBoolean("IsInBall", true);
 		n.setInteger("PixelmonOrder", getNextOpen());
 		partyPokemon[getNextOpen()] = n;
-		if (n.getShort("Health")>0)n.setBoolean("IsFainted",false);
-		ModLoader.getMinecraftServerInstance().configManager.sendPacketToPlayer(player.username, new PixelmonDataPacket(n, mod_Pixelmon.instance,
-				EnumPackets.AddToStorage).getPacket());
+		if (n.getShort("Health") > 0)
+			n.setBoolean("IsFainted", false);
+		ModLoader.getMinecraftServerInstance().configManager.sendPacketToPlayer(player.username, new PixelmonDataPacket(n, mod_Pixelmon.instance, EnumPackets.AddToStorage).getPacket());
 	}
 
 	public void retrieve(IHaveHelper currentPixelmon) {
@@ -177,16 +177,18 @@ public class PlayerStorage {
 					entity1.writeToNBT(nbt);
 					nbt.setString("id", entityCapturedPixelmon.getName());
 					nbt.setName(entityCapturedPixelmon.getName());
-					ModLoader.getMinecraftServerInstance().configManager.sendPacketToPlayer(player.username, new PixelmonDataPacket(nbt, mod_Pixelmon.instance,
-							EnumPackets.UpdateStorage).getPacket());
+					ModLoader.getMinecraftServerInstance().configManager.sendPacketToPlayer(player.username, new PixelmonDataPacket(nbt, mod_Pixelmon.instance, EnumPackets.UpdateStorage).getPacket());
 				}
 			}
 		}
 	}
-	
-	public void changePokemon(int pos, NBTTagCompound n){
-		if(n != null){
+
+	public void changePokemon(int pos, NBTTagCompound n) {
+		if (partyPokemon[pos] != null)
+			ModLoader.getMinecraftServerInstance().configManager.sendPacketToPlayer(player.username, PacketCreator.createPacket(EnumPackets.RemoveFromStorage, partyPokemon[pos].getInteger("pixelmonID")));
+		if (n != null) {
 			n.setInteger("PixelmonOrder", pos);
+			ModLoader.getMinecraftServerInstance().configManager.sendPacketToPlayer(player.username, new PixelmonDataPacket(n,mod_Pixelmon.instance, EnumPackets.AddToStorage).getPacket());
 		}
 		partyPokemon[pos] = n;
 	}
@@ -243,8 +245,7 @@ public class PlayerStorage {
 					entity1.writeToNBT(nbt);
 					nbt.setString("id", helper.getName());
 					nbt.setName(helper.getName());
-					ModLoader.getMinecraftServerInstance().configManager.sendPacketToPlayer(player.username, new PixelmonDataPacket(nbt, mod_Pixelmon.instance,
-							EnumPackets.UpdateStorage).getPacket());
+					ModLoader.getMinecraftServerInstance().configManager.sendPacketToPlayer(player.username, new PixelmonDataPacket(nbt, mod_Pixelmon.instance, EnumPackets.UpdateStorage).getPacket());
 					helper.getLvl().updateEntityString();
 				}
 			}
@@ -313,8 +314,8 @@ public class PlayerStorage {
 				NBTTagCompound pokemonData = (NBTTagCompound) nbtbase;
 				pokemonData.setName(pokemonData.getString("Name"));
 				partyPokemon[pokemonData.getInteger("PixelmonOrder")] = pokemonData;
-				ModLoader.getMinecraftServerInstance().configManager.sendPacketToPlayer(player.username, new PixelmonDataPacket(pokemonData,
-						mod_Pixelmon.instance, EnumPackets.AddToStorage).getPacket());
+				ModLoader.getMinecraftServerInstance().configManager.sendPacketToPlayer(player.username,
+						new PixelmonDataPacket(pokemonData, mod_Pixelmon.instance, EnumPackets.AddToStorage).getPacket());
 			}
 		} while (true);
 	}
@@ -339,13 +340,13 @@ public class PlayerStorage {
 	}
 
 	public IHaveHelper sendOutFromPosition(int pos, World worldObj) {
-		return sendOut(getIDFromPosition(pos),worldObj);
+		return sendOut(getIDFromPosition(pos), worldObj);
 	}
 
 	public void heal(int index) {
 		for (NBTTagCompound nbt : partyPokemon) {
 			if (nbt != null) {
-				if (nbt.getInteger("pixelmonID")== index)
+				if (nbt.getInteger("pixelmonID") == index)
 					heal(nbt);
 			}
 		}
@@ -358,7 +359,6 @@ public class PlayerStorage {
 		for (int i = 0; i < numMoves; i++) {
 			nbt.setInteger("PixelmonMovePP" + i, nbt.getInteger("PixelmonMovePPBase" + i));
 		}
-		ModLoader.getMinecraftServerInstance().configManager.sendPacketToPlayer(player.username, new PixelmonDataPacket(nbt, mod_Pixelmon.instance,
-				EnumPackets.UpdateStorage).getPacket());
+		ModLoader.getMinecraftServerInstance().configManager.sendPacketToPlayer(player.username, new PixelmonDataPacket(nbt, mod_Pixelmon.instance, EnumPackets.UpdateStorage).getPacket());
 	}
 }

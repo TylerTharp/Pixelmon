@@ -71,4 +71,11 @@ public class ServerStorageDisplay {
 			if (p.pokemonID == x) return p;
 		return null;
 	}
+
+	public void remove(int id) {
+		for (int i=0; i < pokemon.length; i++)
+			if (pokemon[i]!=null)
+				if (pokemon[i].pokemonID == id)
+					pokemon[i] = null;
+	}
 }
