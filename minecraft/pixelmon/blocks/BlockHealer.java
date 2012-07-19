@@ -153,9 +153,6 @@ public class BlockHealer extends BlockContainer {
 	 */
 	public boolean blockActivated(World par1World, int j, int k,
 			int par4, EntityPlayer par5EntityPlayer) {
-		if (par1World.isRemote) {
-			return true;
-		}
 		par5EntityPlayer.openGui(mod_Pixelmon.instance, EnumGui.Healer.getIndex(), par1World, 0,0,0);
 		
 		return true;

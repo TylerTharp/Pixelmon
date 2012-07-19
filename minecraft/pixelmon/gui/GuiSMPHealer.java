@@ -118,9 +118,13 @@ public class GuiSMPHealer extends GuiScreen {
 			for (PixelmonDataPacket p : mod_Pixelmon.serverStorageDisplay.pokemon) {
 				int offset = 0;
 				if (p != null) {
-					drawPokemonStats(p, width / 2 - 100, height * (j + 2) / 10, true);
-					progressBars[j].draw(width / 2, height * (j + 2) / 10, 20, 200, width, height);
-					j++;
+//					drawPokemonStats(p, width / 2 - 100 - fontRenderer.getStringWidth(n.getString("Nickname")) - 1, height * (j + 2) / 10);
+//					progressBars[j].draw(width / 2, height * (j + 2) / 10, 20, 200, width, height);
+//					if (progressBars[j].value != 100)
+//						drawString(fontRenderer, progressBars[j].value + " %", width / 2 + 110, height * (j + 2) / 10 + 6, 0xDDDDDD);
+//					else
+//						drawString(fontRenderer, "Healed", width / 2 + 110, height * (j + 2) / 10 + 6, 0xDDDDDD);
+//					j++;
 				}
 			}
 
