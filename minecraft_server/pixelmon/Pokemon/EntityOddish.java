@@ -23,6 +23,8 @@ public class EntityOddish extends EntityGroundPixelmon
 
 	public void evolve() 
 	{
+		BaseEntityPixelmon entity = new EntityGloom(worldObj);
+		helper.evolve(entity.helper);
 	}
 	
 }
