@@ -37,8 +37,17 @@ public class RidingHelper {
 										// activated.
 			sprintToggleTimer--;
 		}
-		if (jumpTicks > 0 && !(parent instanceof EntityFlyingPixelmon)) // used to limit how long the mount will rise while
-							// jumping
+		if (jumpTicks > 0 && !(parent instanceof EntityFlyingPixelmon)) // used
+																		// to
+																		// limit
+																		// how
+																		// long
+																		// the
+																		// mount
+																		// will
+																		// rise
+																		// while
+		// jumping
 		{
 			jumpTicks--;
 		}
@@ -107,15 +116,25 @@ public class RidingHelper {
 				parent.motionX += parent.riddenByEntity.motionX * speedBonus * f;
 				parent.motionZ += parent.riddenByEntity.motionZ * speedBonus * f;
 			} else if (parent.isSprinting()) { // if jumping while sprinting
-				parent.motionX += parent.riddenByEntity.motionX * 3D;
-				parent.motionZ += parent.riddenByEntity.motionZ * 3D;
-			} else if (parent.onGround && !onIce()) {
+				if (parent instanceof EntityFlyingPixelmon) {
+					parent.motionX += parent.riddenByEntity.motionX * 4D;
+					parent.motionZ += parent.riddenByEntity.motionZ * 4D;
 
+				} else {
+					parent.motionX += parent.riddenByEntity.motionX * 3D;
+					parent.motionZ += parent.riddenByEntity.motionZ * 3D;
+				}
+			} else if (parent.onGround && !onIce()) {
 				parent.motionX += parent.riddenByEntity.motionX * 7D * f;
 				parent.motionZ += parent.riddenByEntity.motionZ * 7D * f;
 			} else { // jumping while walking normally
-				parent.motionX += parent.riddenByEntity.motionX;
-				parent.motionZ += parent.riddenByEntity.motionZ;
+				if (parent instanceof EntityFlyingPixelmon) {
+					parent.motionX += parent.riddenByEntity.motionX * 3D;
+					parent.motionZ += parent.riddenByEntity.motionZ * 3D;
+				} else {
+					parent.motionX += parent.riddenByEntity.motionX;
+					parent.motionZ += parent.riddenByEntity.motionZ;
+				}
 			}
 
 			// Cancel sprinting I don't -think- the check for being in water or
@@ -130,9 +149,9 @@ public class RidingHelper {
 			}
 
 			// Submit!
-			((IHaveHelper)parent).doMoveEntity(parent.motionX, parent.motionY, parent.motionZ);
+			((IHaveHelper) parent).doMoveEntity(parent.motionX, parent.motionY, parent.motionZ);
 		} else
-			((IHaveHelper)parent).doMoveEntity(d, d1, d2);
+			((IHaveHelper) parent).doMoveEntity(d, d1, d2);
 	}
 
 	public void updateRidden() {
@@ -151,13 +170,19 @@ public class RidingHelper {
 
 	public void jump(Boolean flag) { // boolean. true = 2.5-high jump. false =
 										// normal jump.
-		if (parent.onGround && jumpTicks == 0 || parent instanceof EntityFlyingPixelmon) {
+		if (parent.onGround && jumpTicks == 0 && !(parent instanceof EntityFlyingPixelmon)) {
 			if (parent instanceof IHaveHelper)
 				if (flag) {
 					parent.motionY += 0.2; // makes mount jump higher. Do not
 											// use big values!
 				}
 			jumpTicks = 10;
+		}
+		if (parent instanceof EntityFlyingPixelmon) {
+			if (parent.onGround) {
+				parent.motionY += 0.3;
+			} else
+				parent.motionY += 0.1;
 		}
 	}
 
