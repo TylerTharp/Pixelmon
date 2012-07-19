@@ -48,6 +48,7 @@ public class ComputerBox {
 		n.setBoolean("IsInBall", true);
 		int pos = getNextSpace();
 		n.setInteger("StoragePosition", pos);
+		n.setInteger("BoxNumber", position);
 		if (n.getShort("Health")>0)n.setBoolean("IsFainted",false);
 		storedPokemon[pos] = n;
 		hasChanged = true;
