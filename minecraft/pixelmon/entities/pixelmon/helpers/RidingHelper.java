@@ -1,5 +1,6 @@
 package pixelmon.entities.pixelmon.helpers;
 
+import pixelmon.entities.pixelmon.EntityFlyingPixelmon;
 import net.minecraft.src.Block;
 import net.minecraft.src.EntityLiving;
 import net.minecraft.src.EntityPlayer;
@@ -36,7 +37,7 @@ public class RidingHelper {
 										// activated.
 			sprintToggleTimer--;
 		}
-		if (jumpTicks > 0) // used to limit how long the mount will rise while
+		if (jumpTicks > 0 && !(parent instanceof EntityFlyingPixelmon)) // used to limit how long the mount will rise while
 							// jumping
 		{
 			jumpTicks--;
@@ -150,7 +151,7 @@ public class RidingHelper {
 
 	public void jump(Boolean flag) { // boolean. true = 2.5-high jump. false =
 										// normal jump.
-		if (parent.onGround && jumpTicks == 0) {
+		if (parent.onGround && jumpTicks == 0 || parent instanceof EntityFlyingPixelmon) {
 			if (parent instanceof IHaveHelper)
 				if (flag) {
 					parent.motionY += 0.2; // makes mount jump higher. Do not

@@ -440,6 +440,7 @@ public class PixelmonEntityHelper {
 			if (itemstack == null){
 				if (getStats().BaseStats.IsRideable){
 					entity.mountEntity((EntityLiving)pixelmon);
+					if (pixelmon instanceof BaseEntityPixelmon) ((BaseEntityPixelmon)pixelmon).resetAI();
 					return true;
 				}
 				return false;

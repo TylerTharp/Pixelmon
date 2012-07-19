@@ -97,6 +97,9 @@ public abstract class BaseEntityPixelmon extends EntityTameable implements IHave
 			ridingHelper = new RidingHelper(this, worldObj);
 	}
 
+	public abstract void loadAI();
+	public abstract void resetAI();
+	
 	@Override
 	public String getTexture() {
 		if (dataWatcher.getWatchableObjectShort(20) == 1)

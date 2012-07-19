@@ -41,6 +41,15 @@ public abstract class EntityFlyingPixelmon extends BaseEntityPixelmon {
 
 	public void init() {
 		super.init();
+		loadAI();
+	}
+
+	public void resetAI(){
+		tasks = new EntityAITasks();
+	}
+	
+	public void loadAI() {
+		tasks = new EntityAITasks();
 		if (aggression > 0) {
 			tasks.addTask(0, new EntityAIMoveTowardsTarget(this, moveSpeed, 15));
 			tasks.addTask(1, new EntityAINearestPixelmonTarget(this, 10, 50 - aggression, true));
@@ -73,6 +82,7 @@ public abstract class EntityFlyingPixelmon extends BaseEntityPixelmon {
 
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
+		if (riddenByEntity != null) return;
 		winge = wingb;
 		wingd = wingc;
 		wingc = (float) ((double) wingc + (double) (onGround ? -1 : 4) * 0.29999999999999999D);
@@ -118,6 +128,7 @@ public abstract class EntityFlyingPixelmon extends BaseEntityPixelmon {
 	}
 
 	protected void updateEntityActionState() {
+		if (riddenByEntity != null) return;
 		if (doesLand) {
 			if (onGround
 					&& rand.nextInt(10) == 0
