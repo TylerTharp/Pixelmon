@@ -675,7 +675,7 @@ public class PixelmonEntityHelper {
 		if (pixelmon instanceof EntityWaterPixelmon) {
 			((EntityWaterPixelmon) pixelmon).isDead = b;
 			if (!b)
-				((BaseEntityPixelmon) pixelmon).deathTime = 0;
+				((EntityWaterPixelmon) pixelmon).deathTime = 0;
 		}
 	}
 

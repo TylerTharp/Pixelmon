@@ -25,6 +25,7 @@ public class GuiChoosePokemon extends GuiScreen {
 	private GuiScreen parentGui;
 	private PixelmonEntityHelper currentPixelmon;
 	private PixelmonDataPacket userPacket;
+	int bcIndex;
 
 	public GuiChoosePokemon(BattleController bc, PixelmonEntityHelper mypixelmon, GuiScreen parentGui) {
 		this.parentGui = parentGui;
@@ -32,15 +33,10 @@ public class GuiChoosePokemon extends GuiScreen {
 		currentPixelmon = mypixelmon;
 	}
 
-	public GuiChoosePokemon(BattleController bc, PixelmonEntityHelper mypixelmon) {
-		this.bc = bc;
-		currentPixelmon = mypixelmon;
-	}
-
-	public GuiChoosePokemon(BattleController bc, PixelmonDataPacket userPacket, GuiAttacking parentGui) {
+	public GuiChoosePokemon(PixelmonDataPacket userPacket, int bcIndex, GuiAttacking parentGui) {
 		this.parentGui = parentGui;
-		this.bc = bc;
 		this.userPacket = userPacket;
+		this.bcIndex = bcIndex;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -82,7 +78,7 @@ public class GuiChoosePokemon extends GuiScreen {
 	protected void actionPerformed(GuiButton par1GuiButton) {
 		if (ModLoader.getMinecraftInstance().theWorld.isRemote) {
 			if (par1GuiButton.id < 6) {
-				ModLoader.sendPacket(PacketCreator.createPacket(EnumPackets.SwitchPokemon, par1GuiButton.id));
+				ModLoader.sendPacket(PacketCreator.createPacket(EnumPackets.SwitchPokemon, par1GuiButton.id, bcIndex, 0));
 				mc.displayGuiScreen(parentGui);
 				mc.setIngameFocus();
 			} else

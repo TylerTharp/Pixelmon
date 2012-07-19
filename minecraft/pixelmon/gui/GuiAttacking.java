@@ -94,7 +94,7 @@ public class GuiAttacking extends GuiScreen {
 				mc.displayGuiScreen(null);
 				mc.setIngameFocus();
 			} else if (par1GuiButton.id == 11) {
-				mc.displayGuiScreen(new GuiChoosePokemon(bc, userPacket, this));
+				mc.displayGuiScreen(new GuiChoosePokemon(userPacket, battleControllerIndex, this));
 			} else {
 				ModLoader.sendPacket(PacketCreator.createPacket(EnumPackets.Flee, 0));
 				mc.displayGuiScreen(null);

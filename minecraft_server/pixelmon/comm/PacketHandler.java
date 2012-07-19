@@ -109,15 +109,16 @@ public class PacketHandler implements IConnectionHandler, IPacketHandler {
 					mod_Pixelmon.pokeballManager.getPlayerStorage(player).heal(index);
 			} else if (packetID == EnumPackets.SwitchPokemon.getIndex()) {
 				EntityPlayer player = ((NetServerHandler) network.getNetHandler()).getPlayerEntity();
-				BattleController bc = mod_Pixelmon.battleRegistry.getBattle(player);
+				int pos = dataStream.readInt();
+				BattleController bc = mod_Pixelmon.battleRegistry.getBattle(dataStream.readInt());
 				if (bc.participant1 instanceof PlayerParticipant) {
 					if (((PlayerParticipant) bc.participant1).player == player) {
-						bc.SwitchPokemon(bc.participant1.currentPokemon(), mod_Pixelmon.pokeballManager.getPlayerStorage(player).getIDFromPosition(dataStream.readInt()));
+						bc.SwitchPokemon(bc.participant1.currentPokemon(), mod_Pixelmon.pokeballManager.getPlayerStorage(player).getIDFromPosition(pos));
 					}
 				}
 				if (bc.participant2 instanceof PlayerParticipant) {
 					if (((PlayerParticipant) bc.participant2).player == player) {
-						bc.SwitchPokemon(bc.participant2.currentPokemon(), dataStream.readInt());
+						bc.SwitchPokemon(bc.participant2.currentPokemon(), mod_Pixelmon.pokeballManager.getPlayerStorage(player).getIDFromPosition(pos));
 					}
 
 				}

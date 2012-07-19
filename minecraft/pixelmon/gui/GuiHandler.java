@@ -3,6 +3,7 @@ package pixelmon.gui;
 import pixelmon.StarterList;
 import pixelmon.attacks.BattleController;
 import pixelmon.attacks.BattleRegistry;
+import pixelmon.comm.PixelmonDataPacket;
 import pixelmon.database.DatabaseMoves;
 import pixelmon.entities.pixelmon.BaseEntityPixelmon;
 import pixelmon.entities.pixelmon.helpers.PixelmonEntityHelper;
@@ -22,11 +23,11 @@ public class GuiHandler implements IGuiHandler {
 		if (ID == EnumGui.ChooseStarter.getIndex())
 			return new GuiChooseStarter();
 		else if (ID == EnumGui.LearnMove.getIndex())
-			return new GuiLearnMove(mod_Pixelmon.pokeballManager.getPlayerStorage(ModLoader.getMinecraftInstance().thePlayer)
-					.getAlreadyExists(x, ModLoader.getMinecraftInstance().theWorld).getHelper(), DatabaseMoves.getAttack(y));
+			return new GuiLearnMove(mod_Pixelmon.pokeballManager.getPlayerStorage(ModLoader.getMinecraftInstance().thePlayer).getAlreadyExists(x, ModLoader.getMinecraftInstance().theWorld)
+					.getHelper(), DatabaseMoves.getAttack(y));
 		else if (ID == EnumGui.ChooseAttack.getIndex()) {
 			if (world.isRemote) {
-				return new GuiAttacking(x,y,z);
+				return new GuiAttacking(x, y, z);
 			} else {
 				PixelmonEntityHelper pixelmon1 = null, pixelmon2 = null;
 				BattleController bc = mod_Pixelmon.battleRegistry.getBattle(x);
@@ -41,13 +42,18 @@ public class GuiHandler implements IGuiHandler {
 				return new GuiAttacking(bc, pixelmon1, pixelmon2);
 			}
 		} else if (ID == EnumGui.ChoosePokemon.getIndex()) {
-			BattleController bc = mod_Pixelmon.battleRegistry.getBattle(x);
-			PixelmonEntityHelper p;
-			if (y == 1)
-				p = bc.participant1.currentPokemon();
-			else
-				p = bc.participant2.currentPokemon();
-			return new GuiChoosePokemon(bc, p);
+			if (world.isRemote) {
+				PixelmonDataPacket p = mod_Pixelmon.serverStorageDisplay.get(y);
+				return new GuiChoosePokemon(p,x,null);
+			} else {
+				BattleController bc = mod_Pixelmon.battleRegistry.getBattle(x);
+				PixelmonEntityHelper p;
+				if (y == 1)
+					p = bc.participant1.currentPokemon();
+				else
+					p = bc.participant2.currentPokemon();
+				return new GuiChoosePokemon(bc, p, null);
+			}
 		} else if (ID == EnumGui.Pokedex.getIndex()) {
 			return new GuiPokedex();
 		} else if (ID == EnumGui.PC.getIndex()) {

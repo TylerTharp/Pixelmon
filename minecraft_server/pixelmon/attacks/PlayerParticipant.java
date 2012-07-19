@@ -50,7 +50,7 @@ public class PlayerParticipant implements IBattleParticipant {
 
 	@Override
 	public void getNextPokemon() {
-		player.openGui(mod_Pixelmon.instance, EnumGui.ChoosePokemon.getIndex(), player.worldObj, mod_Pixelmon.battleRegistry.getIndex(bc), 0, 0);
+		player.openGui(mod_Pixelmon.instance, EnumGui.ChoosePokemon.getIndex(), player.worldObj, mod_Pixelmon.battleRegistry.getIndex(bc), currentPokemon().getPokemonId(), 0);
 	}
 
 	@Override
