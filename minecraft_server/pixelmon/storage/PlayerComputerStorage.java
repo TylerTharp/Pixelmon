@@ -64,6 +64,18 @@ public class PlayerComputerStorage {
 		} while (isUsed);
 		return id;
 	}
+	
+	public void changePokemon(int box, int boxPos, NBTTagCompound n){
+		if(n != null){
+			n.setInteger("BoxNumber", box);
+			n.setInteger("StoragePosition", boxPos);
+		}
+		ComputerBox c = storageBoxes[box];
+		NBTTagCompound[] pixelmon = c.getStoredPokemon();
+		pixelmon[boxPos] = n;
+		c.setStoredPokemon(pixelmon);
+		c.hasChanged = true;
+	}
 
 	public ComputerBox getBox(int boxNumber) {
 		return storageBoxes[boxNumber];

@@ -183,6 +183,13 @@ public class PlayerStorage {
 			}
 		}
 	}
+	
+	public void changePokemon(int pos, NBTTagCompound n){
+		if(n != null){
+			n.setInteger("PixelmonOrder", pos);
+		}
+		partyPokemon[pos] = n;
+	}
 
 	public int count() {
 		int count = 0;

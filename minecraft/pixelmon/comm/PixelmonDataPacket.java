@@ -42,6 +42,7 @@ public class PixelmonDataPacket extends PixelmonPacket {
 	public int SpecialAttack;
 	public int SpecialDefence;
 	public int nextLvlXP;
+	public int boxNumber=0;
 	
 	public PixelmonMovesetDataPacket[] moveset = new PixelmonMovesetDataPacket[4];
 	
@@ -76,6 +77,8 @@ public class PixelmonDataPacket extends PixelmonPacket {
 		Defence = p.getInteger("StatsDefence");
 		SpecialAttack = p.getInteger("StatsSpecialAttack");
 		SpecialDefence = p.getInteger("StatsSpecialDefence");
+		if (p.hasKey("BoxNumber"))
+			boxNumber = p.getInteger("BoxNumber");
 	}
 
 	public PixelmonDataPacket(PixelmonEntityHelper p, NetworkMod mod, EnumPackets packetType) {
@@ -133,6 +136,7 @@ public class PixelmonDataPacket extends PixelmonPacket {
 		data.writeShort(Defence);
 		data.writeShort(SpecialAttack);
 		data.writeShort(SpecialDefence);
+		data.writeShort(boxNumber);
 	}
 
 	public void readData(DataInputStream data) throws IOException {
@@ -161,6 +165,7 @@ public class PixelmonDataPacket extends PixelmonPacket {
 		Defence = data.readShort();
 		SpecialAttack = data.readShort();
 		SpecialDefence = data.readShort();
+		boxNumber = data.readShort();
 	}
 
 	@Override
