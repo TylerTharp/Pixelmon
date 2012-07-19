@@ -118,13 +118,13 @@ public class GuiSMPHealer extends GuiScreen {
 			for (PixelmonDataPacket p : mod_Pixelmon.serverStorageDisplay.pokemon) {
 				int offset = 0;
 				if (p != null) {
-//					drawPokemonStats(p, width / 2 - 100 - fontRenderer.getStringWidth(n.getString("Nickname")) - 1, height * (j + 2) / 10);
-//					progressBars[j].draw(width / 2, height * (j + 2) / 10, 20, 200, width, height);
-//					if (progressBars[j].value != 100)
-//						drawString(fontRenderer, progressBars[j].value + " %", width / 2 + 110, height * (j + 2) / 10 + 6, 0xDDDDDD);
-//					else
-//						drawString(fontRenderer, "Healed", width / 2 + 110, height * (j + 2) / 10 + 6, 0xDDDDDD);
-//					j++;
+					drawPokemonStats(p, width / 2 - 100 - fontRenderer.getStringWidth(p.nickname) - 1, height * (j + 2) / 10);
+					progressBars[j].draw(width / 2, height * (j + 2) / 10, 20, 200, width, height);
+					if (progressBars[j].value != 100)
+						drawString(fontRenderer, progressBars[j].value + " %", width / 2 + 110, height * (j + 2) / 10 + 6, 0xDDDDDD);
+					else
+						drawString(fontRenderer, "Healed", width / 2 + 110, height * (j + 2) / 10 + 6, 0xDDDDDD);
+					j++;
 				}
 			}
 
@@ -150,14 +150,9 @@ public class GuiSMPHealer extends GuiScreen {
 		drawCenteredString(fontRenderer, pixelmon.getShort("Health") + "/" + pixelmon.getInteger("StatsHP"), x + fontRenderer.getStringWidth(pixelmon.getString("Nickname")) / 2, y + 15, 0xDDDDDD);
 	}
 
-	public void drawPokemonStats(PixelmonDataPacket pixelmon, int x, int y, boolean isMine) {
+	public void drawPokemonStats(PixelmonDataPacket pixelmon, int x, int y) {
 		fontRenderer.FONT_HEIGHT = 10;
 		drawString(fontRenderer, pixelmon.nickname, x, y, 0xDDDDDD);
-		if (pixelmon.isMale)
-			drawString(fontRenderer, "♂ Lv." + pixelmon.lvl, x + width / 4, y, 0xDDDDDD);
-		else
-			drawString(fontRenderer, "♀ Lv." + pixelmon.lvl, x + width / 4, y, 0xDDDDDD);
-		drawString(fontRenderer, pixelmon.health + "/" + pixelmon.hp, x + 50, y + 15, 0xDDDDDD);
-
+		drawCenteredString(fontRenderer, pixelmon.health + "/" + pixelmon.hp, x + fontRenderer.getStringWidth(pixelmon.nickname) / 2, y + 15, 0xDDDDDD);
 	}
 }
