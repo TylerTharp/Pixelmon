@@ -44,7 +44,12 @@ public class GuiScreenPokeCheckerPC extends GuiScreenPokeChecker {
 	    	switch(button.id)
 	    	{
 	    		case 0:
-	    			ModLoader.sendPacket(PacketCreator.createPacket(EnumPackets.PCClick, -5));
+	    			if(ModLoader.getMinecraftInstance().theWorld.isRemote){
+	    				ModLoader.sendPacket(PacketCreator.createPacket(EnumPackets.PCClick, -5));
+	    			}
+	    			else{
+	    				mc.displayGuiScreen(parent);	
+	    			}
 	    			break;
 	    	}
 	    
