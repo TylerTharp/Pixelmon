@@ -14,13 +14,6 @@ import net.minecraft.src.ModelRenderer;
 public class ModelEkans extends ModelBase {
 	// field
 	
-	ModelRenderer body1;
-	ModelRenderer body2;
-	ModelRenderer body3;
-	ModelRenderer body4;
-	ModelRenderer body5;
-	ModelRenderer body6;
-	ModelRenderer body7;
 	ModelRenderer BODY1;
 	ModelRenderer BODY2;
 	ModelRenderer BODY3;
@@ -29,13 +22,7 @@ public class ModelEkans extends ModelBase {
 	ModelRenderer BODY6;
 	ModelRenderer BODY7;
 	ModelRenderer TAIL;
-	ModelRenderer tail1;
-	ModelRenderer tail2;
-	ModelRenderer tail3;
     ModelRenderer HEADBASE;
-	ModelRenderer Head3;
-	ModelRenderer Head2;
-	ModelRenderer Head1;
 	ModelRenderer BottomMouth;
   
     public ModelEkans()
@@ -91,7 +78,7 @@ public class ModelEkans extends ModelBase {
       BODY2.setRotationPoint(0F, 2F, 5F);
       setRotation(BODY2, 0F, 0F, 0F);
       BODY2.mirror = true;
-        ModelRenderer body2 = new ModelRenderer(this, 42, 0);
+        ModelRenderer body2 = new ModelRenderer(this, 0, 62);
         body2.addBox(-2F, 0F, 0F, 4, 4, 7);
         body2.setRotationPoint(0F, -2F, 0F);
         body2.setTextureSize(64, 128);
