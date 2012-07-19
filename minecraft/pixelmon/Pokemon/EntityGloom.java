@@ -5,10 +5,10 @@ import pixelmon.entities.pixelmon.EntityGroundPixelmon;
 import pixelmon.entities.pixelmon.helpers.IHaveHelper;
 
 
-public class EntityOddish extends EntityGroundPixelmon
+public class EntityGloom extends EntityGroundPixelmon
 {
 
-	public EntityOddish(World par1World) 
+	public EntityGloom(World par1World) 
 	{
 		super(par1World);
 		init();
@@ -16,15 +16,14 @@ public class EntityOddish extends EntityGroundPixelmon
 	
 	public void init() 
 	{
-		name = "Oddish";
+		name = "Gloom";
 		isImmuneToFire = false;
 		super.init();
 	}
 
 	public void evolve() 
 	{
-		IHaveHelper entity = new EntityGloom(worldObj);
-		helper.evolve(entity.getHelper());
+	
 	}
 	
 }

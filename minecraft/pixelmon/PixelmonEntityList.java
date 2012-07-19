@@ -164,11 +164,11 @@ public class PixelmonEntityList {
 	static {
 		addMapping(EntityAbra.class, "Abra", IDListPixelmon.abraId, new RenderPixelmon(new ModelAbra(), 0.5F), ClassType.Pixelmon);
 		addMapping(EntityArbok.class, "Arbok", IDListPixelmon.arbokId, new RenderPixelmon(new ModelArbok(), 0.5F), ClassType.Pixelmon);
-		addMapping(EntityBlastoise.class, "Blastoise", IDListPixelmon.blastoiseId, new RenderPixelmon(new ModelBlastoise(), 0.5F), ClassType.Pixelmon);
+		addMapping(EntityBlastoise.class, "Blastoise", IDListPixelmon.blastoiseId, new RenderPixelmon(new ModelBlastoise(), 0.8F), ClassType.Pixelmon);
 		addMapping(EntityBulbasaur.class, "Bulbasaur", IDListPixelmon.bulbasaurId, new RenderPixelmon(new ModelBulbasaur(), 0.5F), ClassType.Pixelmon);
 		addMapping(EntityButterfree.class, "Butterfree", IDListPixelmon.butterfreeId, new RenderPixelmon(new ModelButterfree(), 0.5F), ClassType.Pixelmon);
 		addMapping(EntityCaterpie.class, "Caterpie", IDListPixelmon.caterpieId, new RenderPixelmon(new ModelCaterpie(), 0.5F), ClassType.Pixelmon);
-		addMapping(EntityCharizard.class, "Charizard", IDListPixelmon.charizardId, new RenderPixelmon(new ModelCharizard(), 0.5F), ClassType.Pixelmon);
+		addMapping(EntityCharizard.class, "Charizard", IDListPixelmon.charizardId, new RenderPixelmon(new ModelCharizard(), 0.8F), ClassType.Pixelmon);
 		addMapping(EntityCharmander.class, "Charmander", IDListPixelmon.charmanderId, new RenderPixelmon(new ModelCharmander(), 0.5F), ClassType.Pixelmon);
 		addMapping(EntityCharmeleon.class, "Charmeleon", IDListPixelmon.charmeleonId, new RenderPixelmon(new ModelCharmeleon(), 0.5F), ClassType.Pixelmon);
 		addMapping(EntityDiglett.class, "Diglett", IDListPixelmon.diglettId, new RenderPixelmon(new ModelDiglett(), 0.5F), ClassType.Pixelmon);
@@ -181,15 +181,15 @@ public class PixelmonEntityList {
 		addMapping(EntityGeodude.class, "Geodude", IDListPixelmon.geodudeId, new RenderPixelmon(new ModelGeodude(), 0.5F), ClassType.Pixelmon);
 		addMapping(EntityGoldeen.class, "Goldeen", IDListPixelmon.goldeenId, new RenderFreeWaterPixelmon(new ModelGoldeen(), 0.5F), ClassType.Pixelmon);
 		addMapping(EntityGrowlithe.class, "Growlithe", IDListPixelmon.growlitheId, new RenderPixelmon(new ModelGrowlithe(), 0.5F), ClassType.Pixelmon);
-		addMapping(EntityGyarados.class, "Gyarados", IDListPixelmon.gyaradosId, new RenderFreeWaterPixelmon(new ModelGyarados(), 0.5F), ClassType.Pixelmon);
+		addMapping(EntityGyarados.class, "Gyarados", IDListPixelmon.gyaradosId, new RenderFreeWaterPixelmon(new ModelGyarados(), 2.5F), ClassType.Pixelmon);
 		addMapping(EntityHorsea.class, "Horsea", IDListPixelmon.horseaId, new RenderFreeWaterPixelmon(new ModelHorsea(), 0.5F), ClassType.Pixelmon);
 		addMapping(EntityIvysaur.class, "Ivysaur", IDListPixelmon.ivysaurId, new RenderPixelmon(new ModelIvysaur(), 0.5F), ClassType.Pixelmon);
 		addMapping(EntityJolteon.class, "Jolteon", IDListPixelmon.jolteonId, new RenderPixelmon(new ModelJolteon(), 0.5F), ClassType.Pixelmon);
 		addMapping(EntityJigglypuff.class, "Jigglypuff", IDListPixelmon.jigglypuffId, new RenderPixelmon(new ModelJigglypuff(), 0.5F), ClassType.Pixelmon);
 		addMapping(EntityMagikarp.class, "Magikarp", IDListPixelmon.magikarpId, new RenderFreeWaterPixelmon(new ModelMagikarp(), 0.5F), ClassType.Pixelmon);
 		addMapping(EntityMagnemite.class, "Magnemite", IDListPixelmon.magnemiteId, new RenderPixelmon(new ModelMagnemite(), 0.5F), ClassType.Pixelmon);
-		addMapping(EntityMankey.class, "Mankey", IDListPixelmon.mankeyId, new RenderPixelmon(new ModelMankey(), 0.5F), ClassType.Pixelmon);
-		addMapping(EntityMetapod.class, "Metapod", IDListPixelmon.metapodId, new RenderPixelmon(new ModelMetapod(), 0.5F), ClassType.Pixelmon);
+		addMapping(EntityMankey.class, "Mankey", IDListPixelmon.mankeyId, new RenderPixelmon(new ModelMankey(), 0.4F), ClassType.Pixelmon);
+		addMapping(EntityMetapod.class, "Metapod", IDListPixelmon.metapodId, new RenderPixelmon(new ModelMetapod(), 0.3F), ClassType.Pixelmon);
 		addMapping(EntityMew.class, "Mew", IDListPixelmon.mewId, new RenderPixelmon(new ModelMew(), 0.5F), ClassType.Pixelmon);
 		addMapping(EntitySandile.class, "Sandile", IDListPixelmon.sandileId, new RenderPixelmon(new ModelSandile(), 0.5F), ClassType.Pixelmon);
 		addMapping(EntityKrokorok.class, "Krokorok", IDListPixelmon.krokorokId, new RenderPixelmon(new ModelKrokorok(), 0.5F), ClassType.Pixelmon);
@@ -205,17 +205,17 @@ public class PixelmonEntityList {
 		addMapping(EntityPsyduck.class, "Psyduck", IDListPixelmon.psyduckId, new RenderPixelmon(new ModelPsyduck(), 0.5F), ClassType.Pixelmon);
 		addMapping(EntityRattata.class, "Rattata", IDListPixelmon.rattataId, new RenderPixelmon(new ModelRattata(), 0.5F), ClassType.Pixelmon);
 		addMapping(EntitySeaking.class, "Seaking", IDListPixelmon.seakingId, new RenderFreeWaterPixelmon(new ModelSeaking(), 0.5F), ClassType.Pixelmon);
-		addMapping(EntitySnorlax.class, "Snorlax", IDListPixelmon.snorlaxId, new RenderPixelmon(new ModelSnorlax(), 0.5F), ClassType.Pixelmon);
+		addMapping(EntitySnorlax.class, "Snorlax", IDListPixelmon.snorlaxId, new RenderPixelmon(new ModelSnorlax(), 0.9F), ClassType.Pixelmon);
 		addMapping(EntitySquirtle.class, "Squirtle", IDListPixelmon.squirtleId, new RenderPixelmon(new ModelSquirtle(), 0.5F), ClassType.Pixelmon);
 		addMapping(EntityStaryu.class, "Staryu", IDListPixelmon.staryuId, new RenderFreeWaterPixelmon(new ModelStaryu(), 0.5F), ClassType.Pixelmon);
 		addMapping(EntityStarmie.class, "Starmie", IDListPixelmon.starmieId, new RenderFreeWaterPixelmon(new ModelStarmie(), 0.5F), ClassType.Pixelmon);
 		addMapping(EntityTrapinch.class, "Trapinch", IDListPixelmon.trapinchId, new RenderPixelmon(new ModelTrapinch(), 0.5F), ClassType.Pixelmon);
-		addMapping(EntityVenusaur.class, "Venusaur", IDListPixelmon.venusaurId, new RenderPixelmon(new ModelVenusaur(), 0.5F), ClassType.Pixelmon);
+		addMapping(EntityVenusaur.class, "Venusaur", IDListPixelmon.venusaurId, new RenderPixelmon(new ModelVenusaur(), 0.8F), ClassType.Pixelmon);
 		addMapping(EntityVoltorb.class, "Voltorb", IDListPixelmon.voltorbId, new RenderPixelmon(new ModelVoltorb(), 0.5F), ClassType.Pixelmon);
 		addMapping(EntityVulpix.class, "Vulpix", IDListPixelmon.vulpixId, new RenderPixelmon(new ModelVulpix(), 0.5F), ClassType.Pixelmon);
 		addMapping(EntityWartortle.class, "Wartortle", IDListPixelmon.wartortleId, new RenderPixelmon(new ModelWartortle(), 0.5F), ClassType.Pixelmon);
 		addMapping(EntityWigglytuff.class, "Wigglytuff", IDListPixelmon.wigglytuffId, new RenderPixelmon(new ModelWigglytuff(), 0.5F), ClassType.Pixelmon);
-		addMapping(EntityZubat.class, "Zubat", IDListPixelmon.zubatId, new RenderPixelmon(new ModelZubat(), 0.5F), ClassType.Pixelmon);
+		addMapping(EntityZubat.class, "Zubat", IDListPixelmon.zubatId, new RenderPixelmon(new ModelZubat(), 0.3F), ClassType.Pixelmon);
 		addMapping(EntityMagneton.class, "Magneton", IDListPixelmon.magnetonId, new RenderPixelmon(new ModelMagneton(), 0.5F), ClassType.Pixelmon);
 		addMapping(EntityVibrava.class, "Vibrava", IDListPixelmon.vibravaId, new RenderPixelmon(new ModelVibrava(), 0.5F), ClassType.Pixelmon);
 		addMapping(EntityMareep.class, "Mareep", IDListPixelmon.mareepId, new RenderPixelmon(new ModelMareep(), 0.5F), ClassType.Pixelmon);
@@ -224,6 +224,9 @@ public class PixelmonEntityList {
 		addMapping(EntityLunatone.class, "Lunatone", IDListPixelmon.lunatoneId, new RenderPixelmon(new ModelLunatone(), 0.5F), ClassType.Pixelmon);
 		addMapping(EntityNidoranMale.class, "NidoranMale", IDListPixelmon.nidoranMaleId, new RenderPixelmon(new ModelNidoranMale(), 0.5F), ClassType.Pixelmon);
 		addMapping(EntityVaporeon.class, "Vaporeon", IDListPixelmon.vaporeonId, new RenderPixelmon(new ModelVaporeon(), 0.5F), ClassType.Pixelmon);
+		addMapping(EntityGloom.class, "Gloom", IDListPixelmon.gloomId, new RenderPixelmon(new ModelGloom(), 0.5F), ClassType.Pixelmon);
+		
+		
 		
 		addMapping(EntityTrainerYoungster.class, "Youngster", IDListTrainer.trainerYoungsterId, new RenderTrainer(new ModelYoungster(), 0.5F), ClassType.Trainer);
 		addMapping(EntityTrainerYoungster02.class, "Youngster2", IDListTrainer.trainerYoungster2Id, new RenderTrainer(new ModelYoungster02(), 0.5F), ClassType.Trainer);
