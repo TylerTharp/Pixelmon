@@ -78,6 +78,10 @@ public class ComputerBox {
 	public void setStoredPokemon(NBTTagCompound[] pokemon){
 		storedPokemon = pokemon;
 	}
+	
+	public NBTTagCompound getNBTByPosition(int pos){
+		return storedPokemon[pos];
+	}
 
 	public void load(NBTTagCompound boxTag) {
 		for (int i = 0; i < boxLimit; i++)

@@ -26,10 +26,12 @@ public class PacketPCClickHandler {
 			else if(box == -1){
 				int useless = data.readInt();
 				int pos = data.readInt();
-				NBTTagCompound n = mod_Pixelmon.pokeballManager.getPlayerStorage(player).getNBT(pos);
+				int id = mod_Pixelmon.pokeballManager.getPlayerStorage(player).getIDFromPosition(pos);
+				NBTTagCompound n = mod_Pixelmon.pokeballManager.getPlayerStorage(player).getNBT(id);
 				NBTTagCompound n1 = mousePokemon.get(player);
 				mousePokemon.put(player, n);
 				mod_Pixelmon.pokeballManager.getPlayerStorage(player).changePokemon(pos, n1);
+				System.out.println(pos);
 				return;
 			}
 			else if(box == -3){
@@ -44,7 +46,7 @@ public class PacketPCClickHandler {
 				int useless = data.readInt();
 				int boxPos = data.readInt();
 				NBTTagCompound n1 = mousePokemon.get(player);
-				NBTTagCompound n = mod_Pixelmon.computerManager.getPlayerStorage(player).getBox(box).get(boxPos);
+				NBTTagCompound n = mod_Pixelmon.computerManager.getPlayerStorage(player).getBox(box).getNBTByPosition(boxPos);
 				mousePokemon.put(player, n);
 				mod_Pixelmon.computerManager.getPlayerStorage(player).changePokemon(box, boxPos, n1);
 				return;
