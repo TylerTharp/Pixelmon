@@ -117,7 +117,6 @@ public class GuiPC extends GuiContainer {
 				if(p != null){
 					int box = p.boxNumber;
 					int pos = p.order;
-					System.out.println(box + " : " + pos);
 					temp[box][pos] = new SlotPCPC(pcSlots[box][pos].x, pcSlots[box][pos].y, box, pos, null);
 					temp[box][pos].setPokemon(p);
 				}
@@ -236,16 +235,8 @@ public class GuiPC extends GuiContainer {
 				return;
 			} else if (new Rectangle(checkX, checkY, 32, 32).contains(par1, par2)) {
 				if(ModLoader.getMinecraftInstance().theWorld.isRemote){
-					if (mouseSlot.pokemonData != null) {
-						for (int i = 0; i < mod_Pixelmon.computerManager.getBoxList().length; i++) {
-							ComputerBox c = mod_Pixelmon.computerManager.getBoxList()[i];
-							if (c.hasSpace()) {
-								int j = c.getNextSpace();
-								ModLoader.sendPacket(PacketCreator.createPacket(EnumPackets.PCClick, -3, i, j));
-								mc.displayGuiScreen(new GuiScreenPokeCheckerPC(mouseSlot.pokemonData, this, i, j));
-								break;
-							}
-						}
+					if(mouseSlot.pokemonData != null){
+						mc.displayGuiScreen(new GuiScreenPokeCheckerPC(mouseSlot.pokemonData, this, 0, 0));
 					}
 					return;
 				}
@@ -255,7 +246,6 @@ public class GuiPC extends GuiContainer {
 							ComputerBox c = mod_Pixelmon.computerManager.getBoxList()[i];
 							if (c.hasSpace()) {
 								int j = c.getNextSpace();
-								System.out.println(j);
 								IHaveHelper e = (IHaveHelper) PixelmonEntityList.createEntityFromNBT(mouseSlot.pokemon, ModLoader.getMinecraftInstance().theWorld);
 								mc.displayGuiScreen(new GuiScreenPokeCheckerPC(e.getHelper(), this, i, j));
 								break;
@@ -322,12 +312,12 @@ public class GuiPC extends GuiContainer {
 		if(ModLoader.getMinecraftInstance().theWorld.isRemote){
 			 	PixelmonServerStore.store.clear();
 			 	if (mouseSlot.pokemonData != null) {
-					for (int i = 0; i < mod_Pixelmon.computerManager.getBoxList().length; i++) {
-						ComputerBox c = mod_Pixelmon.computerManager.getBoxList()[i];
-						if (c.hasSpace()) {
-							int j = c.getNextSpace();
-							ModLoader.sendPacket(PacketCreator.createPacket(EnumPackets.PCClick, -4, i, j));
-							break;
+					for (int i = 0; i < pcSlots.length; i++) {
+						for(int j = 0; j < pcSlots[i].length; j++){
+							if(pcSlots[i][j].pokemonData == null){
+								ModLoader.sendPacket(PacketCreator.createPacket(EnumPackets.PCClick, -4, i, j));
+								break;
+							}
 						}
 					}
 				}
